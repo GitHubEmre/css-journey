@@ -1,8 +1,11 @@
 <template>
     <div id="app">
-        <header>
+        <header class="bg-orange-light p-4">
             <nav>
-                <ul>
+                <ul class="flex gap-4 justify-center">
+                    <li>
+                        <router-link to="/home">Accueil</router-link>
+                    </li>
                     <li>
                         <router-link to="/selectors">Sélecteurs CSS</router-link>
                     </li>
@@ -18,7 +21,7 @@
                 </ul>
             </nav>
         </header>
-        <main>
+        <main class="p-8 bg-gray-500">
             <router-view />
         </main>
     </div>
@@ -32,22 +35,11 @@ export default defineComponent({
 });
 </script>
 
-<style>
-header {
-    background: #282c34;
-    padding: 1rem;
-}
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 1rem;
-    justify-content: center;
-}
-nav a {
-    color: white;
-    text-decoration: none;
-}
+<style scoped>
 main {
-    padding: 2rem;
+    min-height: calc(100vh - 56px);
+    background-image: url('./assets/images/renard-style-dessin-anim--avec-un-chapeau--un-bato.jpg');
+    background-size: cover;
+    background-position: 0%;
 }
 </style>

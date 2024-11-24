@@ -1,15 +1,17 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import SelectorsTab from './components/SelectorsTab.vue';
-import FlexTab from './components/FlexTab.vue';
-import GridTab from './components/GridTab.vue';
-import AnimationsTab from './components/AnimationsTab.vue';
+import AnimationsComponent from './components/AnimationsComponent.vue';
+import FlexComponent from './components/FlexComponent.vue';
+import GridComponent from './components/GridComponent.vue';
+import HomeComponent from './components/HomeComponent.vue';
+import SelectorsComponent from './components/SelectorsComponent.vue';
 
 const routes: Array<RouteRecordRaw> = [
     { path: '/', redirect: '/selectors' },
-    { path: '/selectors', name: 'Selectors', component: SelectorsTab },
-    { path: '/flex', name: 'Flexbox', component: FlexTab },
-    { path: '/grid', name: 'Grid', component: GridTab },
-    { path: '/animations', name: 'Animations', component: AnimationsTab },
+    { path: '/animations', name: 'Animations', component: AnimationsComponent },
+    { path: '/flex', name: 'Flexbox', component: FlexComponent },
+    { path: '/grid', name: 'Grid', component: GridComponent },
+    { path: '/home', name: 'Home', component: HomeComponent },
+    { path: '/selectors', name: 'Selectors', component: SelectorsComponent },
 ];
 
 const router = createRouter({

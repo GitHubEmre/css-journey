@@ -1,0 +1,41 @@
+<template>
+    <div class="rounded-md shadow-md overflow-hidden w-full bg-white dark:bg-gray-dark font-family-code p-2">
+        <div v-for="htmlTag in htmlTags" :class="`ml-${htmlTag.indentationLevel * 4}`" v-html="htmlTag.colorize()"></div>
+    </div>
+</template>
+  
+<script lang="ts">
+import { defineComponent, PropType } from 'vue';
+import { HtmlTag } from '../models/HtmlTag';
+
+export default defineComponent({
+    name: 'CodeComponent',
+    props: {
+        htmlTags: {
+            type: Array as PropType<HtmlTag[]>,
+            required: true,
+        },
+    },
+    methods: {
+        calculateIndentationLevels(): void {
+            if (this.htmlTags.length > 0) {
+                let indentationLevel = 0;
+                this.htmlTags.forEach(htmlTag => {
+                    if (!htmlTag.isOpeningTag && indentationLevel > 0) {
+                        indentationLevel -= 1;
+                    }
+                    htmlTag.indentationLevel = indentationLevel;
+                    if (htmlTag.isOpeningTag) {
+                        if (!htmlTag.isSelfClosingTag) {
+                            indentationLevel += 1;
+                        }
+                    }
+                });
+            } 
+        }
+    },
+    mounted() {
+        this.calculateIndentationLevels();
+    },
+});
+</script>

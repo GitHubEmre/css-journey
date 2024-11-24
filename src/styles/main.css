@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: code;
+    src: url('../assets/fonts/SourceCodePro-VariableFont_wght.ttf');
+}
+
+.font-family-code {
+    font-family: code;
+}
