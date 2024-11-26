@@ -41,7 +41,6 @@ export class HtmlTag implements IHtmlTag {
             htmlTagRawCopy = splittedHtmlTagRaw.slice(1).join('"'); // erase "propertyName" in raw html
         }
         
-        console.log(colorizedHtmlTag);
         return colorizedHtmlTag += this.getColorizedSpan(this.isSelfClosingTag ? ' /&gt;' : '&gt;', "gray-light"); // write > or  /> in colorized html
     }
 }

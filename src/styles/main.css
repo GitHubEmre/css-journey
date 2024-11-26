@@ -7,6 +7,18 @@
     src: url('../assets/fonts/SourceCodePro-VariableFont_wght.ttf');
 }
 
+@keyframes vibrate {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
+
 .font-family-code {
     font-family: code;
+}
+
+.vibrate {
+    animation: vibrate 0.3s ease-in-out;
 }

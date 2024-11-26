@@ -5,11 +5,13 @@
         </div>
         <div class="bg-white dark:bg-gray-dark w-full font-family-code p-2 cursor-text" @click="focusCodeTextArea">
             <input
-                id="code-text-area"
-                v-model="code"
-                placeholder=".css-selector"
+                autocomplete="off"
                 class="w-full text-orange-light bg-white dark:bg-gray placeholder-gray-lighter focus:outline-none"
+                id="code-text-area"
+                placeholder=".css-selector"
+                v-model="code"
                 @change="codeChanged"
+                @keydown="handleKeyDown"
             ></input>
             <div class="flex flex-col">
                 <span class="text-yellow">&#123;</span>
@@ -46,6 +48,11 @@ export default defineComponent({
         },
         codeChanged: function(): void {
             this.$emit('codeChanged', this.code);
+        },
+        handleKeyDown(event: KeyboardEvent): void {
+            if (event.key === "Enter") {
+                this.codeChanged();
+            }
         }
     }
 });
