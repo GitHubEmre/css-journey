@@ -1,0 +1,24 @@
+{
+    "1": {
+        "htmlTags": [
+            "<div class=\"table\">",
+                "<circle id=\"white\" class=\"bg-white\"/>",
+                "<circle id=\"gray\" class=\"bg-gray\"/>",
+                "<circle id=\"green\" class=\"bg-green\"/>",
+            "</div>"
+        ],
+        "instruction": "Sélectionnez le cercle gris en utilisant le sélecteur des id.",
+        "expectedAnswer": "#gray"
+    },
+    "2": {
+        "htmlTags": [
+            "<div class=\"table\">",
+                "<circle id=\"white\" class=\"bg-white\"/>",
+                "<circle id=\"gray\" class=\"bg-gray\"/>",
+                "<circle id=\"green\" class=\"bg-green\"/>",
+            "</div>"
+        ],
+        "instruction": "Sélectionnez le cercle gris en utilisant le sélecteur des classes.",
+        "expectedAnswer": ".bg-gray"
+    }
+}

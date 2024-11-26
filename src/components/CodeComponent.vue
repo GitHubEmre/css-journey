@@ -53,6 +53,9 @@ export default defineComponent({
             if (event.key === "Enter") {
                 this.codeChanged();
             }
+        },
+        resetCode(): void {
+            this.code = "";
         }
     }
 });

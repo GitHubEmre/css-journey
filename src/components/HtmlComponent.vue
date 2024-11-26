@@ -16,6 +16,13 @@ export default defineComponent({
             required: true,
         },
     },
+    watch: {
+        htmlTags: {
+            handler() {
+                this.calculateIndentationLevels();
+            }
+        }
+    },
     methods: {
         calculateIndentationLevels(): void {
             if (this.htmlTags.length > 0) {
@@ -33,9 +40,6 @@ export default defineComponent({
                 });
             } 
         }
-    },
-    mounted() {
-        this.calculateIndentationLevels();
-    },
+    }
 });
 </script>
