@@ -101,9 +101,6 @@ export default defineComponent({
             }
         },
         updateLevelValues(): void {
-            this.resetRedBorder();
-            this.resetGreenBorder();
-
             const levels: Record<string, SelectorLevel> = selectorLevels;
             this.htmlTags = levels[this.currentLevel].htmlTags.map((htmlTag) => new HtmlTag(htmlTag));
             this.instruction = levels[this.currentLevel].instruction;
@@ -130,6 +127,8 @@ export default defineComponent({
             } else {
                 this.currentLevel = Object.keys(selectorLevels).length;
             }
+            this.resetRedBorder();
+            this.resetGreenBorder();
             this.updateLevelValues();
         },
         winLevel(): void {
