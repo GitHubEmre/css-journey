@@ -41,7 +41,7 @@ export default defineComponent({
     },
     data() {
         return {
-            answerWithRedBorder: "",
+            answerWithRedBorder: null as null | HTMLElement,
             currentLevel: 1,
             expectedAnswer: "",
             expectedElement: undefined as undefined | HTMLElement,
@@ -61,12 +61,9 @@ export default defineComponent({
             }
         },
         resetRedBorder: function(): void {
-            if (this.answerWithRedBorder.length > 0) {
-                const plateWithBorder = document.querySelector(this.answerWithRedBorder);
-                if (plateWithBorder) {
-                    this.setBorder(plateWithBorder as HTMLElement, "unset");
-                    this.answerWithRedBorder = "";
-                }
+            if (this.answerWithRedBorder) {
+                this.setBorder(this.answerWithRedBorder, "unset");
+                this.answerWithRedBorder = null;
             }
         },
         vibrateCodeComponent: function(): void {
@@ -78,22 +75,22 @@ export default defineComponent({
                 this.resetRedBorder();
 
                 try {
-                    const selectedPlate = document.querySelector("#table " + code);
+                    const selectedPlate = document.querySelector("#level-template " + code);
                     if (selectedPlate) {
                         const selectedPlateHTMLElement = selectedPlate as HTMLElement;
 
-                        if (code.trim() === this.expectedAnswer) { // win
-                            this.setBorder(selectedPlateHTMLElement, "solid 2px green");
-                            this.winLevel();
-                        } else {
-                            if (selectedPlateHTMLElement === this.expectedElement) { // correct element but wrong css selector
+                        if (selectedPlateHTMLElement === this.expectedElement) { // correct element
+                            if (code.trim().includes(this.expectedAnswer)) { // correct css selector
+                                this.setBorder(selectedPlateHTMLElement, "solid 2px green");
+                                this.winLevel();
+                            } else { // wrong css selector
                                 this.vibrateCodeComponent();
-                            } else { // incorrect element
-                                this.setBorder(selectedPlateHTMLElement, "solid 2px red");
-                                selectedPlateHTMLElement.classList.add("animate-vibrate");
-                                setTimeout(() => (selectedPlateHTMLElement.classList.remove("animate-vibrate")), 300);
-                                this.answerWithRedBorder = "#table " + code;
                             }
+                        } else { // wrong element
+                            this.setBorder(selectedPlateHTMLElement, "solid 2px red");
+                            selectedPlateHTMLElement.classList.add("animate-vibrate");
+                            setTimeout(() => (selectedPlateHTMLElement.classList.remove("animate-vibrate")), 300);
+                            this.answerWithRedBorder = selectedPlateHTMLElement;
                         }
                     } else { // element not found
                         this.vibrateCodeComponent();
