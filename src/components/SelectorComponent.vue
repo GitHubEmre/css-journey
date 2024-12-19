@@ -5,7 +5,7 @@
     </div>
 
     <LevelSelectorComponent :level="currentLevel" @change-level="changeLevel" />
-    <TableComponent :instruction="instruction" class="mt-8" />
+    <TableComponent :instruction="instruction" :template="template.join('')" class="mt-8" />
     <div class="flex space-x-8 mt-8">
         <CodeComponent @code-changed="codeChanged" :class="{ 'animate-vibrate': isVibrating }" ref="codeComponent" />
         <HtmlComponent :htmlTags="(htmlTags as HtmlTag[])" />
@@ -23,6 +23,7 @@ import TableComponent from './TableComponent.vue';
 
 type SelectorLevel = {
     htmlTags: string[];
+    template: string[];
     instruction: string;
     expectedAnswer: string;
 };
@@ -46,6 +47,7 @@ export default defineComponent({
             expectedAnswer: "",
             expectedElement: undefined as undefined | HTMLElement,
             htmlTags: [] as HtmlTag[],
+            template: [] as String[],
             instruction: "",
             isVibrating: false,
             levelWon: false
@@ -103,6 +105,7 @@ export default defineComponent({
         updateLevelValues(): void {
             const levels: Record<string, SelectorLevel> = selectorLevels;
             this.htmlTags = levels[this.currentLevel].htmlTags.map((htmlTag) => new HtmlTag(htmlTag));
+            this.template = levels[this.currentLevel].template;
             this.instruction = levels[this.currentLevel].instruction;
             this.expectedAnswer = levels[this.currentLevel].expectedAnswer;
             

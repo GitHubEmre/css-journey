@@ -1,10 +1,17 @@
 {
     "1": {
         "htmlTags": [
-            "<div class=\"table\">",
+            "<div id=\"table\">",
                 "<circle id=\"white\" class=\"bg-white\"/>",
                 "<circle id=\"gray\" class=\"bg-gray\"/>",
                 "<circle id=\"green\" class=\"bg-green\"/>",
+            "</div>"
+        ],
+        "template": [
+            "<div id='table' class='flex justify-around mx-64 mt-8'>",
+                "<div class='bg-white w-32 h-32 rounded-full shadow-xl mx-auto' id='white'></div>",
+                "<div class='bg-gray w-32 h-32 rounded-full shadow-xl mx-auto' id='gray'></div>",
+                "<div class='bg-green w-32 h-32 rounded-full shadow-xl mx-auto' id='green'></div>",
             "</div>"
         ],
         "instruction": "Sélectionnez le cercle gris en utilisant le sélecteur des id.",
@@ -12,10 +19,17 @@
     },
     "2": {
         "htmlTags": [
-            "<div class=\"table\">",
+            "<div id=\"table\">",
                 "<circle id=\"white\" class=\"bg-white\"/>",
                 "<circle id=\"gray\" class=\"bg-gray\"/>",
                 "<circle id=\"green\" class=\"bg-green\"/>",
+            "</div>"
+        ],
+        "template": [
+            "<div id='table' class='flex justify-around mx-64 mt-8'>",
+                "<div class='bg-white w-32 h-32 rounded-full shadow-xl mx-auto' id='white'></div>",
+                "<div class='bg-gray w-32 h-32 rounded-full shadow-xl mx-auto' id='gray'></div>",
+                "<div class='bg-green w-32 h-32 rounded-full shadow-xl mx-auto' id='green'></div>",
             "</div>"
         ],
         "instruction": "Sélectionnez le cercle gris en utilisant le sélecteur des classes.",
