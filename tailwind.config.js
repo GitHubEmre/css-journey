@@ -17,7 +17,10 @@ export default {
     'text-orange-light',
     'text-orange',
     'text-white',
-    'text-yellow'
+    'text-yellow',
+    'bg-green',
+    'bg-gray',
+    'justify-around'
   ],
   theme: {
     colors: {

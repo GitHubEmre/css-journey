@@ -22,3 +22,7 @@
 .vibrate {
     animation: vibrate 0.3s ease-in-out;
 }
+
+.circle {
+    @apply w-32 h-32 rounded-full shadow-xl;
+}
