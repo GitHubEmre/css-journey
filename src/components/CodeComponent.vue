@@ -10,7 +10,6 @@
                 id="code-text-area"
                 placeholder=".css-selector"
                 v-model="code"
-                @change="codeChanged"
                 @keydown="handleKeyDown"
             ></input>
             <div class="flex flex-col">
@@ -46,12 +45,9 @@ export default defineComponent({
                 codeTextArea.focus();
             }
         },
-        codeChanged: function(): void {
-            this.$emit('codeChanged', this.code);
-        },
         handleKeyDown(event: KeyboardEvent): void {
             if (event.key === "Enter") {
-                this.codeChanged();
+                this.$emit('codeChanged', this.code);
             }
         },
         resetCode(): void {
