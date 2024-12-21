@@ -108,11 +108,13 @@ export default defineComponent({
             this.template = levels[this.currentLevel].template;
             this.instruction = levels[this.currentLevel].instruction;
             this.expectedAnswer = levels[this.currentLevel].expectedAnswer;
-            
-            const expectedElement = document.querySelector("#table " + this.expectedAnswer);
-            if (expectedElement) {
-                this.expectedElement = (expectedElement as HTMLElement);
-            }
+
+            this.$nextTick(() => {
+                const expectedElement = document.querySelector("#table " + this.expectedAnswer);
+                if (expectedElement) {
+                    this.expectedElement = (expectedElement as HTMLElement);
+                }
+            });
 
             if (this.codeComponent) {
                 this.codeComponent.resetCode();
