@@ -1,7 +1,7 @@
 <template>
     <div class="bg-orange-light p-8 rounded-md shadow-md">
         <span class="text-xl">{{ instruction }}</span>
-        <div id="level-template" class="mx-64 mt-8" v-html="template"></div>
+        <div id="level-template" class="mt-8" v-html="template"></div>
     </div>
 </template>
   

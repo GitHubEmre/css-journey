@@ -21,7 +21,7 @@
                 </ul>
             </nav>
         </header>
-        <main class="p-8 bg-gray-500">
+        <main>
             <router-view />
         </main>
     </div>

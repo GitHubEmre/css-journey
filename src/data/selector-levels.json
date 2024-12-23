@@ -15,7 +15,8 @@
             "</div>"
         ],
         "instruction": "Sélectionnez le cercle gris en utilisant le sélecteur des id.",
-        "expectedAnswer": "#gray"
+        "expectedAnswer": "#gray",
+        "courses": ["Id"]
     },
     "2": {
         "htmlTags": [
@@ -33,6 +34,30 @@
             "</div>"
         ],
         "instruction": "Sélectionnez le cercle gris en utilisant le sélecteur des classes.",
-        "expectedAnswer": ".bg-gray"
+        "expectedAnswer": ".bg-gray",
+        "courses": ["Class"]
+    },
+    "3": {
+        "htmlTags": [
+            "<div id=\"table\">",
+                "<div class=\"circle bg-gray\"/>",
+                "<div class=\"circle bg-gray\"/>",
+                "<div class=\"circle bg-gray\"/>",
+                "<div class=\"circle bg-gray\"/>",
+                "<div class=\"circle bg-gray\"/>",
+            "</div>"
+        ],
+        "template": [
+            "<div id='table' class='flex justify-around'>",
+                "<div class='circle bg-gray'></div>",
+                "<div class='circle bg-gray'></div>",
+                "<div class='circle bg-gray'></div>",
+                "<div class='circle bg-gray'></div>",
+                "<div class='circle bg-gray'></div>",
+            "</div>"
+        ],
+        "instruction": "Sélectionnez le premier cercle en utilisant les pseudo-classes.",
+        "expectedAnswer": ":first-child",
+        "courses": ["PseudoClass"]
     }
 }

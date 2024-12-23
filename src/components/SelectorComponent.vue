@@ -4,11 +4,16 @@
         <div class="firework" v-for="n in 5" :key="n"></div>
     </div>
 
-    <LevelSelectorComponent :level="currentLevel" @change-level="changeLevel" />
-    <TableComponent :instruction="instruction" :template="template.join('')" class="mt-8" />
-    <div class="flex space-x-8 mt-8">
-        <CodeComponent @code-changed="codeChanged" :class="{ 'animate-vibrate': isVibrating }" ref="codeComponent" />
-        <HtmlComponent :htmlTags="(htmlTags as HtmlTag[])" />
+    <div class="flex pl-8 space-x-8">
+        <div class="flex-grow mt-8">
+            <LevelSelectorComponent :level="currentLevel" @change-level="changeLevel" />
+            <TableComponent :instruction="instruction" :template="template.join('')" class="mt-8" />
+            <div class="flex space-x-8 mt-8">
+                <CodeComponent @code-changed="codeChanged" :class="{ 'animate-vibrate': isVibrating }" ref="codeComponent" />
+                <HtmlComponent :htmlTags="(htmlTags as HtmlTag[])" />
+            </div>
+        </div>
+        <CourseComponent :courses="courses"/>
     </div>
 </template>
 
@@ -16,6 +21,7 @@
 import { defineComponent, ref } from 'vue';
 import { HtmlTag } from '../models/HtmlTag';
 import CodeComponent from './CodeComponent.vue';
+import CourseComponent from './courses/CourseComponent.vue';
 import HtmlComponent from './HtmlComponent.vue';
 import LevelSelectorComponent from './LevelSelectorComponent.vue';
 import selectorLevels from "../data/selector-levels.json";
@@ -26,12 +32,14 @@ type SelectorLevel = {
     template: string[];
     instruction: string;
     expectedAnswer: string;
+    courses: string[];
 };
 
 export default defineComponent({
     name: 'SelectorComponent',
     components: {
         CodeComponent,
+        CourseComponent,
         HtmlComponent,
         LevelSelectorComponent,
         TableComponent
@@ -43,14 +51,15 @@ export default defineComponent({
     data() {
         return {
             answerWithRedBorder: null as null | HTMLElement,
+            courses: [] as String [],
             currentLevel: 1,
             expectedAnswer: "",
             expectedElement: undefined as undefined | HTMLElement,
             htmlTags: [] as HtmlTag[],
-            template: [] as String[],
             instruction: "",
             isVibrating: false,
-            levelWon: false
+            levelWon: false,
+            template: [] as String[]
         }
     },
     methods: {
@@ -108,6 +117,7 @@ export default defineComponent({
             this.template = levels[this.currentLevel].template;
             this.instruction = levels[this.currentLevel].instruction;
             this.expectedAnswer = levels[this.currentLevel].expectedAnswer;
+            this.courses = levels[this.currentLevel].courses;
 
             this.$nextTick(() => {
                 const expectedElement = document.querySelector("#table " + this.expectedAnswer);

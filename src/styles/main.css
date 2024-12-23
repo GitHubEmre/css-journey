@@ -26,3 +26,29 @@
 .circle {
     @apply w-32 h-32 rounded-full shadow-xl;
 }
+
+.highlight {
+    @apply bg-gray px-1;
+}
+
+h1 {
+    @apply text-5xl font-extrabold;
+}
+h2, h3, h4, h5, h6 {
+    @apply font-bold;
+}
+h2 {
+    @apply text-4xl;
+}
+h3 {
+    @apply text-3xl;
+}
+h4 {
+    @apply text-2xl;
+}
+h5 {
+    @apply text-xl;
+}
+h6 {
+    @apply text-lg;
+}
