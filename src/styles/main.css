@@ -26,6 +26,15 @@
 .circle {
     @apply w-32 h-32 rounded-full shadow-xl;
 }
+.square {
+    @apply w-32 h-32 rounded-sm shadow-xl;
+}
+.parent {
+    @apply flex items-center justify-center;
+}
+.child {
+    @apply w-1/2 h-1/2;
+}
 
 .highlight {
     @apply bg-gray px-1;
@@ -51,4 +60,8 @@ h5 {
 }
 h6 {
     @apply text-lg;
+}
+
+.warning {
+    @apply text-red font-bold;
 }

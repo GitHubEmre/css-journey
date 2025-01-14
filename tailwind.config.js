@@ -20,7 +20,8 @@ export default {
     'text-yellow',
     'bg-green',
     'bg-gray',
-    'justify-around'
+    'justify-around',
+    'ml-8'
   ],
   theme: {
     colors: {
@@ -34,6 +35,7 @@ export default {
       'green': '#6A993E',
       'orange-light': '#E2C06F',
       'orange': '#CE915B',
+      'red': '#CC3300',
       'white': '#FFFFFF',
       'yellow': '#F1D700'
     },
