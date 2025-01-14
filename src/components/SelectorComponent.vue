@@ -1,4 +1,6 @@
 <template>
+    <AlertsComponent ref="alertsComponent" />
+    
     <div v-if="levelWon" class="fixed inset-0 bg-white bg-opacity-30 backdrop-blur-sm z-50 flex">
         <p class="m-auto text-9xl">Bien joué !</p>
         <div class="firework" v-for="n in 5" :key="n"></div>
@@ -20,6 +22,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { HtmlTag } from '../models/HtmlTag';
+import AlertsComponent from './shared/AlertsComponent.vue';
 import CodeComponent from './CodeComponent.vue';
 import CourseComponent from './courses/CourseComponent.vue';
 import HtmlComponent from './HtmlComponent.vue';
@@ -38,6 +41,7 @@ type SelectorLevel = {
 export default defineComponent({
     name: 'SelectorComponent',
     components: {
+        AlertsComponent,
         CodeComponent,
         CourseComponent,
         HtmlComponent,
@@ -46,7 +50,8 @@ export default defineComponent({
     },
     setup() {
         const codeComponent = ref<InstanceType<typeof CodeComponent> | null>(null);
-        return { codeComponent };
+        const alertsComponent = ref<InstanceType<typeof AlertsComponent> | null>(null);
+        return { codeComponent, alertsComponent };
     },
     data() {
         return {
@@ -95,6 +100,9 @@ export default defineComponent({
                                 this.setBorder(selectedPlateHTMLElement, "solid 2px green");
                                 this.winLevel();
                             } else { // wrong css selector
+                                if (this.alertsComponent) {
+                                    this.alertsComponent.addAlert("Le bon élément n'a pas été sélectionné de la bonne manière.");
+                                }
                                 this.vibrateCodeComponent();
                             }
                         } else { // wrong element
