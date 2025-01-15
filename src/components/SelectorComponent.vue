@@ -8,7 +8,16 @@
 
     <div class="flex pl-8 space-x-8">
         <div class="flex-grow mt-8">
-            <LevelSelectorComponent :level="currentLevel" @change-level="changeLevel" />
+            <div class="flex justify-end">
+                <button
+                    @click="showAnswerClicked"
+                    :class="numberOfAttemps >= attempsNeededToShowAnwser ? 'bg-white' : 'bg-gray-lighter cursor-not-allowed'"
+                    class="mr-4 bg-white px-2 rounded w-48"
+                >
+                    {{ showAnswer ? answerToShow : "Voir la réponse" }}
+                </button>
+                <LevelSelectorComponent :level="currentLevel" @change-level="changeLevel" />
+            </div>
             <TableComponent :instruction="instruction" :template="template.join('')" class="mt-8" />
             <div class="flex space-x-8 mt-8">
                 <CodeComponent @code-changed="codeChanged" :class="{ 'animate-vibrate': isVibrating }" ref="codeComponent" />
@@ -34,6 +43,7 @@ type SelectorLevel = {
     htmlTags: string[];
     template: string[];
     instruction: string;
+    answerToShow: string;
     expectedAnswer: string;
     courses: string[];
 };
@@ -55,7 +65,9 @@ export default defineComponent({
     },
     data() {
         return {
+            answerToShow: "",
             answerWithRedBorder: null as null | HTMLElement,
+            attempsNeededToShowAnwser: 3,
             courses: [] as String [],
             currentLevel: 1,
             expectedAnswer: "",
@@ -64,7 +76,9 @@ export default defineComponent({
             instruction: "",
             isVibrating: false,
             levelWon: false,
-            template: [] as String[]
+            numberOfAttemps: 0,
+            template: [] as String[],
+            showAnswer: false
         }
     },
     methods: {
@@ -89,6 +103,7 @@ export default defineComponent({
         codeChanged: function(code: string) : void {
             if (code.length > 0) {
                 this.resetRedBorder();
+                this.numberOfAttemps++;
 
                 try {
                     const selectedPlate = document.querySelector("#level-template " + code);
@@ -124,6 +139,7 @@ export default defineComponent({
             this.htmlTags = levels[this.currentLevel].htmlTags.map((htmlTag) => new HtmlTag(htmlTag));
             this.template = levels[this.currentLevel].template;
             this.instruction = levels[this.currentLevel].instruction;
+            this.answerToShow = levels[this.currentLevel].answerToShow;
             this.expectedAnswer = levels[this.currentLevel].expectedAnswer;
             this.courses = levels[this.currentLevel].courses;
 
@@ -152,12 +168,19 @@ export default defineComponent({
             }
             this.resetRedBorder();
             this.resetGreenBorder();
+            this.numberOfAttemps = 0;
+            this.showAnswer = false;
             this.updateLevelValues();
         },
         winLevel(): void {
             this.levelWon = true;
             this.changeLevel(true);
             setTimeout(() => { this.levelWon = false }, 3000);
+        },
+        showAnswerClicked(): void {
+            if (this.numberOfAttemps >= this.attempsNeededToShowAnwser) {
+                this.showAnswer = !this.showAnswer;
+            }
         }
     },
     mounted() {
