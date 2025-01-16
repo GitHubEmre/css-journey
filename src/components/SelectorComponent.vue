@@ -12,7 +12,7 @@
                 <button
                     @click="showAnswerClicked"
                     :class="numberOfAttemps >= attempsNeededToShowAnwser ? 'bg-white' : 'bg-gray-lighter cursor-not-allowed'"
-                    class="mr-4 bg-white px-2 rounded w-48"
+                    class="mr-4 px-2 rounded w-48"
                 >
                     {{ showAnswer ? answerToShow : "Voir la réponse" }}
                 </button>
@@ -66,12 +66,12 @@ export default defineComponent({
     data() {
         return {
             answerToShow: "",
-            answerWithRedBorder: null as null | HTMLElement,
+            answersWithRedBorder: [] as HTMLElement[],
             attempsNeededToShowAnwser: 3,
             courses: [] as String [],
             currentLevel: 1,
             expectedAnswer: "",
-            expectedElement: undefined as undefined | HTMLElement,
+            expectedHTMLElements: [] as HTMLElement[],
             htmlTags: [] as HtmlTag[],
             instruction: "",
             isVibrating: false,
@@ -82,19 +82,25 @@ export default defineComponent({
         }
     },
     methods: {
+        areHtmlElementsEqual: function(arr1: HTMLElement[], arr2: HTMLElement[]): boolean {
+            if (arr1.length !== arr2.length) {
+                return false;
+            }
+            return arr1.every((el, index) => el.isEqualNode(arr2[index]));
+        },
         setBorder: function (htmlElement: HTMLElement, border: string) {
             htmlElement.style.border = border;
         },
-        resetGreenBorder: function(): void {
-            if (this.expectedElement) {
-                this.setBorder(this.expectedElement, "unset");
-            }
+        resetGreenBorders: function(): void {
+            this.expectedHTMLElements.forEach(htmlElement => {
+                this.setBorder(htmlElement, "unset");
+            });
         },
         resetRedBorder: function(): void {
-            if (this.answerWithRedBorder) {
-                this.setBorder(this.answerWithRedBorder, "unset");
-                this.answerWithRedBorder = null;
-            }
+            this.answersWithRedBorder.forEach(htmlElement => {
+                this.setBorder(htmlElement, "unset");
+            });
+            this.answersWithRedBorder = [];
         },
         vibrateCodeComponent: function(): void {
             this.isVibrating = true;
@@ -106,27 +112,35 @@ export default defineComponent({
                 this.numberOfAttemps++;
 
                 try {
-                    const selectedPlate = document.querySelector("#level-template " + code);
-                    if (selectedPlate) {
-                        const selectedPlateHTMLElement = selectedPlate as HTMLElement;
-
-                        if (selectedPlateHTMLElement === this.expectedElement) { // correct element
+                    const selectedHTMLElements = Array.from(
+                        document.querySelectorAll("#level-template " + code)
+                    ) as HTMLElement[];
+                    if (selectedHTMLElements.length > 0) {
+                        if (this.areHtmlElementsEqual(this.expectedHTMLElements, selectedHTMLElements)) { // correct elements
                             if (code.trim().includes(this.expectedAnswer)) { // correct css selector
-                                this.setBorder(selectedPlateHTMLElement, "solid 2px green");
+                                selectedHTMLElements.forEach(htmlElement => {
+                                    this.setBorder(htmlElement, "solid 2px #6A993E");
+                                });
                                 this.winLevel();
                             } else { // wrong css selector
                                 if (this.alertsComponent) {
-                                    this.alertsComponent.addAlert("Le bon élément n'a pas été sélectionné de la bonne manière.");
+                                    this.alertsComponent.addAlert("Le ou les bons éléments n'ont pas été sélectionné de la bonne manière.");
                                 }
                                 this.vibrateCodeComponent();
                             }
-                        } else { // wrong element
-                            this.setBorder(selectedPlateHTMLElement, "solid 2px red");
-                            selectedPlateHTMLElement.classList.add("animate-vibrate");
-                            setTimeout(() => (selectedPlateHTMLElement.classList.remove("animate-vibrate")), 300);
-                            this.answerWithRedBorder = selectedPlateHTMLElement;
+                        } else { // wrong elements
+                            selectedHTMLElements.forEach(htmlElement => {
+                                this.setBorder(htmlElement, "solid 2px #CC3300");
+                                htmlElement.classList.add("animate-vibrate");
+                            });
+                            setTimeout(() => {
+                                selectedHTMLElements.forEach(htmlElement => {
+                                    htmlElement.classList.remove("animate-vibrate");
+                                });
+                            }, 300);
+                            this.answersWithRedBorder = selectedHTMLElements;
                         }
-                    } else { // element not found
+                    } else { // elements not found
                         this.vibrateCodeComponent();
                     }
                 } catch {
@@ -144,10 +158,9 @@ export default defineComponent({
             this.courses = levels[this.currentLevel].courses;
 
             this.$nextTick(() => {
-                const expectedElement = document.querySelector("#table " + this.expectedAnswer);
-                if (expectedElement) {
-                    this.expectedElement = (expectedElement as HTMLElement);
-                }
+                this.expectedHTMLElements = Array.from(
+                    document.querySelectorAll("#table " + this.answerToShow)
+                ) as HTMLElement[];
             });
 
             if (this.codeComponent) {
@@ -167,7 +180,7 @@ export default defineComponent({
                 this.currentLevel = Object.keys(selectorLevels).length;
             }
             this.resetRedBorder();
-            this.resetGreenBorder();
+            this.resetGreenBorders();
             this.numberOfAttemps = 0;
             this.showAnswer = false;
             this.updateLevelValues();

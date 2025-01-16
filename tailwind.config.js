@@ -18,8 +18,8 @@ export default {
     'text-orange',
     'text-white',
     'text-yellow',
-    'bg-green',
     'bg-gray',
+    'bg-green',
     'justify-around',
     'ml-8'
   ],
