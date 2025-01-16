@@ -156,5 +156,27 @@
         "answerToShow": ".circle:has(.square)",
         "expectedAnswer": ":has(.square)",
         "courses": ["PseudoClass"]
+    },
+    "8": {
+        "htmlTags": [
+            "<div id=\"table\">",
+                "<div class=\"circle bg-gray\">",
+                    "<div class=\"square bg-green\"/>",
+                "</div>",
+                "<div class=\"circle bg-gray\"/>",
+                "<div class=\"circle bg-gray\"/>",
+            "</div>"
+        ],
+        "template": [
+            "<div id='table' class='flex justify-around'>",
+                "<div class='circle parent bg-gray'><div class='square child bg-green'></div></div>",
+                "<div class='circle bg-gray'></div>",
+                "<div class='circle bg-gray'></div>",
+            "</div>"
+        ],
+        "instruction": "Sélectionnez les cercles qui ne contiennent pas de carré.",
+        "answerToShow": ".circle:not(:has(.square))",
+        "expectedAnswer": ":not(:has(.square))",
+        "courses": ["PseudoClass"]
     }
 }

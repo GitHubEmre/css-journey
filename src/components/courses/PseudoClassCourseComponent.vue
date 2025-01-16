@@ -174,6 +174,62 @@
             <span class="highlight">.bold</span> auront un texte en gras.
         </li>
     </ul>
+
+    <h6>4. <span class="highlight">:not()</span></h6>
+    <p>
+        La pseudo-classe <span class="highlight">:not()</span> permet d'exclure des éléments d'un sélecteur.
+    </p>
+    <h6>Exemple</h6>
+    <div class="bg-gray p-1 rounded-md font-family-code">
+        <p>
+            <span class="text-gray-light">&lt;</span>
+            <span class="text-blue">ul</span>
+            <span class="text-gray-light">&gt;</span>
+        </p>
+        <p class="ml-4 text-white" v-for="i in 2">
+            <span class="text-gray-light">&lt;</span>
+            <span class="text-blue">li</span>
+            <span class="text-gray-light">&gt;</span>
+            <span>Item {{ i }}</span>
+            <span class="text-gray-light">&lt;/</span>
+            <span class="text-blue">li</span>
+            <span class="text-gray-light">&gt;</span>
+        </p>
+        <p class="ml-4 text-white">
+            <span class="text-gray-light">&lt;</span>
+            <span class="text-blue">li </span>
+            <span class="text-blue-light">class</span>
+            <span>=</span>
+            <span class="text-orange">"bold"</span>
+            <span class="text-gray-light">&gt;</span>
+            <span>Item 3</span>
+            <span class="text-gray-light">&lt;/</span>
+            <span class="text-blue">li</span>
+            <span class="text-gray-light">&gt;</span>
+        </p>
+        <p>
+            <span class="text-gray-light">&lt;/</span>
+            <span class="text-blue">ul</span>
+            <span class="text-gray-light">&gt;</span>
+        </p>
+    </div>
+    <h6>Syntaxe</h6>
+    <div class="bg-gray p-1 rounded-md font-family-code">
+        <p class="text-orange-light">li:not(.bold) <span class="text-yellow">{</span></p>
+        <p class="ml-4">
+            <span class="text-blue-light">font-weight</span>
+            <span>: </span>
+            <span class="text-orange">normal</span>
+            <span>;</span>
+        </p>
+        <p class="text-yellow">}</p>
+    </div>
+    <ul class="list-disc ml-5">
+        <li>
+            Les <span class="highlight font-family-code">&lt;li&gt;</span> ne contenant pas la classe 
+            <span class="highlight">.bold</span> auront un texte normal.
+        </li>
+    </ul>
 </template>
 
 <script lang="ts">
