@@ -1,25 +1,28 @@
 {
     "1": {
+        "answerKeywords": ["#gray"],
+        "answerToShow": "#gray",
+        "courses": ["Id"],
         "htmlTags": [
             "<div id=\"table\">",
                 "<div id=\"white\" class=\"circle bg-white\"/>",
                 "<div id=\"gray\" class=\"circle bg-gray\"/>",
                 "<div id=\"green\" class=\"circle bg-green\"/>",
-            "</div>"
-        ],
-        "template": [
-            "<div id='table' class='flex justify-around'>",
-                "<div id='white' class='circle bg-white'></div>",
-                "<div id='gray' class='circle bg-gray'></div>",
-                "<div id='green' class='circle bg-green'></div>",
             "</div>"
         ],
         "instruction": "Sélectionnez le cercle gris en utilisant le sélecteur des id.",
-        "answerKeywords": ["#gray"],
-        "answerToShow": "#gray",
-        "courses": ["Id"]
+        "template": [
+            "<div id='table' class='flex justify-around'>",
+                "<div id='white' class='circle bg-white'></div>",
+                "<div id='gray' class='circle bg-gray'></div>",
+                "<div id='green' class='circle bg-green'></div>",
+            "</div>"
+        ]
     },
     "2": {
+        "answerKeywords": [".bg-gray"],
+        "answerToShow": ".bg-gray",
+        "courses": ["Class"],
         "htmlTags": [
             "<div id=\"table\">",
                 "<div id=\"white\" class=\"circle bg-white\"/>",
@@ -27,19 +30,19 @@
                 "<div id=\"green\" class=\"circle bg-green\"/>",
             "</div>"
         ],
+        "instruction": "Sélectionnez le cercle gris en utilisant le sélecteur des classes.",
         "template": [
             "<div id='table' class='flex justify-around'>",
                 "<div id='white' class='circle bg-white'></div>",
                 "<div id='gray' class='circle bg-gray'></div>",
                 "<div id='green' class='circle bg-green'></div>",
             "</div>"
-        ],
-        "instruction": "Sélectionnez le cercle gris en utilisant le sélecteur des classes.",
-        "answerKeywords": [".bg-gray"],
-        "answerToShow": ".bg-gray",
-        "courses": ["Class"]
+        ]
     },
     "3": {
+        "answerKeywords": [":first-child"],
+        "answerToShow": ".circle:first-child",
+        "courses": ["PseudoClass"],
         "htmlTags": [
             "<div id=\"table\">",
                 "<div class=\"circle bg-gray\"/>",
@@ -47,32 +50,9 @@
                 "<div class=\"circle bg-gray\"/>",
                 "<div class=\"circle bg-gray\"/>",
                 "<div class=\"circle bg-gray\"/>",
-            "</div>"
-        ],
-        "template": [
-            "<div id='table' class='flex justify-around'>",
-                "<div class='circle bg-gray'></div>",
-                "<div class='circle bg-gray'></div>",
-                "<div class='circle bg-gray'></div>",
-                "<div class='circle bg-gray'></div>",
-                "<div class='circle bg-gray'></div>",
             "</div>"
         ],
         "instruction": "Sélectionnez le premier cercle en utilisant les pseudo-classes.",
-        "answerKeywords": [":first-child"],
-        "answerToShow": ".circle:first-child",
-        "courses": ["PseudoClass"]
-    },
-    "4": {
-        "htmlTags": [
-            "<div id=\"table\">",
-                "<div class=\"circle bg-gray\"/>",
-                "<div class=\"circle bg-gray\"/>",
-                "<div class=\"circle bg-gray\"/>",
-                "<div class=\"circle bg-gray\"/>",
-                "<div class=\"circle bg-gray\"/>",
-            "</div>"
-        ],
         "template": [
             "<div id='table' class='flex justify-around'>",
                 "<div class='circle bg-gray'></div>",
@@ -80,23 +60,23 @@
                 "<div class='circle bg-gray'></div>",
                 "<div class='circle bg-gray'></div>",
                 "<div class='circle bg-gray'></div>",
+            "</div>"
+        ]
+    },
+    "4": {
+        "answerKeywords": [":last-child"],
+        "answerToShow": ".circle:last-child",
+        "courses": ["PseudoClass"],
+        "htmlTags": [
+            "<div id=\"table\">",
+                "<div class=\"circle bg-gray\"/>",
+                "<div class=\"circle bg-gray\"/>",
+                "<div class=\"circle bg-gray\"/>",
+                "<div class=\"circle bg-gray\"/>",
+                "<div class=\"circle bg-gray\"/>",
             "</div>"
         ],
         "instruction": "Sélectionnez le dernier cercle en utilisant les pseudo-classes.",
-        "answerKeywords": [":last-child"],
-        "answerToShow": ".circle:last-child",
-        "courses": ["PseudoClass"]
-    },
-    "5": {
-        "htmlTags": [
-            "<div id=\"table\">",
-                "<div class=\"circle bg-gray\"/>",
-                "<div class=\"circle bg-gray\"/>",
-                "<div class=\"circle bg-gray\"/>",
-                "<div class=\"circle bg-gray\"/>",
-                "<div class=\"circle bg-gray\"/>",
-            "</div>"
-        ],
         "template": [
             "<div id='table' class='flex justify-around'>",
                 "<div class='circle bg-gray'></div>",
@@ -104,23 +84,23 @@
                 "<div class='circle bg-gray'></div>",
                 "<div class='circle bg-gray'></div>",
                 "<div class='circle bg-gray'></div>",
+            "</div>"
+        ]
+    },
+    "5": {
+        "answerKeywords": [":nth-child(3)"],
+        "answerToShow": ".circle:nth-child(3)",
+        "courses": ["PseudoClass"],
+        "htmlTags": [
+            "<div id=\"table\">",
+                "<div class=\"circle bg-gray\"/>",
+                "<div class=\"circle bg-gray\"/>",
+                "<div class=\"circle bg-gray\"/>",
+                "<div class=\"circle bg-gray\"/>",
+                "<div class=\"circle bg-gray\"/>",
             "</div>"
         ],
         "instruction": "Sélectionnez le troisième cercle en utilisant les pseudo-classes.",
-        "answerKeywords": [":nth-child(3)"],
-        "answerToShow": ".circle:nth-child(3)",
-        "courses": ["PseudoClass"]
-    },
-    "6": {
-        "htmlTags": [
-            "<div id=\"table\">",
-                "<div class=\"circle bg-gray\"/>",
-                "<div class=\"circle bg-gray\"/>",
-                "<div class=\"circle bg-gray\"/>",
-                "<div class=\"circle bg-gray\"/>",
-                "<div class=\"circle bg-gray\"/>",
-            "</div>"
-        ],
         "template": [
             "<div id='table' class='flex justify-around'>",
                 "<div class='circle bg-gray'></div>",
@@ -128,14 +108,37 @@
                 "<div class='circle bg-gray'></div>",
                 "<div class='circle bg-gray'></div>",
                 "<div class='circle bg-gray'></div>",
+            "</div>"
+        ]
+    },
+    "6": {
+        "answerKeywords": [":nth-last-child(2)"],
+        "answerToShow": ".circle:nth-last-child(2)",
+        "courses": ["PseudoClass"],
+        "htmlTags": [
+            "<div id=\"table\">",
+                "<div class=\"circle bg-gray\"/>",
+                "<div class=\"circle bg-gray\"/>",
+                "<div class=\"circle bg-gray\"/>",
+                "<div class=\"circle bg-gray\"/>",
+                "<div class=\"circle bg-gray\"/>",
             "</div>"
         ],
         "instruction": "Sélectionnez le deuxième cercle en partant de la fin en utilisant les pseudo-classes.",
-        "answerKeywords": [":nth-last-child(2)"],
-        "answerToShow": ".circle:nth-last-child(2)",
-        "courses": ["PseudoClass"]
+        "template": [
+            "<div id='table' class='flex justify-around'>",
+                "<div class='circle bg-gray'></div>",
+                "<div class='circle bg-gray'></div>",
+                "<div class='circle bg-gray'></div>",
+                "<div class='circle bg-gray'></div>",
+                "<div class='circle bg-gray'></div>",
+            "</div>"
+        ]
     },
     "7": {
+        "answerKeywords": [":has(.square)"],
+        "answerToShow": ".circle:has(.square)",
+        "courses": ["PseudoClass"],
         "htmlTags": [
             "<div id=\"table\">",
                 "<div class=\"circle bg-gray\">",
@@ -143,21 +146,21 @@
                 "</div>",
                 "<div class=\"circle bg-gray\"/>",
                 "<div class=\"circle bg-gray\"/>",
-            "</div>"
-        ],
-        "template": [
-            "<div id='table' class='flex justify-around'>",
-                "<div class='circle parent bg-gray'><div class='square child bg-green'></div></div>",
-                "<div class='circle bg-gray'></div>",
-                "<div class='circle bg-gray'></div>",
             "</div>"
         ],
         "instruction": "Sélectionnez le cercle qui contient un carré.",
-        "answerKeywords": [":has(.square)"],
-        "answerToShow": ".circle:has(.square)",
-        "courses": ["PseudoClass"]
+        "template": [
+            "<div id='table' class='flex justify-around'>",
+                "<div class='circle parent bg-gray'><div class='square child bg-green'></div></div>",
+                "<div class='circle bg-gray'></div>",
+                "<div class='circle bg-gray'></div>",
+            "</div>"
+        ]
     },
     "8": {
+        "answerKeywords": [":not(:has(.square))"],
+        "answerToShow": ".circle:not(:has(.square))",
+        "courses": ["PseudoClass"],
         "htmlTags": [
             "<div id=\"table\">",
                 "<div class=\"circle bg-gray\">",
@@ -167,19 +170,19 @@
                 "<div class=\"circle bg-gray\"/>",
             "</div>"
         ],
+        "instruction": "Sélectionnez les cercles qui ne contiennent pas de carré.",
         "template": [
             "<div id='table' class='flex justify-around'>",
                 "<div class='circle parent bg-gray'><div class='square child bg-green'></div></div>",
                 "<div class='circle bg-gray'></div>",
                 "<div class='circle bg-gray'></div>",
             "</div>"
-        ],
-        "instruction": "Sélectionnez les cercles qui ne contiennent pas de carré.",
-        "answerKeywords": [":not(:has(.square))"],
-        "answerToShow": ".circle:not(:has(.square))",
-        "courses": ["PseudoClass"]
+        ]
     },
     "9": {
+        "answerKeywords": [".bg-blue", ",", ".bg-orange"],
+        "answerToShow": ".bg-blue, .bg-orange",
+        "courses": ["Comma"],
         "htmlTags": [
             "<div id=\"table\">",
                 "<div class=\"circle bg-green\"/>",
@@ -189,6 +192,7 @@
                 "<div class=\"circle bg-orange\"/>",
             "</div>"
         ],
+        "instruction": "Sélectionnez les cercles de couleur bleu et orange.",
         "template": [
             "<div id='table' class='flex justify-around'>",
                 "<div class='circle bg-green'></div>",
@@ -197,10 +201,6 @@
                 "<div class='circle bg-blue'></div>",
                 "<div class='circle bg-orange'></div>",
             "</div>"
-        ],
-        "instruction": "Sélectionnez les cercles de couleur bleu et orange.",
-        "answerKeywords": [".bg-blue", ",", ".bg-orange"],
-        "answerToShow": ".bg-blue, .bg-orange",
-        "courses": ["Comma"]
+        ]
     }
 }

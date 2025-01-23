@@ -40,12 +40,12 @@ import selectorLevels from "../data/selector-levels.json";
 import TableComponent from './TableComponent.vue';
 
 type SelectorLevel = {
-    htmlTags: string[];
-    template: string[];
-    instruction: string;
     answerKeywords: string[];
     answerToShow: string;
     courses: string[];
+    htmlTags: string[];
+    instruction: string;
+    template: string[];
 };
 
 export default defineComponent({
@@ -77,7 +77,7 @@ export default defineComponent({
             isVibrating: false,
             levelWon: false,
             numberOfAttemps: 0,
-            template: [] as String[],
+            template: [] as string[],
             showAnswer: false
         }
     },
@@ -88,42 +88,33 @@ export default defineComponent({
             }
             return arr1.every((el, index) => el.isEqualNode(arr2[index]));
         },
-        setBorder: function (htmlElement: HTMLElement, border: string) {
-            htmlElement.style.border = border;
-        },
-        resetGreenBorders: function(): void {
-            this.expectedHTMLElements.forEach(htmlElement => {
-                this.setBorder(htmlElement, "unset");
-            });
-        },
-        resetRedBorder: function(): void {
-            this.answersWithRedBorder.forEach(htmlElement => {
-                this.setBorder(htmlElement, "unset");
-            });
-            this.answersWithRedBorder = [];
-        },
-        vibrateCodeComponent: function(): void {
-            this.isVibrating = true;
-            setTimeout(() => (this.isVibrating = false), 300);
-        },
-        isAnswerValid: function(answer: string): boolean {
-            let isValid = true;
-            this.answerKeywords.forEach(keyword => {
-                if (!answer.includes(keyword)) {
-                    isValid = false;
+        changeLevel(isNext: boolean): void {
+            if (isNext) {
+                if (this.currentLevel + 1 <= Object.keys(selectorLevels).length) {
+                    this.currentLevel += 1;
+                } else {
+                    this.currentLevel = 1;
                 }
-            });
-            return isValid;
+            } else if (this.currentLevel - 1 > 0) {
+                this.currentLevel -= 1;
+            } else {
+                this.currentLevel = Object.keys(selectorLevels).length;
+            }
+            this.resetRedBorder();
+            this.resetGreenBorders();
+            this.numberOfAttemps = 0;
+            this.showAnswer = false;
+            this.updateLevelValues();
         },
         codeChanged: function(code: string) : void {
             if (code.length > 0) {
                 this.resetRedBorder();
                 this.numberOfAttemps++;
-
                 try {
                     const selectedHTMLElements = Array.from(
                         document.querySelectorAll("#level-template " + code)
                     ) as HTMLElement[];
+                    
                     if (selectedHTMLElements.length > 0) {
                         if (this.areHtmlElementsEqual(this.expectedHTMLElements, selectedHTMLElements)) { // correct elements
                             if (this.isAnswerValid(code)) { // correct css selector
@@ -157,6 +148,34 @@ export default defineComponent({
                 }
             }
         },
+        isAnswerValid: function(answer: string): boolean {
+            let isValid = true;
+            this.answerKeywords.forEach(keyword => {
+                if (!answer.includes(keyword)) {
+                    isValid = false;
+                }
+            });
+            return isValid;
+        },
+        setBorder: function (htmlElement: HTMLElement, border: string) {
+            htmlElement.style.border = border;
+        },
+        showAnswerClicked(): void {
+            if (this.numberOfAttemps >= this.attempsNeededToShowAnwser) {
+                this.showAnswer = !this.showAnswer;
+            }
+        },
+        resetGreenBorders: function(): void {
+            this.expectedHTMLElements.forEach(htmlElement => {
+                this.setBorder(htmlElement, "unset");
+            });
+        },
+        resetRedBorder: function(): void {
+            this.answersWithRedBorder.forEach(htmlElement => {
+                this.setBorder(htmlElement, "unset");
+            });
+            this.answersWithRedBorder = [];
+        },
         updateLevelValues(): void {
             const levels: Record<string, SelectorLevel> = selectorLevels;
             this.htmlTags = levels[this.currentLevel].htmlTags.map((htmlTag) => new HtmlTag(htmlTag));
@@ -176,33 +195,14 @@ export default defineComponent({
                 this.codeComponent.resetCode();
             }
         },
-        changeLevel(isNext: boolean): void {
-            if (isNext) {
-                if (this.currentLevel + 1 <= Object.keys(selectorLevels).length) {
-                    this.currentLevel += 1;
-                } else {
-                    this.currentLevel = 1;
-                }
-            } else if (this.currentLevel - 1 > 0) {
-                this.currentLevel -= 1;
-            } else {
-                this.currentLevel = Object.keys(selectorLevels).length;
-            }
-            this.resetRedBorder();
-            this.resetGreenBorders();
-            this.numberOfAttemps = 0;
-            this.showAnswer = false;
-            this.updateLevelValues();
+        vibrateCodeComponent: function(): void {
+            this.isVibrating = true;
+            setTimeout(() => (this.isVibrating = false), 300);
         },
         winLevel(): void {
             this.levelWon = true;
             this.changeLevel(true);
             setTimeout(() => { this.levelWon = false }, 3000);
-        },
-        showAnswerClicked(): void {
-            if (this.numberOfAttemps >= this.attempsNeededToShowAnwser) {
-                this.showAnswer = !this.showAnswer;
-            }
         }
     },
     mounted() {
