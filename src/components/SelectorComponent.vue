@@ -43,8 +43,8 @@ type SelectorLevel = {
     htmlTags: string[];
     template: string[];
     instruction: string;
+    answerKeywords: string[];
     answerToShow: string;
-    expectedAnswer: string;
     courses: string[];
 };
 
@@ -68,9 +68,9 @@ export default defineComponent({
             answerToShow: "",
             answersWithRedBorder: [] as HTMLElement[],
             attempsNeededToShowAnwser: 3,
-            courses: [] as String [],
+            courses: [] as string[],
             currentLevel: 1,
-            expectedAnswer: "",
+            answerKeywords: [] as string[],
             expectedHTMLElements: [] as HTMLElement[],
             htmlTags: [] as HtmlTag[],
             instruction: "",
@@ -106,6 +106,15 @@ export default defineComponent({
             this.isVibrating = true;
             setTimeout(() => (this.isVibrating = false), 300);
         },
+        isAnswerValid: function(answer: string): boolean {
+            let isValid = true;
+            this.answerKeywords.forEach(keyword => {
+                if (!answer.includes(keyword)) {
+                    isValid = false;
+                }
+            });
+            return isValid;
+        },
         codeChanged: function(code: string) : void {
             if (code.length > 0) {
                 this.resetRedBorder();
@@ -117,7 +126,7 @@ export default defineComponent({
                     ) as HTMLElement[];
                     if (selectedHTMLElements.length > 0) {
                         if (this.areHtmlElementsEqual(this.expectedHTMLElements, selectedHTMLElements)) { // correct elements
-                            if (code.trim().includes(this.expectedAnswer)) { // correct css selector
+                            if (this.isAnswerValid(code)) { // correct css selector
                                 selectedHTMLElements.forEach(htmlElement => {
                                     this.setBorder(htmlElement, "solid 2px #6A993E");
                                 });
@@ -153,8 +162,8 @@ export default defineComponent({
             this.htmlTags = levels[this.currentLevel].htmlTags.map((htmlTag) => new HtmlTag(htmlTag));
             this.template = levels[this.currentLevel].template;
             this.instruction = levels[this.currentLevel].instruction;
+            this.answerKeywords = levels[this.currentLevel].answerKeywords;
             this.answerToShow = levels[this.currentLevel].answerToShow;
-            this.expectedAnswer = levels[this.currentLevel].expectedAnswer;
             this.courses = levels[this.currentLevel].courses;
 
             this.$nextTick(() => {

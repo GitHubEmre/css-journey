@@ -20,6 +20,7 @@ export default {
     'text-yellow',
     'bg-gray',
     'bg-green',
+    'bg-blue',
     'justify-around',
     'ml-8'
   ],

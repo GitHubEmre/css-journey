@@ -6,6 +6,7 @@
   
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
+import CommaCourseComponent from './CommaCourseComponent.vue';
 import ClassCourseComponent from './ClassCourseComponent.vue';
 import IdCourseComponent from './IdCourseComponent.vue';
 import PseudoClassCourseComponent from './PseudoClassCourseComponent.vue';
@@ -13,6 +14,7 @@ import PseudoClassCourseComponent from './PseudoClassCourseComponent.vue';
 export default defineComponent({
     name: 'CourseComponent',
     components: {
+        CommaCourseComponent,
         ClassCourseComponent,
         IdCourseComponent,
         PseudoClassCourseComponent
