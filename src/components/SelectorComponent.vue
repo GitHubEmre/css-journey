@@ -105,42 +105,23 @@ export default defineComponent({
             this.numberOfAttemps = 0;
             this.showAnswer = false;
             this.updateLevelValues();
+            if (this.codeComponent) {
+                this.codeComponent.resetCode();
+            }
         },
         codeChanged: function(code: string) : void {
             if (code.length > 0) {
                 this.resetRedBorder();
                 this.numberOfAttemps++;
                 try {
-                    const selectedHTMLElements = Array.from(
-                        document.querySelectorAll("#level-template " + code)
-                    ) as HTMLElement[];
-                    
+                    const selectedHTMLElements = this.selectHTMLElements("#level-template " + code);
                     if (selectedHTMLElements.length > 0) {
-                        if (this.areHtmlElementsEqual(this.expectedHTMLElements, selectedHTMLElements)) { // correct elements
-                            if (this.isAnswerValid(code)) { // correct css selector
-                                selectedHTMLElements.forEach(htmlElement => {
-                                    this.setBorder(htmlElement, "solid 2px #6A993E");
-                                });
-                                this.winLevel();
-                            } else { // wrong css selector
-                                if (this.alertsComponent) {
-                                    this.alertsComponent.addAlert("Le ou les bons éléments n'ont pas été sélectionné de la bonne manière.");
-                                }
-                                this.vibrateCodeComponent();
-                            }
-                        } else { // wrong elements
-                            selectedHTMLElements.forEach(htmlElement => {
-                                this.setBorder(htmlElement, "solid 2px #CC3300");
-                                htmlElement.classList.add("animate-vibrate");
-                            });
-                            setTimeout(() => {
-                                selectedHTMLElements.forEach(htmlElement => {
-                                    htmlElement.classList.remove("animate-vibrate");
-                                });
-                            }, 300);
-                            this.answersWithRedBorder = selectedHTMLElements;
+                        if (this.areHtmlElementsEqual(this.expectedHTMLElements, selectedHTMLElements)) { // correct elements are selected
+                            this.onCorrectSelection(code, selectedHTMLElements);
+                        } else { // incorrect elements are selected
+                            this.onIncorrectSelection(selectedHTMLElements);
                         }
-                    } else { // elements not found
+                    } else { // no element is selected
                         this.vibrateCodeComponent();
                     }
                 } catch {
@@ -156,6 +137,31 @@ export default defineComponent({
                 }
             });
             return isValid;
+        },
+        onCorrectSelection: function(code: string, htmlElements: HTMLElement[]) : void {
+            if (this.isAnswerValid(code)) { // correct css selector
+                htmlElements.forEach(htmlElement => {
+                    this.setBorder(htmlElement, "solid 2px #6A993E");
+                });
+                this.winLevel();
+            } else { // wrong css selector
+                if (this.alertsComponent) {
+                    this.alertsComponent.addAlert("Le ou les bons éléments n'ont pas été sélectionné de la bonne manière.");
+                }
+                this.vibrateCodeComponent();
+            }
+        },
+        onIncorrectSelection: function(htmlElements: HTMLElement[]): void {
+            htmlElements.forEach(htmlElement => {
+                this.setBorder(htmlElement, "solid 2px #CC3300");
+                htmlElement.classList.add("animate-vibrate");
+            });
+            setTimeout(() => {
+                htmlElements.forEach(htmlElement => {
+                    htmlElement.classList.remove("animate-vibrate");
+                });
+            }, 300);
+            this.answersWithRedBorder = htmlElements;
         },
         setBorder: function (htmlElement: HTMLElement, border: string) {
             htmlElement.style.border = border;
@@ -176,6 +182,11 @@ export default defineComponent({
             });
             this.answersWithRedBorder = [];
         },
+        selectHTMLElements: function(cssSelector: string): HTMLElement[] {
+            return Array.from(
+                document.querySelectorAll(cssSelector)
+            ) as HTMLElement[];
+        },
         updateLevelValues(): void {
             const levels: Record<string, SelectorLevel> = selectorLevels;
             this.htmlTags = levels[this.currentLevel].htmlTags.map((htmlTag) => new HtmlTag(htmlTag));
@@ -190,10 +201,6 @@ export default defineComponent({
                     document.querySelectorAll("#table " + this.answerToShow)
                 ) as HTMLElement[];
             });
-
-            if (this.codeComponent) {
-                this.codeComponent.resetCode();
-            }
         },
         vibrateCodeComponent: function(): void {
             this.isVibrating = true;
