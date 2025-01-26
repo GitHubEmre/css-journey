@@ -21,8 +21,10 @@ export default {
     'bg-gray',
     'bg-green',
     'bg-blue',
+    'border-blue',
     'justify-around',
-    'ml-8'
+    'ml-8',
+    'ml-12'
   ],
   theme: {
     colors: {

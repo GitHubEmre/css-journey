@@ -202,5 +202,97 @@
                 "<div class='circle bg-orange'></div>",
             "</div>"
         ]
+    },
+    "10": {
+        "answerKeywords": [":not"],
+        "answerToShow": ".circle:not(.bg-white)",
+        "courses": ["PseudoClass"],
+        "htmlTags": [
+            "<div id=\"table\">",
+                "<div class=\"circle bg-green\"/>",
+                "<div class=\"circle bg-gray\"/>",
+                "<div class=\"circle bg-white\"/>",
+                "<div class=\"circle bg-blue\"/>",
+                "<div class=\"circle bg-orange\"/>",
+            "</div>"
+        ],
+        "instruction": "Sélectionnez tous les cercles sauf le blanc.",
+        "template": [
+            "<div id='table' class='flex justify-around'>",
+                "<div class='circle bg-green'></div>",
+                "<div class='circle bg-gray'></div>",
+                "<div class='circle bg-white'></div>",
+                "<div class='circle bg-blue'></div>",
+                "<div class='circle bg-orange'></div>",
+            "</div>"
+        ]
+    },
+    "11": {
+        "answerKeywords": [":is"],
+        "answerToShow": ".bg-blue:is(.circle, .square)",
+        "courses": ["PseudoClass"],
+        "htmlTags": [
+            "<div id=\"table\">",
+                "<div class=\"circle bg-blue\"/>",
+                "<div class=\"circle bg-white\"/>",
+                "<div class=\"square bg-blue\"/>",
+                "<div class=\"square bg-white\"/>",
+                "<div class=\"rectangle bg-blue\"/>",
+                "<div class=\"rectangle bg-white\"/>",
+            "</div>"
+        ],
+        "instruction": "Sélectionnez le cercle bleu et le carré bleu en utilisant les pseudo-classes.",
+        "template": [
+            "<div id='table' class='flex justify-around items-center'>",
+                "<div class='circle bg-blue'></div>",
+                "<div class='circle bg-white'></div>",
+                "<div class='square bg-blue'></div>",
+                "<div class='square bg-white'></div>",
+                "<div class='rectangle bg-blue'></div>",
+                "<div class='rectangle bg-white'></div>",
+            "</div>"
+        ]
+    },
+    "12": {
+        "answerKeywords": [".square", " ", ".circle"],
+        "answerToShow": ".square .circle",
+        "courses": ["WhiteSpace"],
+        "htmlTags": [
+            "<div id=\"table\">",
+                "<div class=\"circle bg-blue\"/>",
+                "<div class=\"square bg-green\">",
+                    "<div class=\"circle bg-blue\"/>",
+                "</div>",
+                "<div class=\"circle bg-blue\"/>",
+            "</div>"
+        ],
+        "instruction": "Sélectionnez le cercle qui est dans le carré.",
+        "template": [
+            "<div id='table' class='flex justify-around'>",
+                "<div class='circle bg-blue'></div>",
+                "<div class='parent square bg-green'><div class='child circle bg-blue'></div></div>",
+                "<div class='circle bg-blue'></div>",
+            "</div>"
+        ]
+    },
+    "13": {
+        "answerKeywords": [">"],
+        "answerToShow": ".square > .circle",
+        "courses": ["ChildCombinator"],
+        "htmlTags": [
+            "<div id=\"table\">",
+                "<div class=\"square bg-gray\">",
+                    "<div class=\"circle bg-white\">",
+                        "<div class=\"circle bg-blue\"/>",
+                    "</div>",
+                "</div>",
+            "</div>"
+        ],
+        "instruction": "Sélectionnez le cercle blanc sans utiliser la classe bg-white.",
+        "template": [
+            "<div id='table' class='flex justify-around'>",
+                "<div class='parent square bg-gray'><div class='parent child circle bg-white'><div class='child circle bg-blue'></div></div></div>",
+            "</div>"
+        ]
     }
 }
