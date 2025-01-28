@@ -294,5 +294,27 @@
                 "<div class='parent square bg-gray'><div class='parent child circle bg-white'><div class='child circle bg-blue'></div></div></div>",
             "</div>"
         ]
+    },
+    "14": {
+        "answerKeywords": [".circle", ".bg-gray"],
+        "answerToShow": ".circle.bg-gray",
+        "courses": ["SelectorsCombination"],
+        "htmlTags": [
+            "<div id=\"table\">",
+                "<div class=\"square bg-gray\"/>",
+                "<div class=\"square bg-blue\"/>",
+                "<div class=\"circle bg-gray\"/>",
+                "<div class=\"circle bg-blue\"/>",
+            "</div>"
+        ],
+        "instruction": "Sélectionnez le cercle gris sans utiliser les pseudo-classes.",
+        "template": [
+            "<div id='table' class='flex justify-around'>",
+                "<div class='square bg-gray'></div>",
+                "<div class='square bg-blue'></div>",
+                "<div class='circle bg-gray'></div>",
+                "<div class='circle bg-blue'></div>",
+            "</div>"
+        ]
     }
 }

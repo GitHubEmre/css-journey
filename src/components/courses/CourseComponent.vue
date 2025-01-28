@@ -11,6 +11,7 @@ import CommaCourseComponent from './CommaCourseComponent.vue';
 import ClassCourseComponent from './ClassCourseComponent.vue';
 import IdCourseComponent from './IdCourseComponent.vue';
 import PseudoClassCourseComponent from './PseudoClassCourseComponent.vue';
+import SelectorsCombinationCourseComponent from './SelectorsCombinationCourseComponent.vue';
 import WhiteSpaceCourseComponent from './WhiteSpaceCourseComponent.vue';
 
 export default defineComponent({
@@ -21,6 +22,7 @@ export default defineComponent({
         ClassCourseComponent,
         IdCourseComponent,
         PseudoClassCourseComponent,
+        SelectorsCombinationCourseComponent,
         WhiteSpaceCourseComponent
     },
     props: {
