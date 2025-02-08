@@ -26,6 +26,21 @@
 .circle {
     @apply w-32 h-32 rounded-full shadow-xl;
 }
+.square {
+    @apply w-32 h-32 rounded-sm shadow-xl;
+}
+.rectangle {
+    @apply w-40 h-24 rounded-sm shadow-xl;
+}
+.parent {
+    @apply flex items-center justify-center;
+}
+.child {
+    @apply w-1/2 h-1/2;
+}
+.parent.child {
+    @apply w-2/3 h-2/3;
+}
 
 .highlight {
     @apply bg-gray px-1;
@@ -51,4 +66,12 @@ h5 {
 }
 h6 {
     @apply text-lg;
+}
+
+.warning {
+    @apply text-red font-bold;
+}
+
+#table {
+    @apply bg-brown-light rounded-md flex justify-around items-center px-8 py-4 shadow-xl;
 }

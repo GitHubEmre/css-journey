@@ -2,9 +2,9 @@
     <div class="text-xl flex justify-end items-center gap-2">
         <span>Level :</span>
         <div class="bg-white rounded">
-            <span class="cursor-pointer" @click="changeLevel(false)">&lt;</span>
+            <button class="cursor-pointer" @click="changeLevel(false)">&lt;</button>
             <span class="mx-2">{{ level }}</span>
-            <span class="cursor-pointer" @click="changeLevel(true)">&gt;</span>
+            <button class="cursor-pointer" @click="changeLevel(true)">&gt;</button>
         </div>
     </div>
 </template>

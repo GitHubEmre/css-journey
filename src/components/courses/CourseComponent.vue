@@ -6,16 +6,26 @@
   
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
+import ChildCombinatorCourseComponent from './ChildCombinatorCourseComponent.vue';
+import CommaCourseComponent from './CommaCourseComponent.vue';
 import ClassCourseComponent from './ClassCourseComponent.vue';
 import IdCourseComponent from './IdCourseComponent.vue';
 import PseudoClassCourseComponent from './PseudoClassCourseComponent.vue';
+import SelectorsCombinationCourseComponent from './SelectorsCombinationCourseComponent.vue';
+import UniversalSelectorCourseComponent from './UniversalSelectorCourseComponent.vue';
+import WhiteSpaceCourseComponent from './WhiteSpaceCourseComponent.vue';
 
 export default defineComponent({
     name: 'CourseComponent',
     components: {
+        ChildCombinatorCourseComponent,
+        CommaCourseComponent,
         ClassCourseComponent,
         IdCourseComponent,
-        PseudoClassCourseComponent
+        PseudoClassCourseComponent,
+        SelectorsCombinationCourseComponent,
+        UniversalSelectorCourseComponent,
+        WhiteSpaceCourseComponent
     },
     props: {
         courses: {

@@ -18,14 +18,19 @@ export default {
     'text-orange',
     'text-white',
     'text-yellow',
-    'bg-green',
     'bg-gray',
-    'justify-around'
+    'bg-green',
+    'bg-blue',
+    'border-blue',
+    'justify-around',
+    'ml-8',
+    'ml-12'
   ],
   theme: {
     colors: {
       'blue-light': '#9CDCDA',
       'blue': '#4A9CD6',
+      'brown-light': '#B79770',
       'gray-dark': '#1F1F1F', 
       'gray-darker': '#181818',
       'gray-light': '#6E7681',
@@ -34,6 +39,7 @@ export default {
       'green': '#6A993E',
       'orange-light': '#E2C06F',
       'orange': '#CE915B',
+      'red': '#CC3300',
       'white': '#FFFFFF',
       'yellow': '#F1D700'
     },

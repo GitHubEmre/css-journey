@@ -1,4 +1,6 @@
 <template>
+    <AlertsComponent ref="alertsComponent" />
+    
     <div v-if="levelWon" class="fixed inset-0 bg-white bg-opacity-30 backdrop-blur-sm z-50 flex">
         <p class="m-auto text-9xl">Bien joué !</p>
         <div class="firework" v-for="n in 5" :key="n"></div>
@@ -6,7 +8,16 @@
 
     <div class="flex pl-8 space-x-8">
         <div class="flex-grow mt-8">
-            <LevelSelectorComponent :level="currentLevel" @change-level="changeLevel" />
+            <div class="flex justify-end">
+                <button
+                    @click="showAnswerClicked"
+                    :class="numberOfAttemps >= attempsNeededToShowAnwser ? 'bg-white' : 'bg-gray-lighter cursor-not-allowed'"
+                    class="mr-4 px-2 rounded w-48"
+                >
+                    {{ showAnswer ? answerToShow : "Voir la réponse" }}
+                </button>
+                <LevelSelectorComponent :level="currentLevel" @change-level="changeLevel" />
+            </div>
             <TableComponent :instruction="instruction" :template="template.join('')" class="mt-8" />
             <div class="flex space-x-8 mt-8">
                 <CodeComponent @code-changed="codeChanged" :class="{ 'animate-vibrate': isVibrating }" ref="codeComponent" />
@@ -20,6 +31,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { HtmlTag } from '../models/HtmlTag';
+import AlertsComponent from './shared/AlertsComponent.vue';
 import CodeComponent from './CodeComponent.vue';
 import CourseComponent from './courses/CourseComponent.vue';
 import HtmlComponent from './HtmlComponent.vue';
@@ -28,16 +40,18 @@ import selectorLevels from "../data/selector-levels.json";
 import TableComponent from './TableComponent.vue';
 
 type SelectorLevel = {
-    htmlTags: string[];
-    template: string[];
-    instruction: string;
-    expectedAnswer: string;
+    answerKeywords: string[];
+    answerToShow: string;
     courses: string[];
+    htmlTags: string[];
+    instruction: string;
+    template: string[];
 };
 
 export default defineComponent({
     name: 'SelectorComponent',
     components: {
+        AlertsComponent,
         CodeComponent,
         CourseComponent,
         HtmlComponent,
@@ -46,89 +60,33 @@ export default defineComponent({
     },
     setup() {
         const codeComponent = ref<InstanceType<typeof CodeComponent> | null>(null);
-        return { codeComponent };
+        const alertsComponent = ref<InstanceType<typeof AlertsComponent> | null>(null);
+        return { codeComponent, alertsComponent };
     },
     data() {
         return {
-            answerWithRedBorder: null as null | HTMLElement,
-            courses: [] as String [],
+            answerToShow: "",
+            answersWithRedBorder: [] as HTMLElement[],
+            attempsNeededToShowAnwser: 3,
+            courses: [] as string[],
             currentLevel: 1,
-            expectedAnswer: "",
-            expectedElement: undefined as undefined | HTMLElement,
+            answerKeywords: [] as string[],
+            expectedHTMLElements: [] as HTMLElement[],
             htmlTags: [] as HtmlTag[],
             instruction: "",
             isVibrating: false,
             levelWon: false,
-            template: [] as String[]
+            numberOfAttemps: 0,
+            template: [] as string[],
+            showAnswer: false
         }
     },
     methods: {
-        setBorder: function (htmlElement: HTMLElement, border: string) {
-            htmlElement.style.border = border;
-        },
-        resetGreenBorder: function(): void {
-            if (this.expectedElement) {
-                this.setBorder(this.expectedElement, "unset");
+        areHtmlElementsEqual: function(arr1: HTMLElement[], arr2: HTMLElement[]): boolean {
+            if (arr1.length !== arr2.length) {
+                return false;
             }
-        },
-        resetRedBorder: function(): void {
-            if (this.answerWithRedBorder) {
-                this.setBorder(this.answerWithRedBorder, "unset");
-                this.answerWithRedBorder = null;
-            }
-        },
-        vibrateCodeComponent: function(): void {
-            this.isVibrating = true;
-            setTimeout(() => (this.isVibrating = false), 300);
-        },
-        codeChanged: function(code: string) : void {
-            if (code.length > 0) {
-                this.resetRedBorder();
-
-                try {
-                    const selectedPlate = document.querySelector("#level-template " + code);
-                    if (selectedPlate) {
-                        const selectedPlateHTMLElement = selectedPlate as HTMLElement;
-
-                        if (selectedPlateHTMLElement === this.expectedElement) { // correct element
-                            if (code.trim().includes(this.expectedAnswer)) { // correct css selector
-                                this.setBorder(selectedPlateHTMLElement, "solid 2px green");
-                                this.winLevel();
-                            } else { // wrong css selector
-                                this.vibrateCodeComponent();
-                            }
-                        } else { // wrong element
-                            this.setBorder(selectedPlateHTMLElement, "solid 2px red");
-                            selectedPlateHTMLElement.classList.add("animate-vibrate");
-                            setTimeout(() => (selectedPlateHTMLElement.classList.remove("animate-vibrate")), 300);
-                            this.answerWithRedBorder = selectedPlateHTMLElement;
-                        }
-                    } else { // element not found
-                        this.vibrateCodeComponent();
-                    }
-                } catch {
-                    this.vibrateCodeComponent();
-                }
-            }
-        },
-        updateLevelValues(): void {
-            const levels: Record<string, SelectorLevel> = selectorLevels;
-            this.htmlTags = levels[this.currentLevel].htmlTags.map((htmlTag) => new HtmlTag(htmlTag));
-            this.template = levels[this.currentLevel].template;
-            this.instruction = levels[this.currentLevel].instruction;
-            this.expectedAnswer = levels[this.currentLevel].expectedAnswer;
-            this.courses = levels[this.currentLevel].courses;
-
-            this.$nextTick(() => {
-                const expectedElement = document.querySelector("#table " + this.expectedAnswer);
-                if (expectedElement) {
-                    this.expectedElement = (expectedElement as HTMLElement);
-                }
-            });
-
-            if (this.codeComponent) {
-                this.codeComponent.resetCode();
-            }
+            return arr1.every((el, index) => el.isEqualNode(arr2[index]));
         },
         changeLevel(isNext: boolean): void {
             if (isNext) {
@@ -143,8 +101,110 @@ export default defineComponent({
                 this.currentLevel = Object.keys(selectorLevels).length;
             }
             this.resetRedBorder();
-            this.resetGreenBorder();
+            this.resetGreenBorders();
+            this.numberOfAttemps = 0;
+            this.showAnswer = false;
             this.updateLevelValues();
+            if (this.codeComponent) {
+                this.codeComponent.resetCode();
+            }
+        },
+        codeChanged: function(code: string) : void {
+            if (code.length > 0) {
+                this.resetRedBorder();
+                this.numberOfAttemps++;
+                try {
+                    const selectedHTMLElements = this.selectHTMLElements("#level-template " + code);
+                    if (selectedHTMLElements.length > 0) {
+                        if (this.areHtmlElementsEqual(this.expectedHTMLElements, selectedHTMLElements)) { // correct elements are selected
+                            this.onCorrectSelection(code, selectedHTMLElements);
+                        } else { // incorrect elements are selected
+                            this.onIncorrectSelection(selectedHTMLElements);
+                        }
+                    } else { // no element is selected
+                        this.vibrateCodeComponent();
+                    }
+                } catch {
+                    this.vibrateCodeComponent();
+                }
+            }
+        },
+        isAnswerValid: function(answer: string): boolean {
+            let isValid = true;
+            this.answerKeywords.forEach(keyword => {
+                if (!answer.includes(keyword)) {
+                    isValid = false;
+                }
+            });
+            return isValid;
+        },
+        onCorrectSelection: function(code: string, htmlElements: HTMLElement[]) : void {
+            if (this.isAnswerValid(code)) { // correct css selector
+                htmlElements.forEach(htmlElement => {
+                    this.setBorder(htmlElement, "solid 2px #6A993E");
+                });
+                this.winLevel();
+            } else { // wrong css selector
+                if (this.alertsComponent) {
+                    this.alertsComponent.addAlert("Le ou les bons éléments n'ont pas été sélectionné de la bonne manière.");
+                }
+                this.vibrateCodeComponent();
+            }
+        },
+        onIncorrectSelection: function(htmlElements: HTMLElement[]): void {
+            htmlElements.forEach(htmlElement => {
+                this.setBorder(htmlElement, "solid 2px #CC3300");
+                htmlElement.classList.add("animate-vibrate");
+            });
+            setTimeout(() => {
+                htmlElements.forEach(htmlElement => {
+                    htmlElement.classList.remove("animate-vibrate");
+                });
+            }, 300);
+            this.answersWithRedBorder = htmlElements;
+        },
+        setBorder: function (htmlElement: HTMLElement, border: string) {
+            htmlElement.style.border = border;
+        },
+        showAnswerClicked(): void {
+            if (this.numberOfAttemps >= this.attempsNeededToShowAnwser) {
+                this.showAnswer = !this.showAnswer;
+            }
+        },
+        resetGreenBorders: function(): void {
+            this.expectedHTMLElements.forEach(htmlElement => {
+                this.setBorder(htmlElement, "unset");
+            });
+        },
+        resetRedBorder: function(): void {
+            this.answersWithRedBorder.forEach(htmlElement => {
+                this.setBorder(htmlElement, "unset");
+            });
+            this.answersWithRedBorder = [];
+        },
+        selectHTMLElements: function(cssSelector: string): HTMLElement[] {
+            return Array.from(
+                document.querySelectorAll(cssSelector)
+            ) as HTMLElement[];
+        },
+        updateLevelValues(): void {
+            const levels: Record<string, SelectorLevel> = selectorLevels;
+            this.htmlTags = levels[this.currentLevel].htmlTags.map((htmlTag) => new HtmlTag(htmlTag));
+            this.template = levels[this.currentLevel].template;
+            this.instruction = levels[this.currentLevel].instruction;
+            this.answerKeywords = levels[this.currentLevel].answerKeywords;
+            this.answerToShow = levels[this.currentLevel].answerToShow;
+            this.courses = levels[this.currentLevel].courses;
+
+            this.$nextTick(() => {
+                this.expectedHTMLElements = Array.from(
+                    document.querySelectorAll("#level-template " + this.answerToShow)
+                ) as HTMLElement[];
+            });
+        },
+        vibrateCodeComponent: function(): void {
+            this.isVibrating = true;
+            setTimeout(() => (this.isVibrating = false), 300);
         },
         winLevel(): void {
             this.levelWon = true;
