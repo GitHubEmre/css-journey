@@ -12,7 +12,7 @@
         ],
         "instruction": "Sélectionnez le cercle gris en utilisant le sélecteur des id.",
         "template": [
-            "<div id='table' class='flex justify-around'>",
+            "<div id='table'>",
                 "<div id='white' class='circle bg-white'></div>",
                 "<div id='gray' class='circle bg-gray'></div>",
                 "<div id='green' class='circle bg-green'></div>",
@@ -32,7 +32,7 @@
         ],
         "instruction": "Sélectionnez le cercle gris en utilisant le sélecteur des classes.",
         "template": [
-            "<div id='table' class='flex justify-around'>",
+            "<div id='table'>",
                 "<div id='white' class='circle bg-white'></div>",
                 "<div id='gray' class='circle bg-gray'></div>",
                 "<div id='green' class='circle bg-green'></div>",
@@ -54,7 +54,7 @@
         ],
         "instruction": "Sélectionnez le premier cercle en utilisant les pseudo-classes.",
         "template": [
-            "<div id='table' class='flex justify-around'>",
+            "<div id='table'>",
                 "<div class='circle bg-gray'></div>",
                 "<div class='circle bg-gray'></div>",
                 "<div class='circle bg-gray'></div>",
@@ -78,7 +78,7 @@
         ],
         "instruction": "Sélectionnez le dernier cercle en utilisant les pseudo-classes.",
         "template": [
-            "<div id='table' class='flex justify-around'>",
+            "<div id='table'>",
                 "<div class='circle bg-gray'></div>",
                 "<div class='circle bg-gray'></div>",
                 "<div class='circle bg-gray'></div>",
@@ -102,7 +102,7 @@
         ],
         "instruction": "Sélectionnez le troisième cercle en utilisant les pseudo-classes.",
         "template": [
-            "<div id='table' class='flex justify-around'>",
+            "<div id='table'>",
                 "<div class='circle bg-gray'></div>",
                 "<div class='circle bg-gray'></div>",
                 "<div class='circle bg-gray'></div>",
@@ -126,7 +126,7 @@
         ],
         "instruction": "Sélectionnez le deuxième cercle en partant de la fin en utilisant les pseudo-classes.",
         "template": [
-            "<div id='table' class='flex justify-around'>",
+            "<div id='table'>",
                 "<div class='circle bg-gray'></div>",
                 "<div class='circle bg-gray'></div>",
                 "<div class='circle bg-gray'></div>",
@@ -150,7 +150,7 @@
         ],
         "instruction": "Sélectionnez le cercle qui contient un carré.",
         "template": [
-            "<div id='table' class='flex justify-around'>",
+            "<div id='table'>",
                 "<div class='circle parent bg-gray'><div class='square child bg-green'></div></div>",
                 "<div class='circle bg-gray'></div>",
                 "<div class='circle bg-gray'></div>",
@@ -172,7 +172,7 @@
         ],
         "instruction": "Sélectionnez les cercles qui ne contiennent pas de carré.",
         "template": [
-            "<div id='table' class='flex justify-around'>",
+            "<div id='table'>",
                 "<div class='circle parent bg-gray'><div class='square child bg-green'></div></div>",
                 "<div class='circle bg-gray'></div>",
                 "<div class='circle bg-gray'></div>",
@@ -194,7 +194,7 @@
         ],
         "instruction": "Sélectionnez les cercles de couleur bleu et orange.",
         "template": [
-            "<div id='table' class='flex justify-around'>",
+            "<div id='table'>",
                 "<div class='circle bg-green'></div>",
                 "<div class='circle bg-gray'></div>",
                 "<div class='circle bg-white'></div>",
@@ -218,7 +218,7 @@
         ],
         "instruction": "Sélectionnez tous les cercles sauf le blanc.",
         "template": [
-            "<div id='table' class='flex justify-around'>",
+            "<div id='table'>",
                 "<div class='circle bg-green'></div>",
                 "<div class='circle bg-gray'></div>",
                 "<div class='circle bg-white'></div>",
@@ -243,7 +243,7 @@
         ],
         "instruction": "Sélectionnez le cercle bleu et le carré bleu en utilisant les pseudo-classes.",
         "template": [
-            "<div id='table' class='flex justify-around items-center'>",
+            "<div id='table'>",
                 "<div class='circle bg-blue'></div>",
                 "<div class='circle bg-white'></div>",
                 "<div class='square bg-blue'></div>",
@@ -268,7 +268,7 @@
         ],
         "instruction": "Sélectionnez le cercle qui est dans le carré.",
         "template": [
-            "<div id='table' class='flex justify-around'>",
+            "<div id='table'>",
                 "<div class='circle bg-blue'></div>",
                 "<div class='parent square bg-green'><div class='child circle bg-blue'></div></div>",
                 "<div class='circle bg-blue'></div>",
@@ -290,7 +290,7 @@
         ],
         "instruction": "Sélectionnez le cercle blanc sans utiliser la classe bg-white.",
         "template": [
-            "<div id='table' class='flex justify-around'>",
+            "<div id='table'>",
                 "<div class='parent square bg-gray'><div class='parent child circle bg-white'><div class='child circle bg-blue'></div></div></div>",
             "</div>"
         ]
@@ -309,11 +309,31 @@
         ],
         "instruction": "Sélectionnez le cercle gris sans utiliser les pseudo-classes.",
         "template": [
-            "<div id='table' class='flex justify-around'>",
+            "<div id='table'>",
                 "<div class='square bg-gray'></div>",
                 "<div class='square bg-blue'></div>",
                 "<div class='circle bg-gray'></div>",
                 "<div class='circle bg-blue'></div>",
+            "</div>"
+        ]
+    },
+    "15": {
+        "answerKeywords": ["*"],
+        "answerToShow": "#table *",
+        "courses": ["UniversalSelector"],
+        "htmlTags": [
+            "<div id=\"table\">",
+                "<div class=\"square bg-gray\"/>",
+                "<div class=\"circle bg-blue\"/>",
+                "<div class=\"rectangle bg-green\"/>",
+            "</div>"
+        ],
+        "instruction": "Sélectionnez toutes les formes.",
+        "template": [
+            "<div id='table'>",
+                "<div class='square bg-gray'></div>",
+                "<div class='circle bg-blue'></div>",
+                "<div class='rectangle bg-green'></div>",
             "</div>"
         ]
     }

@@ -71,3 +71,7 @@ h6 {
 .warning {
     @apply text-red font-bold;
 }
+
+#table {
+    @apply bg-brown-light rounded-md flex justify-around items-center px-8 py-4 shadow-xl;
+}

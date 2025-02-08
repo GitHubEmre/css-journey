@@ -30,6 +30,7 @@ export default {
     colors: {
       'blue-light': '#9CDCDA',
       'blue': '#4A9CD6',
+      'brown-light': '#B79770',
       'gray-dark': '#1F1F1F', 
       'gray-darker': '#181818',
       'gray-light': '#6E7681',

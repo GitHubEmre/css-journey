@@ -198,7 +198,7 @@ export default defineComponent({
 
             this.$nextTick(() => {
                 this.expectedHTMLElements = Array.from(
-                    document.querySelectorAll("#table " + this.answerToShow)
+                    document.querySelectorAll("#level-template " + this.answerToShow)
                 ) as HTMLElement[];
             });
         },
