@@ -7,6 +7,8 @@ import SelectorComponent from './components/SelectorComponent.vue';
 
 const baseUrl = import.meta.env.VITE_ENV === 'production' ? '/css-journey/' : '/';
 
+console.log(baseUrl);
+
 const routes: Array<RouteRecordRaw> = [
     { path: baseUrl, redirect: '/home' },
     // { path: '/animations', name: 'Animations', component: AnimationsComponent },
