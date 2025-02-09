@@ -5,7 +5,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import HomeComponent from './components/HomeComponent.vue';
 import SelectorComponent from './components/SelectorComponent.vue';
 
-const baseUrl = process.env.NODE_ENV === 'production' ? '/css-journey/' : '/';
+const baseUrl = import.meta.env.VITE_ENV === 'production' ? '/css-journey/' : '/';
 
 const routes: Array<RouteRecordRaw> = [
     { path: baseUrl, redirect: '/home' },
