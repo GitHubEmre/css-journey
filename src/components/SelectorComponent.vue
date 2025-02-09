@@ -9,7 +9,7 @@
     <div class="flex pl-8 space-x-8">
         <div class="flex-grow mt-8">
             <div class="flex justify-between">
-                <router-link to="/home"><button class="bg-green w-48 h-full rounded hover:scale-105">Retour à l'accueil</button></router-link>
+                <router-link to="/css-journey/home"><button class="bg-green w-48 h-full rounded hover:scale-105">Retour à l'accueil</button></router-link>
                 <div class="flex justify-end">
                     <button
                         @click="showAnswerClicked"
