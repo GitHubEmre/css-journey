@@ -1,5 +1,7 @@
-# Vue 3 + TypeScript + Vite
+To recommit new changes and push up to the remote repository to update github pages:
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+1. (Optionnal) On remote repository delete the "gh-pages" branch. 
+2. In you local repository run this command: npm run build
+3. git add dist -f
+4. git commit -m [your commit message here]
+5. git subtree push --prefix dist origin gh-pages
