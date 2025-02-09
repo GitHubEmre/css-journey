@@ -8,51 +8,51 @@
     <div class="bg-gray p-1 rounded-md font-family-code">
         <p>
             <span class="text-gray-light">&lt;</span>
-            <span class="text-blue">h1</span>
+            <span class="text-blue-dark">h1</span>
             <span class="text-blue-light"> class</span>
-            <span class="text-white">=</span>
-            <span class="text-orange">"bold"</span>
+            <span class="text-white-real">=</span>
+            <span class="text-orange-dark">"bold"</span>
             <span class="text-gray-light">&gt;</span>
         </p>
-        <p class="ml-4 text-white">
+        <p class="ml-4 text-white-real">
             Titre important
         </p>
         <p>
             <span class="text-gray-light">&lt;/</span>
-            <span class="text-blue">h1</span>
+            <span class="text-blue-dark">h1</span>
             <span class="text-gray-light">&gt;</span>
         </p>
 
         <p>
             <span class="text-gray-light">&lt;</span>
-            <span class="text-blue">p</span>
+            <span class="text-blue-dark">p</span>
             <span class="text-blue-light"> class</span>
-            <span class="text-white">=</span>
-            <span class="text-orange">"bold"</span>
+            <span class="text-white-real">=</span>
+            <span class="text-orange-dark">"bold"</span>
             <span class="text-gray-light">&gt;</span>
         </p>
-        <p class="ml-4 text-white">
+        <p class="ml-4 text-white-real">
             Paragraphe important
         </p>
         <p>
             <span class="text-gray-light">&lt;/</span>
-            <span class="text-blue">p</span>
+            <span class="text-blue-dark">p</span>
             <span class="text-gray-light">&gt;</span>
         </p>
 
         <p>
             <span class="text-gray-light">&lt;</span>
-            <span class="text-blue">h1</span>
+            <span class="text-blue-dark">h1</span>
             <span class="text-gray-light">&gt;</span>
-            <span class="text-white">Titre</span>
+            <span class="text-white-real">Titre</span>
             <span class="text-gray-light">&lt;/</span>
-            <span class="text-blue">h1</span>
+            <span class="text-blue-dark">h1</span>
             <span class="text-gray-light">&gt;</span>
         </p>
     </div>
     <h6>Syntaxe</h6>
     <div class="bg-gray p-1 rounded-md font-family-code">
-        <p class="text-orange-light">h1.bold <span class="text-yellow">{</span></p>
+        <p class="text-orange-code">h1.bold <span class="text-yellow-dark">{</span></p>
         <p class="ml-4">
             <span class="text-blue-light">color</span>
             <span>: red;</span>
@@ -61,7 +61,7 @@
             <span class="text-blue-light">font-weight</span>
             <span>: bold;</span>
         </p>
-        <p class="text-yellow">}</p>
+        <p class="text-yellow-dark">}</p>
     </div>
     <ul class="list-disc ml-5">
         <li>

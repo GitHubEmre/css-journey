@@ -1,7 +1,7 @@
 <template>
     <div class="fixed top-8 left-8 h-[232px] overflow-hidden">
         <transition-group name="fade" tag="div">
-            <div v-for="(alert) in alerts" :key="alert.id" class="bg-orange text-white font-bold px-4 py-2 rounded shadow-md mb-2">
+            <div v-for="(alert) in alerts" :key="alert.id" class="bg-orange text-white-real font-bold px-4 py-2 rounded shadow-md mb-2">
                 {{ alert.message }}
             </div>
         </transition-group>

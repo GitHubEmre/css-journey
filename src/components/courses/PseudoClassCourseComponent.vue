@@ -10,34 +10,34 @@
     <div class="bg-gray p-1 rounded-md font-family-code">
         <p>
             <span class="text-gray-light">&lt;</span>
-            <span class="text-blue">ul</span>
+            <span class="text-blue-dark">ul</span>
             <span class="text-gray-light">&gt;</span>
         </p>
-        <p class="ml-4 text-white" v-for="i in 3">
+        <p class="ml-4 text-white-real" v-for="i in 3">
             <span class="text-gray-light">&lt;</span>
-            <span class="text-blue">li</span>
+            <span class="text-blue-dark">li</span>
             <span class="text-gray-light">&gt;</span>
             <span>Item {{ i }}</span>
             <span class="text-gray-light">&lt;/</span>
-            <span class="text-blue">li</span>
+            <span class="text-blue-dark">li</span>
             <span class="text-gray-light">&gt;</span>
         </p>
         <p>
             <span class="text-gray-light">&lt;/</span>
-            <span class="text-blue">ul</span>
+            <span class="text-blue-dark">ul</span>
             <span class="text-gray-light">&gt;</span>
         </p>
     </div>
     <h6>Syntaxe</h6>
     <div class="bg-gray p-1 rounded-md font-family-code">
-        <p class="text-orange-light">li:first-child <span class="text-yellow">{</span></p>
+        <p class="text-orange-code">li:first-child <span class="text-yellow-dark">{</span></p>
         <p class="ml-4">
             <span class="text-blue-light">color</span>
             <span>: </span>
-            <span class="text-orange">red</span>
+            <span class="text-orange-dark">red</span>
             <span>;</span>
         </p>
-        <p class="text-yellow">}</p>
+        <p class="text-yellow-dark">}</p>
     </div>
     <ul class="list-disc ml-5">
         <li>
@@ -57,43 +57,43 @@
     <div class="bg-gray p-1 rounded-md font-family-code">
         <p>
             <span class="text-gray-light">&lt;</span>
-            <span class="text-blue">ul</span>
+            <span class="text-blue-dark">ul</span>
             <span class="text-gray-light">&gt;</span>
         </p>
-        <p class="ml-4 text-white" v-for="i in 4">
+        <p class="ml-4 text-white-real" v-for="i in 4">
             <span class="text-gray-light">&lt;</span>
-            <span class="text-blue">li</span>
+            <span class="text-blue-dark">li</span>
             <span class="text-gray-light">&gt;</span>
             <span>Item {{ i }}</span>
             <span class="text-gray-light">&lt;/</span>
-            <span class="text-blue">li</span>
+            <span class="text-blue-dark">li</span>
             <span class="text-gray-light">&gt;</span>
         </p>
         <p>
             <span class="text-gray-light">&lt;/</span>
-            <span class="text-blue">ul</span>
+            <span class="text-blue-dark">ul</span>
             <span class="text-gray-light">&gt;</span>
         </p>
     </div>
     <h6>Syntaxe</h6>
     <div class="bg-gray p-1 rounded-md font-family-code">
-        <p class="text-orange-light">li:nth-child(2n) <span class="text-yellow">{</span></p>
+        <p class="text-orange-code">li:nth-child(2n) <span class="text-yellow-dark">{</span></p>
         <p class="ml-4">
             <span class="text-blue-light">color</span>
             <span>: </span>
-            <span class="text-orange">green</span>
+            <span class="text-orange-dark">green</span>
             <span>;</span>
         </p>
-        <p class="text-yellow">}</p>
+        <p class="text-yellow-dark">}</p>
         <br>
-        <p class="text-orange-light">li:nth-last-child(1) <span class="text-yellow">{</span></p>
+        <p class="text-orange-code">li:nth-last-child(1) <span class="text-yellow-dark">{</span></p>
         <p class="ml-4">
             <span class="text-blue-light">font-style</span>
             <span>: </span>
-            <span class="text-orange">italic</span>
+            <span class="text-orange-dark">italic</span>
             <span>;</span>
         </p>
-        <p class="text-yellow">}</p>
+        <p class="text-yellow-dark">}</p>
     </div>
     <ul class="list-disc ml-5">
         <li>
@@ -115,21 +115,21 @@
     <div class="bg-gray p-1 rounded-md font-family-code">
         <p>
             <span class="text-gray-light">&lt;</span>
-            <span class="text-blue">ul</span>
+            <span class="text-blue-dark">ul</span>
             <span class="text-gray-light">&gt;</span>
         </p>
-        <p class="ml-4 text-white" v-for="i in 2">
+        <p class="ml-4 text-white-real" v-for="i in 2">
             <span class="text-gray-light">&lt;</span>
-            <span class="text-blue">li</span>
+            <span class="text-blue-dark">li</span>
             <span class="text-gray-light">&gt;</span>
             <span>Item {{ i }}</span>
             <span class="text-gray-light">&lt;/</span>
-            <span class="text-blue">li</span>
+            <span class="text-blue-dark">li</span>
             <span class="text-gray-light">&gt;</span>
         </p>
-        <p class="ml-4 text-white">
+        <p class="ml-4 text-white-real">
             <span class="text-gray-light">&lt;</span>
-            <span class="text-blue">li</span>
+            <span class="text-blue-dark">li</span>
             <span class="text-gray-light">&gt;</span>
 
             <br>
@@ -137,36 +137,36 @@
             <br>
             
             <span class="text-gray-light ml-4">&lt;</span>
-            <span class="text-blue">span </span>
+            <span class="text-blue-dark">span </span>
             <span class="text-blue-light">class</span>
             <span>=</span>
-            <span class="text-orange">"bold"</span>
+            <span class="text-orange-dark">"bold"</span>
             <span class="text-gray-light">&gt;</span>
             <span>New</span>
             <span class="text-gray-light">&lt;/</span>
-            <span class="text-blue">span</span>
+            <span class="text-blue-dark">span</span>
             <span class="text-gray-light">&gt;</span>
             
             <span class="text-gray-light">&lt;/</span>
-            <span class="text-blue">li</span>
+            <span class="text-blue-dark">li</span>
             <span class="text-gray-light">&gt;</span>
         </p>
         <p>
             <span class="text-gray-light">&lt;/</span>
-            <span class="text-blue">ul</span>
+            <span class="text-blue-dark">ul</span>
             <span class="text-gray-light">&gt;</span>
         </p>
     </div>
     <h6>Syntaxe</h6>
     <div class="bg-gray p-1 rounded-md font-family-code">
-        <p class="text-orange-light">li:has(.bold) <span class="text-yellow">{</span></p>
+        <p class="text-orange-code">li:has(.bold) <span class="text-yellow-dark">{</span></p>
         <p class="ml-4">
             <span class="text-blue-light">font-weight</span>
             <span>: </span>
-            <span class="text-orange">bold</span>
+            <span class="text-orange-dark">bold</span>
             <span>;</span>
         </p>
-        <p class="text-yellow">}</p>
+        <p class="text-yellow-dark">}</p>
     </div>
     <ul class="list-disc ml-5">
         <li>
@@ -183,46 +183,46 @@
     <div class="bg-gray p-1 rounded-md font-family-code">
         <p>
             <span class="text-gray-light">&lt;</span>
-            <span class="text-blue">ul</span>
+            <span class="text-blue-dark">ul</span>
             <span class="text-gray-light">&gt;</span>
         </p>
-        <p class="ml-4 text-white" v-for="i in 2">
+        <p class="ml-4 text-white-real" v-for="i in 2">
             <span class="text-gray-light">&lt;</span>
-            <span class="text-blue">li</span>
+            <span class="text-blue-dark">li</span>
             <span class="text-gray-light">&gt;</span>
             <span>Item {{ i }}</span>
             <span class="text-gray-light">&lt;/</span>
-            <span class="text-blue">li</span>
+            <span class="text-blue-dark">li</span>
             <span class="text-gray-light">&gt;</span>
         </p>
-        <p class="ml-4 text-white">
+        <p class="ml-4 text-white-real">
             <span class="text-gray-light">&lt;</span>
-            <span class="text-blue">li </span>
+            <span class="text-blue-dark">li </span>
             <span class="text-blue-light">class</span>
             <span>=</span>
-            <span class="text-orange">"bold"</span>
+            <span class="text-orange-dark">"bold"</span>
             <span class="text-gray-light">&gt;</span>
             <span>Item 3</span>
             <span class="text-gray-light">&lt;/</span>
-            <span class="text-blue">li</span>
+            <span class="text-blue-dark">li</span>
             <span class="text-gray-light">&gt;</span>
         </p>
         <p>
             <span class="text-gray-light">&lt;/</span>
-            <span class="text-blue">ul</span>
+            <span class="text-blue-dark">ul</span>
             <span class="text-gray-light">&gt;</span>
         </p>
     </div>
     <h6>Syntaxe</h6>
     <div class="bg-gray p-1 rounded-md font-family-code">
-        <p class="text-orange-light">li:not(.bold) <span class="text-yellow">{</span></p>
+        <p class="text-orange-code">li:not(.bold) <span class="text-yellow-dark">{</span></p>
         <p class="ml-4">
             <span class="text-blue-light">font-weight</span>
             <span>: </span>
-            <span class="text-orange">normal</span>
+            <span class="text-orange-dark">normal</span>
             <span>;</span>
         </p>
-        <p class="text-yellow">}</p>
+        <p class="text-yellow-dark">}</p>
     </div>
     <ul class="list-disc ml-5">
         <li>
@@ -240,58 +240,58 @@
     <div class="bg-gray p-1 rounded-md font-family-code">
         <p>
             <span class="text-gray-light">&lt;</span>
-            <span class="text-blue">ul</span>
+            <span class="text-blue-dark">ul</span>
             <span class="text-gray-light">&gt;</span>
         </p>
-        <p class="ml-4 text-white">
+        <p class="ml-4 text-white-real">
             <span class="text-gray-light">&lt;</span>
-            <span class="text-blue">li </span>
+            <span class="text-blue-dark">li </span>
             <span class="text-blue-light">class</span>
             <span>=</span>
-            <span class="text-orange">"bold"</span>
+            <span class="text-orange-dark">"bold"</span>
             <span class="text-gray-light">&gt;</span>
             <span>Item 1</span>
             <span class="text-gray-light">&lt;/</span>
-            <span class="text-blue">li</span>
+            <span class="text-blue-dark">li</span>
             <span class="text-gray-light">&gt;</span>
         </p>
-        <p class="ml-4 text-white">
+        <p class="ml-4 text-white-real">
             <span class="text-gray-light">&lt;</span>
-            <span class="text-blue">li </span>
+            <span class="text-blue-dark">li </span>
             <span class="text-blue-light">class</span>
             <span>=</span>
-            <span class="text-orange">"important"</span>
+            <span class="text-orange-dark">"important"</span>
             <span class="text-gray-light">&gt;</span>
             <span>Item 2</span>
             <span class="text-gray-light">&lt;/</span>
-            <span class="text-blue">li</span>
+            <span class="text-blue-dark">li</span>
             <span class="text-gray-light">&gt;</span>
         </p>
-        <p class="ml-4 text-white">
+        <p class="ml-4 text-white-real">
             <span class="text-gray-light">&lt;</span>
-            <span class="text-blue">li</span>
+            <span class="text-blue-dark">li</span>
             <span class="text-gray-light">&gt;</span>
             <span>Item 3</span>
             <span class="text-gray-light">&lt;/</span>
-            <span class="text-blue">li</span>
+            <span class="text-blue-dark">li</span>
             <span class="text-gray-light">&gt;</span>
         </p>
         <p>
             <span class="text-gray-light">&lt;/</span>
-            <span class="text-blue">ul</span>
+            <span class="text-blue-dark">ul</span>
             <span class="text-gray-light">&gt;</span>
         </p>
     </div>
     <h6>Syntaxe</h6>
     <div class="bg-gray p-1 rounded-md font-family-code">
-        <p class="text-orange-light">li:is(.bold, .important) <span class="text-yellow">{</span></p>
+        <p class="text-orange-code">li:is(.bold, .important) <span class="text-yellow-dark">{</span></p>
         <p class="ml-4">
             <span class="text-blue-light">font-weight</span>
             <span>: </span>
-            <span class="text-orange">bold</span>
+            <span class="text-orange-dark">bold</span>
             <span>;</span>
         </p>
-        <p class="text-yellow">}</p>
+        <p class="text-yellow-dark">}</p>
     </div>
     <ul class="list-disc ml-5">
         <li>

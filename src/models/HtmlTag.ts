@@ -27,17 +27,17 @@ export class HtmlTag implements IHtmlTag {
         let htmlTagRawCopy = this.htmlTagRaw.slice(this.isOpeningTag ? 1 : 2); // erase < or </ in raw html
         
         let splittedHtmlTagRaw = htmlTagRawCopy.split(this.isOpeningTag ? " " : '>');
-        colorizedHtmlTag += this.getColorizedSpan(splittedHtmlTagRaw[0] + (this.isOpeningTag ? ' ' : ''), "blue"); // write tag name in colorized html
+        colorizedHtmlTag += this.getColorizedSpan(splittedHtmlTagRaw[0] + (this.isOpeningTag ? ' ' : ''), "blue-dark"); // write tag name in colorized html
         htmlTagRawCopy = splittedHtmlTagRaw.slice(1).join(' '); // erase tag name in raw html
 
         for(let i = 0; i < propertiesCount; i++) {
             splittedHtmlTagRaw = htmlTagRawCopy.split("=");
             colorizedHtmlTag += this.getColorizedSpan(splittedHtmlTagRaw[0] ?? '', "blue-light"); // write propertyName in colorized html
-            colorizedHtmlTag += this.getColorizedSpan('=', "white"); // write = in colorized html
+            colorizedHtmlTag += this.getColorizedSpan('=', "white-real"); // write = in colorized html
             htmlTagRawCopy = splittedHtmlTagRaw.slice(1).join('=').slice(1); // erase propertyName= in raw html
 
             splittedHtmlTagRaw = htmlTagRawCopy.split('"');
-            colorizedHtmlTag += this.getColorizedSpan('"' + splittedHtmlTagRaw[0] + '"', "orange"); // write "propertyValue" in colorized html
+            colorizedHtmlTag += this.getColorizedSpan('"' + splittedHtmlTagRaw[0] + '"', "orange-dark"); // write "propertyValue" in colorized html
             htmlTagRawCopy = splittedHtmlTagRaw.slice(1).join('"'); // erase "propertyName" in raw html
         }
         

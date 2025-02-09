@@ -1,24 +1,27 @@
 <template>
     <AlertsComponent ref="alertsComponent" />
     
-    <div v-if="levelWon" class="fixed inset-0 bg-white bg-opacity-30 backdrop-blur-sm z-50 flex">
+    <div v-if="levelWon" class="fixed inset-0 bg-white-real bg-opacity-30 backdrop-blur-sm z-50 flex">
         <p class="m-auto text-9xl">Bien joué !</p>
         <div class="firework" v-for="n in 5" :key="n"></div>
     </div>
 
     <div class="flex pl-8 space-x-8">
         <div class="flex-grow mt-8">
-            <div class="flex justify-end">
-                <button
-                    @click="showAnswerClicked"
-                    :class="numberOfAttemps >= attempsNeededToShowAnwser ? 'bg-white' : 'bg-gray-lighter cursor-not-allowed'"
-                    class="mr-4 px-2 rounded w-48"
-                >
-                    {{ showAnswer ? answerToShow : "Voir la réponse" }}
-                </button>
-                <LevelSelectorComponent :level="currentLevel" @change-level="changeLevel" />
+            <div class="flex justify-between">
+                <router-link to="/home"><button class="bg-green w-48 h-full rounded hover:scale-105">Retour à l'accueil</button></router-link>
+                <div class="flex justify-end">
+                    <button
+                        @click="showAnswerClicked"
+                        :class="numberOfAttemps >= attempsNeededToShowAnwser ? 'bg-white animate-vibrate' : 'bg-gray-lighter cursor-not-allowed'"
+                        class="mr-4 px-2 rounded w-48"
+                    >
+                        {{ showAnswer ? answerToShow : "Voir la réponse" }}
+                    </button>
+                    <LevelSelectorComponent :level="currentLevel" @change-level="changeLevel" />
+                </div>
             </div>
-            <TableComponent :instruction="instruction" :template="template.join('')" class="mt-8" />
+            <ShapesComponent :instruction="instruction" :template="template.join('')" class="mt-8" />
             <div class="flex space-x-8 mt-8">
                 <CodeComponent @code-changed="codeChanged" :class="{ 'animate-vibrate': isVibrating }" ref="codeComponent" />
                 <HtmlComponent :htmlTags="(htmlTags as HtmlTag[])" />
@@ -37,7 +40,7 @@ import CourseComponent from './courses/CourseComponent.vue';
 import HtmlComponent from './HtmlComponent.vue';
 import LevelSelectorComponent from './LevelSelectorComponent.vue';
 import selectorLevels from "../data/selector-levels.json";
-import TableComponent from './TableComponent.vue';
+import ShapesComponent from './ShapesComponent.vue';
 
 type SelectorLevel = {
     answerKeywords: string[];
@@ -56,7 +59,7 @@ export default defineComponent({
         CourseComponent,
         HtmlComponent,
         LevelSelectorComponent,
-        TableComponent
+        ShapesComponent
     },
     setup() {
         const codeComponent = ref<InstanceType<typeof CodeComponent> | null>(null);

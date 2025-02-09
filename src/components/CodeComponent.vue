@@ -1,21 +1,21 @@
 <template>
     <div class="rounded-md shadow-md flex overflow-hidden w-full">
-        <div class="text-gray-light bg-gray-darker flex flex-col p-2 items-end">
+        <div class="text-gray-light bg-black flex flex-col p-2 items-end">
             <span v-for="line in lines" :key="line">{{ line }}</span>
         </div>
-        <div class="bg-white dark:bg-gray-dark w-full font-family-code p-2 cursor-text" @click="focusCodeTextArea">
+        <div class="bg-white-real dark:bg-gray-darker w-full font-family-code p-2 cursor-text" @click="focusCodeTextArea">
             <input
                 autocomplete="off"
-                class="w-full text-orange-light bg-white dark:bg-gray placeholder-gray-lighter focus:outline-none"
+                class="w-full text-orange-code bg-white-real dark:bg-gray placeholder-gray-lighter focus:outline-none"
                 id="code-text-area"
                 placeholder=".css-selector"
                 v-model="code"
                 @keydown="handleKeyDown"
             ></input>
             <div class="flex flex-col">
-                <span class="text-yellow">&#123;</span>
-                <span class="text-green ml-4">/* Some CSS code... */</span>
-                <span class="text-yellow">&#125;</span>
+                <span class="text-yellow-dark">&#123;</span>
+                <span class="text-green-dark ml-4">/* Some CSS code... */</span>
+                <span class="text-yellow-dark">&#125;</span>
             </div>
         </div>
     </div>

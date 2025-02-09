@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gray-dark text-gray-lighter p-4 h-[calc(100vh-56px)] w-96 space-y-4 overflow-y-auto">
+    <div class="bg-gray-darker text-gray-lighter p-4 h-screen w-96 space-y-4 overflow-y-auto">
         <component v-for="course in courses" :is="course + 'CourseComponent'" />
     </div>
 </template>

@@ -10,26 +10,26 @@
     <div class="bg-gray p-1 rounded-md font-family-code">
         <p>
             <span class="text-gray-light">&lt;</span>
-            <span class="text-blue">p</span>
+            <span class="text-blue-dark">p</span>
             <span class="text-blue-light"> class</span>
-            <span class="text-white">=</span>
-            <span class="text-orange">"ma-classe autre-classe" </span>
+            <span class="text-white-real">=</span>
+            <span class="text-orange-dark">"ma-classe autre-classe" </span>
             <span class="text-gray-light">&gt;</span>
         </p>
-        <p class="ml-4 text-white">
+        <p class="ml-4 text-white-real">
             Lorem ipsum dolor sit amet
         </p>
         <p>
             <span class="text-gray-light">&lt;/</span>
-            <span class="text-blue">p</span>
+            <span class="text-blue-dark">p</span>
             <span class="text-gray-light">&gt;</span>
         </p>
     </div>
     <h6>Syntaxe</h6>
     <div class="bg-gray p-1 rounded-md font-family-code">
-        <p class="text-orange-light">.ma-classe <span class="text-yellow">{</span></p>
-        <p class="text-green ml-4">/* Some CSS code... */</p>
-        <p class="text-yellow">}</p>
+        <p class="text-orange-code">.ma-classe <span class="text-yellow-dark">{</span></p>
+        <p class="text-green-dark ml-4">/* Some CSS code... */</p>
+        <p class="text-yellow-dark">}</p>
     </div>
     <ul class="list-disc ml-5">
         <li>

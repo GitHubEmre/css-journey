@@ -1,6 +1,11 @@
 <template>
-    <div class="rounded-md shadow-md overflow-hidden w-full bg-white dark:bg-gray-dark font-family-code p-2">
-        <div v-for="htmlTag in htmlTags" :class="`ml-${htmlTag.indentationLevel * 4}`" v-html="htmlTag.colorize()"></div>
+    <div class="flex rounded-md shadow-md overflow-hidden w-full bg-gray-darker font-family-code">
+        <div class="text-gray-light bg-black flex flex-col p-2 items-end">
+            <span v-for="line in lines" :key="line">{{ line }}</span>
+        </div>
+        <div class="p-2">
+            <div v-for="htmlTag in htmlTags" :class="`ml-${htmlTag.indentationLevel * 4}`" v-html="htmlTag.colorize()"></div>
+        </div>
     </div>
 </template>
   
@@ -15,6 +20,10 @@ export default defineComponent({
             type: Array as PropType<HtmlTag[]>,
             required: true,
         },
+        lines: {
+            type: Number,
+            default: 12
+        }
     },
     watch: {
         htmlTags: {

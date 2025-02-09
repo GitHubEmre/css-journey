@@ -15,6 +15,10 @@
     100% { transform: translateX(0); }
 }
 
+main {
+    @apply text-black bg-gray-dark;
+}
+
 .font-family-code {
     font-family: code;
 }
@@ -72,6 +76,6 @@ h6 {
     @apply text-red font-bold;
 }
 
-#table {
-    @apply bg-brown-light rounded-md flex justify-around items-center px-8 py-4 shadow-xl;
+#shapes {
+    @apply bg-gray rounded-md flex justify-around items-center px-8 py-4 shadow-xl;
 }
