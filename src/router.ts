@@ -6,7 +6,7 @@ import HomeComponent from './components/HomeComponent.vue';
 import SelectorComponent from './components/SelectorComponent.vue';
 
 const routes: Array<RouteRecordRaw> = [
-    { path: '/', redirect: '/selectors' },
+    { path: '/', redirect: '/home' },
     // { path: '/animations', name: 'Animations', component: AnimationsComponent },
     // { path: '/flex', name: 'Flexbox', component: FlexComponent },
     // { path: '/grid', name: 'Grid', component: GridComponent },
