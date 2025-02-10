@@ -6,15 +6,15 @@
         <div class="firework" v-for="n in 5" :key="n"></div>
     </div>
 
-    <div class="flex pl-8 space-x-8">
+    <div class="flex px-8 pb-8 lg:pr-0 space-x-8">
         <div class="flex-grow mt-8">
-            <div class="flex justify-between">
-                <router-link to="/css-journey/home"><button class="bg-green w-48 h-full rounded hover:scale-105">Retour à l'accueil</button></router-link>
-                <div class="flex justify-end">
+            <div class="flex flex-col md:flex-row justify-between md:mr-16 lg:mr-0">
+                <router-link to="/css-journey"><button class="bg-green w-full md:w-48 h-8 rounded hover:scale-105 mb-4 md:mb-0">Retour à l'accueil</button></router-link>
+                <div class="flex flex-col md:flex-row justify-end">
                     <button
                         @click="showAnswerClicked"
                         :class="numberOfAttemps >= attempsNeededToShowAnwser ? 'bg-white animate-vibrate' : 'bg-gray-lighter cursor-not-allowed'"
-                        class="mr-4 px-2 rounded w-48"
+                        class="mr-4 mb-4 md:mb-0 px-2 rounded w-full md:w-64 h-8"
                     >
                         {{ showAnswer ? answerToShow : "Voir la réponse" }}
                     </button>
@@ -22,9 +22,9 @@
                 </div>
             </div>
             <ShapesComponent :instruction="instruction" :template="template.join('')" class="mt-8" />
-            <div class="flex space-x-8 mt-8">
+            <div class="flex flex-col md:flex-row mt-8">
                 <CodeComponent @code-changed="codeChanged" :class="{ 'animate-vibrate': isVibrating }" ref="codeComponent" />
-                <HtmlComponent :htmlTags="(htmlTags as HtmlTag[])" />
+                <HtmlComponent :htmlTags="(htmlTags as HtmlTag[])" class="mt-8 md:mt-0 md:ml-8" />
             </div>
         </div>
         <CourseComponent :courses="courses"/>

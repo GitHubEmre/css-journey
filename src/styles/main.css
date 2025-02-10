@@ -16,7 +16,7 @@
 }
 
 main {
-    @apply text-black bg-gray-dark;
+    @apply text-black bg-gray-dark min-h-screen;
 }
 
 .font-family-code {
@@ -77,5 +77,5 @@ h6 {
 }
 
 #shapes {
-    @apply bg-gray rounded-md flex justify-around items-center px-8 py-4 shadow-xl;
+    @apply bg-gray rounded-md flex justify-around items-center px-8 py-4 shadow-xl gap-8 flex-wrap;
 }
