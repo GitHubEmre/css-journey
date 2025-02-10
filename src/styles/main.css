@@ -17,6 +17,12 @@
 
 main {
     @apply text-black bg-gray-dark min-h-screen;
+    /* TODO: Mettre à jour cette partie une fois la police choisie définitivement */
+    font-family: "Chakra Petch", serif;
+    /* font-family: "Poppins", serif; */
+    /* font-family: "Open Sans", serif; */
+    font-weight: 400;
+    font-style: normal;
 }
 
 .font-family-code {
