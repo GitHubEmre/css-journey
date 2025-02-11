@@ -1,10 +1,10 @@
 <template>
     <!-- TODO: Renommer ce composant en CSSCodeComponent, puis créer un composant CodeComponent qu'on utilisera dans CSSCodeComponent et HTMLComponent, le contenu sera définit avec v-slot (je sais pas encore si ça fonctionnerait) -->
-    <div class="rounded-md shadow-md flex overflow-hidden w-full font-family-code bg-white-real">
+    <div class="rounded-md shadow-md flex overflow-hidden w-full font-family-code bg-white-real dark:bg-gray-darker">
         <div class="text-gray-light dark:bg-black flex flex-col p-2 items-end">
             <span v-for="line in lines" :key="line">{{ line }}</span>
         </div>
-        <div class="dark:bg-gray-darker w-full p-2 cursor-text" @click="focusCodeTextArea">
+        <div class="w-full p-2 cursor-text" @click="focusCodeTextArea">
             <input
                 autocomplete="off"
                 class="w-full text-brown bg-white-real dark:bg-gray placeholder-gray-lighter focus:outline-none"

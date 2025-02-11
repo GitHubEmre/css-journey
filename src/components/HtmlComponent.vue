@@ -1,9 +1,9 @@
 <template>
-    <div class="flex rounded-md shadow-md overflow-hidden w-full font-family-code bg-white-real">
+    <div class="flex rounded-md shadow-md overflow-hidden w-full font-family-code bg-white-real dark:bg-gray-darker">
         <div class="text-gray-light dark:bg-black flex flex-col p-2 items-end">
             <span v-for="line in lines" :key="line">{{ line }}</span>
         </div>
-        <div class="p-2 dark:bg-gray-darker w-full">
+        <div class="p-2 w-full">
             <div v-for="htmlTag in htmlTags" :class="`ml-${htmlTag.indentationLevel * 4}`" v-html="htmlTag.colorize()"></div>
         </div>
     </div>
