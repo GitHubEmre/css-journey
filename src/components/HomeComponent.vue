@@ -1,10 +1,10 @@
 <template>
     <div class="min-h-screen w-screen flex flex-col items-center justify-center px-8">
-        <h1 class="text-center text-gray-lighter text-2xl md:text-5xl">Sélectionner un mode de jeu</h1>
+        <h1 class="text-center dark:text-gray-lighter text-2xl md:text-5xl">Sélectionner un mode de jeu</h1>
         <div class="mt-8 md:mt-16 grid grid-cols-2 xl:grid-cols-4 gap-8 md:gap-16">
             <router-link v-for="game in games" :to="game.available ? game.url : ''" class="w-min">
                 <div class="w-24 h-24 md:w-64 md:h-64 rounded flex items-center text-center" 
-                    :class="game.available ? 'bg-green' : 'bg-gray-lighter cursor-not-allowed'"
+                    :class="game.available ? 'bg-green shadow hover:shadow-2xl' : 'bg-gray-lighter cursor-not-allowed'"
                 >
                     <h4 class="text-base md:text-2xl w-full">{{ game.name }}</h4>
                 </div>

@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gray-darker p-8 rounded-md shadow-md text-gray-lighter">
+    <div class="bg-white-real dark:bg-gray-darker p-8 rounded-md shadow-md dark:text-gray-lighter">
         <span class="text-xl">{{ instruction }}</span>
         <div id="level-template" class="mt-8" v-html="template"></div>
     </div>

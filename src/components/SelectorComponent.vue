@@ -13,7 +13,7 @@
                 <div class="flex flex-col md:flex-row justify-end">
                     <button
                         @click="showAnswerClicked"
-                        :class="numberOfAttemps >= attempsNeededToShowAnwser ? 'bg-white animate-vibrate' : 'bg-gray-lighter cursor-not-allowed'"
+                        :class="numberOfAttemps >= attempsNeededToShowAnwser ? 'bg-green dark:bg-white animate-vibrate' : 'bg-gray-lighter cursor-not-allowed'"
                         class="mr-4 mb-4 md:mb-0 px-2 rounded w-full md:w-64 h-8"
                     >
                         {{ showAnswer ? answerToShow : "Voir la réponse" }}

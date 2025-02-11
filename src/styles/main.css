@@ -16,7 +16,7 @@
 }
 
 main {
-    @apply text-black dark:bg-gray-dark min-h-screen;
+    @apply text-black bg-white dark:bg-gray-dark min-h-screen;
     /* TODO: Mettre à jour cette partie une fois la police choisie définitivement */
     font-family: "Chakra Petch", serif;
     /* font-family: "Poppins", serif; */
@@ -83,5 +83,5 @@ h6 {
 }
 
 #shapes {
-    @apply bg-gray rounded-md flex justify-around items-center px-8 py-4 shadow-xl gap-8 flex-wrap;
+    @apply bg-brown-light dark:bg-gray rounded-md flex justify-around items-center px-8 py-4 shadow-xl gap-8 flex-wrap;
 }
