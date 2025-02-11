@@ -62,7 +62,7 @@ type Game = {
     url: string;
 };
 
-const baseUrl = '/css-journey/';
+const baseUrl = '/css-journey';
 
 export default defineComponent({
     name: 'HomeComponent',
@@ -71,19 +71,19 @@ export default defineComponent({
             games: [{
                 available: true,
                 name: 'Sélecteurs CSS',
-                url: baseUrl + 'selectors'
+                url: baseUrl + '/selectors'
             }, {
                 available: false,
                 name: 'Flexbox',
-                url: baseUrl + 'flex'
+                url: baseUrl + '/flex'
             }, {
                 available: false,
                 name: 'Grid',
-                url: baseUrl + 'grid'
+                url: baseUrl + '/grid'
             }, {
                 available: false,
                 name: 'Animations',
-                url: baseUrl + 'animations'
+                url: baseUrl + '/animations'
             }] as Game[],
             isDarkMode: true
         }
