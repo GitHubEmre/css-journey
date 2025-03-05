@@ -21,10 +21,10 @@
                     <LevelSelectorComponent :level="currentLevel" @change-level="changeLevel" />
                 </div>
             </div>
-            <ShapesComponent :instruction="instruction" :template="template.join('')" class="mt-8" />
+            <ShapesComponent :instruction="instruction" :template="htmlRenderCode.join('')" class="mt-8" />
             <div class="flex flex-col md:flex-row mt-8">
                 <CodeComponent @code-changed="codeChanged" :class="{ 'animate-vibrate': isVibrating }" ref="codeComponent" />
-                <HtmlComponent :htmlTags="(htmlTags as HtmlTag[])" class="mt-8 md:mt-0 md:ml-8" />
+                <HtmlComponent :htmlTags="(htmlIDECode as HtmlTag[])" class="mt-8 md:mt-0 md:ml-8" />
             </div>
         </div>
         <CourseComponent :courses="courses"/>
@@ -43,12 +43,12 @@ import selectorLevels from "../data/selector-levels.json";
 import ShapesComponent from './ShapesComponent.vue';
 
 type SelectorLevel = {
-    answerKeywords: string[];
+    answerNecessaryKeywords: string[];
     answerToShow: string;
     courses: string[];
-    htmlTags: string[];
+    htmlIDECode: string[];
     instruction: string;
-    template: string[];
+    htmlRenderCode: string[];
 };
 
 export default defineComponent({
@@ -73,14 +73,14 @@ export default defineComponent({
             attempsNeededToShowAnwser: 3,
             courses: [] as string[],
             currentLevel: 1,
-            answerKeywords: [] as string[],
+            answerNecessaryKeywords: [] as string[],
             expectedHTMLElements: [] as HTMLElement[],
-            htmlTags: [] as HtmlTag[],
+            htmlIDECode: [] as HtmlTag[],
             instruction: "",
             isVibrating: false,
             levelWon: false,
             numberOfAttemps: 0,
-            template: [] as string[],
+            htmlRenderCode: [] as string[],
             showAnswer: false
         }
     },
@@ -117,7 +117,7 @@ export default defineComponent({
                 this.resetRedBorder();
                 this.numberOfAttemps++;
                 try {
-                    const selectedHTMLElements = this.selectHTMLElements("#level-template " + code);
+                    const selectedHTMLElements = this.selectHTMLElements("#shapes-container " + code);
                     if (selectedHTMLElements.length > 0) {
                         if (this.areHtmlElementsEqual(this.expectedHTMLElements, selectedHTMLElements)) { // correct elements are selected
                             this.onCorrectSelection(code, selectedHTMLElements);
@@ -134,7 +134,7 @@ export default defineComponent({
         },
         isAnswerValid: function(answer: string): boolean {
             let isValid = true;
-            this.answerKeywords.forEach(keyword => {
+            this.answerNecessaryKeywords.forEach(keyword => {
                 if (!answer.includes(keyword)) {
                     isValid = false;
                 }
@@ -192,16 +192,16 @@ export default defineComponent({
         },
         updateLevelValues(): void {
             const levels: Record<string, SelectorLevel> = selectorLevels;
-            this.htmlTags = levels[this.currentLevel].htmlTags.map((htmlTag) => new HtmlTag(htmlTag));
-            this.template = levels[this.currentLevel].template;
+            this.htmlIDECode = levels[this.currentLevel].htmlIDECode.map((htmlIDECode) => new HtmlTag(htmlIDECode));
+            this.htmlRenderCode = levels[this.currentLevel].htmlRenderCode;
             this.instruction = levels[this.currentLevel].instruction;
-            this.answerKeywords = levels[this.currentLevel].answerKeywords;
+            this.answerNecessaryKeywords = levels[this.currentLevel].answerNecessaryKeywords;
             this.answerToShow = levels[this.currentLevel].answerToShow;
             this.courses = levels[this.currentLevel].courses;
 
             this.$nextTick(() => {
                 this.expectedHTMLElements = Array.from(
-                    document.querySelectorAll("#level-template " + this.answerToShow)
+                    document.querySelectorAll("#shapes-container " + this.answerToShow)
                 ) as HTMLElement[];
             });
         },

@@ -1,49 +1,49 @@
 {
     "1": {
-        "answerKeywords": ["#green"],
+        "answerNecessaryKeywords": ["#green"],
         "answerToShow": "#green",
         "courses": ["Id"],
-        "htmlTags": [
+        "htmlIDECode": [
             "<div id=\"shapes\">",
                 "<div id=\"yellow\" class=\"circle bg-yellow\"/>",
                 "<div id=\"green\" class=\"circle bg-green\"/>",
                 "<div id=\"blue\" class=\"circle bg-blue\"/>",
             "</div>"
         ],
-        "instruction": "Sélectionnez le cercle vert en utilisant le sélecteur des id.",
-        "template": [
+        "htmlRenderCode": [
             "<div id='shapes'>",
                 "<div id='yellow' class='circle bg-yellow'></div>",
                 "<div id='green' class='circle bg-green'></div>",
                 "<div id='blue' class='circle bg-blue'></div>",
             "</div>"
-        ]
+        ],
+        "instruction": "Sélectionnez le cercle vert en utilisant le sélecteur des id."
     },
     "2": {
-        "answerKeywords": [".bg-green"],
+        "answerNecessaryKeywords": [".bg-green"],
         "answerToShow": ".bg-green",
         "courses": ["Class"],
-        "htmlTags": [
+        "htmlIDECode": [
             "<div id=\"shapes\">",
                 "<div id=\"yellow\" class=\"circle bg-yellow\"/>",
                 "<div id=\"green\" class=\"circle bg-green\"/>",
                 "<div id=\"blue\" class=\"circle bg-blue\"/>",
             "</div>"
         ],
-        "instruction": "Sélectionnez le cercle vert en utilisant le sélecteur des classes.",
-        "template": [
+        "htmlRenderCode": [
             "<div id='shapes'>",
                 "<div id='yellow' class='circle bg-yellow'></div>",
                 "<div id='green' class='circle bg-green'></div>",
                 "<div id='blue' class='circle bg-blue'></div>",
             "</div>"
-        ]
+        ],
+        "instruction": "Sélectionnez le cercle vert en utilisant le sélecteur des classes."
     },
     "3": {
-        "answerKeywords": [":first-child"],
+        "answerNecessaryKeywords": [":first-child"],
         "answerToShow": ".circle:first-child",
         "courses": ["PseudoClass"],
-        "htmlTags": [
+        "htmlIDECode": [
             "<div id=\"shapes\">",
                 "<div class=\"circle bg-green\"/>",
                 "<div class=\"circle bg-green\"/>",
@@ -52,8 +52,7 @@
                 "<div class=\"circle bg-green\"/>",
             "</div>"
         ],
-        "instruction": "Sélectionnez le premier cercle en utilisant les pseudo-classes.",
-        "template": [
+        "htmlRenderCode": [
             "<div id='shapes'>",
                 "<div class='circle bg-green'></div>",
                 "<div class='circle bg-green'></div>",
@@ -61,13 +60,14 @@
                 "<div class='circle bg-green'></div>",
                 "<div class='circle bg-green'></div>",
             "</div>"
-        ]
+        ],
+        "instruction": "Sélectionnez le premier cercle en utilisant les pseudo-classes."
     },
     "4": {
-        "answerKeywords": [":last-child"],
+        "answerNecessaryKeywords": [":last-child"],
         "answerToShow": ".circle:last-child",
         "courses": ["PseudoClass"],
-        "htmlTags": [
+        "htmlIDECode": [
             "<div id=\"shapes\">",
                 "<div class=\"circle bg-green\"/>",
                 "<div class=\"circle bg-green\"/>",
@@ -76,8 +76,7 @@
                 "<div class=\"circle bg-green\"/>",
             "</div>"
         ],
-        "instruction": "Sélectionnez le dernier cercle en utilisant les pseudo-classes.",
-        "template": [
+        "htmlRenderCode": [
             "<div id='shapes'>",
                 "<div class='circle bg-green'></div>",
                 "<div class='circle bg-green'></div>",
@@ -85,13 +84,14 @@
                 "<div class='circle bg-green'></div>",
                 "<div class='circle bg-green'></div>",
             "</div>"
-        ]
+        ],
+        "instruction": "Sélectionnez le dernier cercle en utilisant les pseudo-classes."
     },
     "5": {
-        "answerKeywords": [":nth-child(3)"],
+        "answerNecessaryKeywords": [":nth-child(3)"],
         "answerToShow": ".circle:nth-child(3)",
         "courses": ["PseudoClass"],
-        "htmlTags": [
+        "htmlIDECode": [
             "<div id=\"shapes\">",
                 "<div class=\"circle bg-green\"/>",
                 "<div class=\"circle bg-green\"/>",
@@ -100,8 +100,7 @@
                 "<div class=\"circle bg-green\"/>",
             "</div>"
         ],
-        "instruction": "Sélectionnez le troisième cercle en utilisant les pseudo-classes.",
-        "template": [
+        "htmlRenderCode": [
             "<div id='shapes'>",
                 "<div class='circle bg-green'></div>",
                 "<div class='circle bg-green'></div>",
@@ -109,13 +108,14 @@
                 "<div class='circle bg-green'></div>",
                 "<div class='circle bg-green'></div>",
             "</div>"
-        ]
+        ],
+        "instruction": "Sélectionnez le troisième cercle en utilisant les pseudo-classes."
     },
     "6": {
-        "answerKeywords": [":nth-last-child(2)"],
+        "answerNecessaryKeywords": [":nth-last-child(2)"],
         "answerToShow": ".circle:nth-last-child(2)",
         "courses": ["PseudoClass"],
-        "htmlTags": [
+        "htmlIDECode": [
             "<div id=\"shapes\">",
                 "<div class=\"circle bg-green\"/>",
                 "<div class=\"circle bg-green\"/>",
@@ -124,8 +124,7 @@
                 "<div class=\"circle bg-green\"/>",
             "</div>"
         ],
-        "instruction": "Sélectionnez le deuxième cercle en partant de la fin en utilisant les pseudo-classes.",
-        "template": [
+        "htmlRenderCode": [
             "<div id='shapes'>",
                 "<div class='circle bg-green'></div>",
                 "<div class='circle bg-green'></div>",
@@ -133,13 +132,14 @@
                 "<div class='circle bg-green'></div>",
                 "<div class='circle bg-green'></div>",
             "</div>"
-        ]
+        ],
+        "instruction": "Sélectionnez le deuxième cercle en partant de la fin en utilisant les pseudo-classes."
     },
     "7": {
-        "answerKeywords": [":has(.square)"],
+        "answerNecessaryKeywords": [":has(.square)"],
         "answerToShow": ".circle:has(.square)",
         "courses": ["PseudoClass"],
-        "htmlTags": [
+        "htmlIDECode": [
             "<div id=\"shapes\">",
                 "<div class=\"circle bg-green\">",
                     "<div class=\"square bg-white\"/>",
@@ -148,20 +148,20 @@
                 "<div class=\"circle bg-green\"/>",
             "</div>"
         ],
-        "instruction": "Sélectionnez le cercle qui contient un carré.",
-        "template": [
+        "htmlRenderCode": [
             "<div id='shapes'>",
                 "<div class='circle parent bg-green'><div class='square child bg-white'></div></div>",
                 "<div class='circle bg-green'></div>",
                 "<div class='circle bg-green'></div>",
             "</div>"
-        ]
+        ],
+        "instruction": "Sélectionnez le cercle qui contient un carré."
     },
     "8": {
-        "answerKeywords": [":not(:has(.square))"],
+        "answerNecessaryKeywords": [":not(:has(.square))"],
         "answerToShow": ".circle:not(:has(.square))",
         "courses": ["PseudoClass"],
-        "htmlTags": [
+        "htmlIDECode": [
             "<div id=\"shapes\">",
                 "<div class=\"circle bg-green\">",
                     "<div class=\"square bg-white\"/>",
@@ -170,20 +170,20 @@
                 "<div class=\"circle bg-green\"/>",
             "</div>"
         ],
-        "instruction": "Sélectionnez les cercles qui ne contiennent pas de carré.",
-        "template": [
+        "htmlRenderCode": [
             "<div id='shapes'>",
                 "<div class='circle parent bg-green'><div class='square child bg-white'></div></div>",
                 "<div class='circle bg-green'></div>",
                 "<div class='circle bg-green'></div>",
             "</div>"
-        ]
+        ],
+        "instruction": "Sélectionnez les cercles qui ne contiennent pas de carré."
     },
     "9": {
-        "answerKeywords": [".bg-blue", ",", ".bg-pink"],
+        "answerNecessaryKeywords": [".bg-blue", ",", ".bg-pink"],
         "answerToShow": ".bg-blue, .bg-pink",
         "courses": ["Comma"],
-        "htmlTags": [
+        "htmlIDECode": [
             "<div id=\"shapes\">",
                 "<div class=\"circle bg-yellow\"/>",
                 "<div class=\"circle bg-green\"/>",
@@ -192,8 +192,7 @@
                 "<div class=\"circle bg-pink\"/>",
             "</div>"
         ],
-        "instruction": "Sélectionnez les cercles de couleur bleu et rose.",
-        "template": [
+        "htmlRenderCode": [
             "<div id='shapes'>",
                 "<div class='circle bg-yellow'></div>",
                 "<div class='circle bg-green'></div>",
@@ -201,13 +200,14 @@
                 "<div class='circle bg-purple'></div>",
                 "<div class='circle bg-pink'></div>",
             "</div>"
-        ]
+        ],
+        "instruction": "Sélectionnez les cercles de couleur bleu et rose."
     },
     "10": {
-        "answerKeywords": [":not"],
+        "answerNecessaryKeywords": [":not"],
         "answerToShow": ".circle:not(.bg-blue)",
         "courses": ["PseudoClass"],
-        "htmlTags": [
+        "htmlIDECode": [
             "<div id=\"shapes\">",
                 "<div class=\"circle bg-yellow\"/>",
                 "<div class=\"circle bg-green\"/>",
@@ -216,8 +216,7 @@
                 "<div class=\"circle bg-pink\"/>",
             "</div>"
         ],
-        "instruction": "Sélectionnez tous les cercles sauf le bleu.",
-        "template": [
+        "htmlRenderCode": [
             "<div id='shapes'>",
                 "<div class='circle bg-yellow'></div>",
                 "<div class='circle bg-green'></div>",
@@ -225,13 +224,14 @@
                 "<div class='circle bg-purple'></div>",
                 "<div class='circle bg-pink'></div>",
             "</div>"
-        ]
+        ],
+        "instruction": "Sélectionnez tous les cercles sauf le bleu."
     },
     "11": {
-        "answerKeywords": [":is"],
+        "answerNecessaryKeywords": [":is"],
         "answerToShow": ".bg-green:is(.circle, .square)",
         "courses": ["PseudoClass"],
-        "htmlTags": [
+        "htmlIDECode": [
             "<div id=\"shapes\">",
                 "<div class=\"circle bg-green\"/>",
                 "<div class=\"circle bg-white\"/>",
@@ -241,8 +241,7 @@
                 "<div class=\"rectangle bg-white\"/>",
             "</div>"
         ],
-        "instruction": "Sélectionnez le cercle vert et le carré vert en utilisant les pseudo-classes.",
-        "template": [
+        "htmlRenderCode": [
             "<div id='shapes'>",
                 "<div class='circle bg-green'></div>",
                 "<div class='circle bg-white'></div>",
@@ -251,13 +250,14 @@
                 "<div class='rectangle bg-green'></div>",
                 "<div class='rectangle bg-white'></div>",
             "</div>"
-        ]
+        ],
+        "instruction": "Sélectionnez le cercle vert et le carré vert en utilisant les pseudo-classes."
     },
     "12": {
-        "answerKeywords": [".square", " ", ".circle"],
+        "answerNecessaryKeywords": [".square", " ", ".circle"],
         "answerToShow": ".square .circle",
         "courses": ["WhiteSpace"],
-        "htmlTags": [
+        "htmlIDECode": [
             "<div id=\"shapes\">",
                 "<div class=\"circle bg-purple\"/>",
                 "<div class=\"square bg-white\">",
@@ -266,20 +266,20 @@
                 "<div class=\"circle bg-purple\"/>",
             "</div>"
         ],
-        "instruction": "Sélectionnez le cercle qui est dans le carré.",
-        "template": [
+        "htmlRenderCode": [
             "<div id='shapes'>",
                 "<div class='circle bg-purple'></div>",
                 "<div class='parent square bg-white'><div class='child circle bg-purple'></div></div>",
                 "<div class='circle bg-purple'></div>",
             "</div>"
-        ]
+        ],
+        "instruction": "Sélectionnez le cercle qui est dans le carré."
     },
     "13": {
-        "answerKeywords": [">"],
+        "answerNecessaryKeywords": [">"],
         "answerToShow": ".square > .circle",
         "courses": ["ChildCombinator"],
-        "htmlTags": [
+        "htmlIDECode": [
             "<div id=\"shapes\">",
                 "<div class=\"square bg-green\">",
                     "<div class=\"circle bg-white\">",
@@ -288,18 +288,18 @@
                 "</div>",
             "</div>"
         ],
-        "instruction": "Sélectionnez le cercle blanc sans utiliser la classe bg-white.",
-        "template": [
+        "htmlRenderCode": [
             "<div id='shapes'>",
                 "<div class='parent square bg-green'><div class='parent child circle bg-white'><div class='child circle bg-blue'></div></div></div>",
             "</div>"
-        ]
+        ],
+        "instruction": "Sélectionnez le cercle blanc sans utiliser la classe bg-white."
     },
     "14": {
-        "answerKeywords": [".circle", ".bg-green"],
+        "answerNecessaryKeywords": [".circle", ".bg-green"],
         "answerToShow": ".circle.bg-green",
         "courses": ["SelectorsCombination"],
-        "htmlTags": [
+        "htmlIDECode": [
             "<div id=\"shapes\">",
                 "<div class=\"square bg-green\"/>",
                 "<div class=\"square bg-white\"/>",
@@ -307,41 +307,41 @@
                 "<div class=\"circle bg-white\"/>",
             "</div>"
         ],
-        "instruction": "Sélectionnez le cercle vert sans utiliser les pseudo-classes.",
-        "template": [
+        "htmlRenderCode": [
             "<div id='shapes'>",
                 "<div class='square bg-green'></div>",
                 "<div class='square bg-white'></div>",
                 "<div class='circle bg-green'></div>",
                 "<div class='circle bg-white'></div>",
             "</div>"
-        ]
+        ],
+        "instruction": "Sélectionnez le cercle vert sans utiliser les pseudo-classes."
     },
     "15": {
-        "answerKeywords": ["*"],
+        "answerNecessaryKeywords": ["*"],
         "answerToShow": "#shapes *",
         "courses": ["UniversalSelector"],
-        "htmlTags": [
+        "htmlIDECode": [
             "<div id=\"shapes\">",
                 "<div class=\"square bg-yellow\"/>",
                 "<div class=\"rectangle bg-green\"/>",
                 "<div class=\"circle bg-blue\"/>",
             "</div>"
         ],
-        "instruction": "Sélectionnez toutes les formes.",
-        "template": [
+        "htmlRenderCode": [
             "<div id='shapes'>",
                 "<div class='square bg-yellow'></div>",
                 "<div class='rectangle bg-green'></div>",
                 "<div class='circle bg-blue'></div>",
             "</div>"
-        ]
+        ],
+        "instruction": "Sélectionnez toutes les formes."
     },
     "16": {
-        "answerKeywords": ["+"],
+        "answerNecessaryKeywords": ["+"],
         "answerToShow": ".circle + .square",
         "courses": ["Plus"],
-        "htmlTags": [
+        "htmlIDECode": [
             "<div id=\"shapes\">",
                 "<div class=\"circle bg-green\">",
                     "<div class=\"square bg-white\"/>",
@@ -350,20 +350,20 @@
                 "<div class=\"square bg-blue\"/>",
             "</div>"
         ],
-        "instruction": "Sélectionnez le carré jaune sans utiliser la classe bg-yellow.",
-        "template": [
+        "htmlRenderCode": [
             "<div id='shapes'>",
                 "<div class='circle parent bg-green'><div class='square child bg-white'></div></div>",
                 "<div class='square bg-yellow'></div>",
                 "<div class='square bg-blue'></div>",
             "</div>"
-        ]
+        ],
+        "instruction": "Sélectionnez le carré jaune sans utiliser la classe bg-yellow."
     },
     "17": {
-        "answerKeywords": ["~"],
+        "answerNecessaryKeywords": ["~"],
         "answerToShow": ".circle ~ .square",
         "courses": ["Tilde"],
-        "htmlTags": [
+        "htmlIDECode": [
             "<div id=\"shapes\">",
                 "<div class=\"square bg-purple\"/>",
                 "<div class=\"circle bg-white\">",
@@ -375,14 +375,14 @@
                 "<div class=\"square bg-green\"/>",
             "</div>"
         ],
-        "instruction": "Sélectionnez les carrés verts sans utiliser la classe bg-green.",
-        "template": [
+        "htmlRenderCode": [
             "<div id='shapes'>",
                 "<div class='square bg-purple'></div>",
                 "<div class='circle parent bg-white'><div class='square child bg-purple'></div></div>",
                 "<div class='square parent bg-green'><div class='square child bg-purple'></div></div>",
                 "<div class='square bg-green'></div>",
             "</div>"
-        ]
+        ],
+        "instruction": "Sélectionnez les carrés verts sans utiliser la classe bg-green."
     }
 }
