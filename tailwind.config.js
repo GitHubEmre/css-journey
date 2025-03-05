@@ -5,7 +5,7 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   darkMode: 'class',
-  safelist: [
+  safelist: [ // TODO: À la fin du projet, enlever de safelist tout ce qui ne sert à rien
     'text-black',
     'text-blue-dark',
     'text-blue-light',

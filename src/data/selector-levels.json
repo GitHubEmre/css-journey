@@ -336,5 +336,53 @@
                 "<div class='circle bg-blue'></div>",
             "</div>"
         ]
+    },
+    "16": {
+        "answerKeywords": ["+"],
+        "answerToShow": ".circle + .square",
+        "courses": ["Plus"],
+        "htmlTags": [
+            "<div id=\"shapes\">",
+                "<div class=\"circle bg-green\">",
+                    "<div class=\"square bg-white\"/>",
+                "</div>",
+                "<div class=\"square bg-yellow\"/>",
+                "<div class=\"square bg-blue\"/>",
+            "</div>"
+        ],
+        "instruction": "Sélectionnez le carré jaune sans utiliser la classe bg-yellow.",
+        "template": [
+            "<div id='shapes'>",
+                "<div class='circle parent bg-green'><div class='square child bg-white'></div></div>",
+                "<div class='square bg-yellow'></div>",
+                "<div class='square bg-blue'></div>",
+            "</div>"
+        ]
+    },
+    "17": {
+        "answerKeywords": ["~"],
+        "answerToShow": ".circle ~ .square",
+        "courses": ["Tilde"],
+        "htmlTags": [
+            "<div id=\"shapes\">",
+                "<div class=\"square bg-purple\"/>",
+                "<div class=\"circle bg-white\">",
+                    "<div class=\"square bg-purple\"/>",
+                "</div>",
+                "<div class=\"square bg-green\">",
+                    "<div class=\"square bg-purple\"/>",
+                "</div>",
+                "<div class=\"square bg-green\"/>",
+            "</div>"
+        ],
+        "instruction": "Sélectionnez les carrés verts sans utiliser la classe bg-green.",
+        "template": [
+            "<div id='shapes'>",
+                "<div class='square bg-purple'></div>",
+                "<div class='circle parent bg-white'><div class='square child bg-purple'></div></div>",
+                "<div class='square parent bg-green'><div class='square child bg-purple'></div></div>",
+                "<div class='square bg-green'></div>",
+            "</div>"
+        ]
     }
 }

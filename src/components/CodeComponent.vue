@@ -7,7 +7,7 @@
         <div class="w-full p-2 cursor-text" @click="focusCodeTextArea">
             <input
                 autocomplete="off"
-                class="w-full text-brown bg-white-real dark:bg-gray placeholder-gray-lighter focus:outline-none"
+                class="w-full text-brown dark:text-orange-code bg-white-real dark:bg-gray placeholder-gray-lighter focus:outline-none"
                 id="code-text-area"
                 placeholder=".css-selector"
                 v-model="code"

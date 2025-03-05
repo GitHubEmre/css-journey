@@ -35,8 +35,10 @@ import ChildCombinatorCourseComponent from './ChildCombinatorCourseComponent.vue
 import CommaCourseComponent from './CommaCourseComponent.vue';
 import ClassCourseComponent from './ClassCourseComponent.vue';
 import IdCourseComponent from './IdCourseComponent.vue';
+import PlusCourseComponent from './PlusCourseComponent.vue';
 import PseudoClassCourseComponent from './PseudoClassCourseComponent.vue';
 import SelectorsCombinationCourseComponent from './SelectorsCombinationCourseComponent.vue';
+import TildeCourseComponent from './TildeCourseComponent.vue';
 import UniversalSelectorCourseComponent from './UniversalSelectorCourseComponent.vue';
 import WhiteSpaceCourseComponent from './WhiteSpaceCourseComponent.vue';
 
@@ -47,14 +49,16 @@ export default defineComponent({
         CommaCourseComponent,
         ClassCourseComponent,
         IdCourseComponent,
+        PlusCourseComponent,
         PseudoClassCourseComponent,
         SelectorsCombinationCourseComponent,
+        TildeCourseComponent,
         UniversalSelectorCourseComponent,
         WhiteSpaceCourseComponent
     },
     props: {
         courses: {
-            type: Array as PropType<String[]>,
+            type: Array as PropType<string[]>,
             required: true
         }
     },
@@ -62,6 +66,6 @@ export default defineComponent({
         return {
             showCourse: false
         }
-    },
+    }
 });
 </script>
