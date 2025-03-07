@@ -21,10 +21,10 @@
                     <LevelSelectorComponent :level="currentLevel" @change-level="changeLevel" />
                 </div>
             </div>
-            <ShapesComponent :instruction="instruction" :template="htmlRenderCode.join('')" class="mt-8" />
+            <ShapesComponent :instruction="instruction" :rawHtml="htmlRenderCode.join('')" class="mt-8" />
             <div class="flex flex-col md:flex-row mt-8">
-                <CodeComponent @code-changed="codeChanged" :class="{ 'animate-vibrate': isVibrating }" ref="codeComponent" />
-                <HtmlComponent :htmlTags="(htmlIDECode as HtmlTag[])" class="mt-8 md:mt-0 md:ml-8" />
+                <CssIDEComponent @code-changed="codeChanged" :class="{ 'animate-vibrate': isVibrating }" ref="cssIDEComponent" />
+                <HtmlIDEComponent :htmlTags="(htmlIDECode as HtmlTag[])" class="mt-8 md:mt-0 md:ml-8" />
             </div>
         </div>
         <CourseComponent :courses="courses"/>
@@ -35,9 +35,9 @@
 import { defineComponent, ref } from 'vue';
 import { HtmlTag } from '../models/HtmlTag';
 import AlertsComponent from './shared/AlertsComponent.vue';
-import CodeComponent from './CodeComponent.vue';
+import CssIDEComponent from './CssIDEComponent.vue';
 import CourseComponent from './courses/CourseComponent.vue';
-import HtmlComponent from './HtmlComponent.vue';
+import HtmlIDEComponent from './HtmlIDEComponent.vue';
 import LevelSelectorComponent from './LevelSelectorComponent.vue';
 import selectorLevels from "../data/selector-levels.json";
 import ShapesComponent from './ShapesComponent.vue';
@@ -55,16 +55,16 @@ export default defineComponent({
     name: 'SelectorComponent',
     components: {
         AlertsComponent,
-        CodeComponent,
+        CssIDEComponent,
         CourseComponent,
-        HtmlComponent,
+        HtmlIDEComponent,
         LevelSelectorComponent,
         ShapesComponent
     },
     setup() {
-        const codeComponent = ref<InstanceType<typeof CodeComponent> | null>(null);
+        const cssIDEComponent = ref<InstanceType<typeof CssIDEComponent> | null>(null);
         const alertsComponent = ref<InstanceType<typeof AlertsComponent> | null>(null);
-        return { codeComponent, alertsComponent };
+        return { cssIDEComponent, alertsComponent };
     },
     data() {
         return {
@@ -108,8 +108,8 @@ export default defineComponent({
             this.numberOfAttemps = 0;
             this.showAnswer = false;
             this.updateLevelValues();
-            if (this.codeComponent) {
-                this.codeComponent.resetCode();
+            if (this.cssIDEComponent) {
+                this.cssIDEComponent.resetCode();
             }
         },
         codeChanged: function(code: string) : void {
@@ -125,10 +125,10 @@ export default defineComponent({
                             this.onIncorrectSelection(selectedHTMLElements);
                         }
                     } else { // no element is selected
-                        this.vibrateCodeComponent();
+                        this.vibrateCssIDEComponent();
                     }
                 } catch {
-                    this.vibrateCodeComponent();
+                    this.vibrateCssIDEComponent();
                 }
             }
         },
@@ -151,7 +151,7 @@ export default defineComponent({
                 if (this.alertsComponent) {
                     this.alertsComponent.addAlert("Le ou les bons éléments n'ont pas été sélectionné de la bonne manière.");
                 }
-                this.vibrateCodeComponent();
+                this.vibrateCssIDEComponent();
             }
         },
         onIncorrectSelection: function(htmlElements: HTMLElement[]): void {
@@ -205,7 +205,7 @@ export default defineComponent({
                 ) as HTMLElement[];
             });
         },
-        vibrateCodeComponent: function(): void {
+        vibrateCssIDEComponent: function(): void {
             this.isVibrating = true;
             setTimeout(() => (this.isVibrating = false), 300);
         },

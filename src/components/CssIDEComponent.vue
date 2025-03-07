@@ -1,5 +1,5 @@
 <template>
-    <!-- TODO: Renommer ce composant en CSSCodeComponent, puis créer un composant CodeComponent qu'on utilisera dans CSSCodeComponent et HTMLComponent, le contenu sera définit avec v-slot (je sais pas encore si ça fonctionnerait) -->
+    <!-- TODO: Renommer ce composant en CSSCodeComponent, puis créer un composant CodeComponent qu'on utilisera dans CSSCodeComponent et HTMLIDEComponent, le contenu sera définit avec v-slot (je sais pas encore si ça fonctionnerait) -->
     <div class="rounded-md shadow-md flex overflow-hidden w-full font-family-code bg-white-real dark:bg-gray-darker">
         <div class="text-gray-light dark:bg-black flex flex-col p-2 items-end">
             <span v-for="line in lines" :key="line">{{ line }}</span>
@@ -27,7 +27,7 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
     emits: ['codeChanged'],
-    name: 'CodeComponent',
+    name: 'CssIDEComponent',
     props: {
         lines: {
             type: Number,

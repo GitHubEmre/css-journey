@@ -14,7 +14,7 @@ import { defineComponent, PropType } from 'vue';
 import { HtmlTag } from '../models/HtmlTag';
 
 export default defineComponent({
-    name: 'CodeComponent',
+    name: 'HtmlIDEComponent',
     props: {
         htmlTags: {
             type: Array as PropType<HtmlTag[]>,
