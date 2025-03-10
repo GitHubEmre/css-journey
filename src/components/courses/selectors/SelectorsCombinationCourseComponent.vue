@@ -63,7 +63,7 @@
         </p>
         <p class="text-yellow-dark">}</p>
     </div>
-    <ul class="list-disc ml-5">
+    <ul>
         <li>
             Seul le <span class="highlight">&lt;h1&gt;</span> avec la classe <span class="highlight">bold</span> sera rouge et en gras.
         </li>

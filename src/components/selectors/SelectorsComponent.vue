@@ -6,43 +6,37 @@
         <div class="firework" v-for="n in 5" :key="n"></div>
     </div>
 
-    <div class="flex px-8 pb-8 lg:pr-0 space-x-8">
+    <div class="flex px-8 lg:pr-0 space-x-8">
         <div class="flex-grow mt-8">
-            <div class="flex flex-col md:flex-row justify-between md:mr-16 lg:mr-0">
-                <router-link to="/css-journey"><button class="bg-green w-full md:w-48 h-8 rounded hover:scale-105 mb-4 md:mb-0">Retour à l'accueil</button></router-link>
-                <div class="flex flex-col md:flex-row justify-end">
-                    <button
-                        @click="showAnswerClicked"
-                        :class="numberOfAttemps >= attempsNeededToShowAnwser ? 'bg-green dark:bg-white animate-vibrate' : 'bg-gray-lighter cursor-not-allowed'"
-                        class="mr-4 mb-4 md:mb-0 px-2 rounded w-full md:w-64 h-8"
-                    >
-                        {{ showAnswer ? answerToShow : "Voir la réponse" }}
-                    </button>
-                    <LevelSelectorComponent :level="currentLevel" @change-level="changeLevel" />
-                </div>
-            </div>
+            <NavbarComponent
+                :answerToShow="answerToShow"
+                :numberOfLevels="numberOfLevels"
+                @change-level="changeLevel"
+                ref="navbarComponent"
+            />
             <ShapesComponent :instruction="instruction" :rawHtml="htmlRenderCode.join('')" class="mt-8" />
             <div class="flex flex-col md:flex-row mt-8">
-                <CssIDEComponent @code-changed="codeChanged" :class="{ 'animate-vibrate': isVibrating }" ref="cssIDEComponent" />
+                <CssIDEComponent :isSelectorMode="true" @code-changed="codeChanged" ref="cssIDEComponent" />
                 <HtmlIDEComponent :htmlTags="(htmlIDECode as HtmlTag[])" class="mt-8 md:mt-0 md:ml-8" />
             </div>
         </div>
         <CourseComponent :courses="courses"/>
     </div>
 </template>
-
+<!-- TODO: Trier les variables et les fonctions par ordre alphabétique -->
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { HtmlTag } from '../models/HtmlTag';
-import AlertsComponent from './shared/AlertsComponent.vue';
-import CssIDEComponent from './CssIDEComponent.vue';
-import CourseComponent from './courses/CourseComponent.vue';
-import HtmlIDEComponent from './HtmlIDEComponent.vue';
-import LevelSelectorComponent from './LevelSelectorComponent.vue';
-import selectorLevels from "../data/selector-levels.json";
+import { HtmlTag } from '../../models/HtmlTag';
+import AlertsComponent from '../shared/AlertsComponent.vue';
+import CourseComponent from '../courses/CourseComponent.vue';
+import CssIDEComponent from '../shared/CssIDEComponent.vue';
+import HtmlIDEComponent from '../shared/HtmlIDEComponent.vue';
+import LevelSelectorComponent from '../shared/LevelSelectorComponent.vue';
+import NavbarComponent from '../shared/NavbarComponent.vue';
+import selectorsLevels from "../../data/selectors-levels.json";
 import ShapesComponent from './ShapesComponent.vue';
 
-type SelectorLevel = {
+type SelectorsLevel = {
     answerNecessaryKeywords: string[];
     answerToShow: string;
     courses: string[];
@@ -52,36 +46,35 @@ type SelectorLevel = {
 };
 
 export default defineComponent({
-    name: 'SelectorComponent',
+    name: 'SelectorsComponent',
     components: {
         AlertsComponent,
         CssIDEComponent,
         CourseComponent,
         HtmlIDEComponent,
         LevelSelectorComponent,
+        NavbarComponent,
         ShapesComponent
     },
     setup() {
-        const cssIDEComponent = ref<InstanceType<typeof CssIDEComponent> | null>(null);
         const alertsComponent = ref<InstanceType<typeof AlertsComponent> | null>(null);
-        return { cssIDEComponent, alertsComponent };
+        const cssIDEComponent = ref<InstanceType<typeof CssIDEComponent> | null>(null);
+        const navbarComponent = ref<InstanceType<typeof NavbarComponent> | null>(null);
+        return { alertsComponent, cssIDEComponent, navbarComponent };
     },
     data() {
         return {
             answerToShow: "",
             answersWithRedBorder: [] as HTMLElement[],
-            attempsNeededToShowAnwser: 3,
             courses: [] as string[],
             currentLevel: 1,
             answerNecessaryKeywords: [] as string[],
             expectedHTMLElements: [] as HTMLElement[],
             htmlIDECode: [] as HtmlTag[],
             instruction: "",
-            isVibrating: false,
             levelWon: false,
-            numberOfAttemps: 0,
-            htmlRenderCode: [] as string[],
-            showAnswer: false
+            numberOfLevels: 0,
+            htmlRenderCode: [] as string[]
         }
     },
     methods: {
@@ -91,31 +84,20 @@ export default defineComponent({
             }
             return arr1.every((el, index) => el.isEqualNode(arr2[index]));
         },
-        changeLevel(isNext: boolean): void {
-            if (isNext) {
-                if (this.currentLevel + 1 <= Object.keys(selectorLevels).length) {
-                    this.currentLevel += 1;
-                } else {
-                    this.currentLevel = 1;
-                }
-            } else if (this.currentLevel - 1 > 0) {
-                this.currentLevel -= 1;
-            } else {
-                this.currentLevel = Object.keys(selectorLevels).length;
-            }
+        changeLevel(level: number): void {
+            this.currentLevel = level;
             this.resetRedBorder();
             this.resetGreenBorders();
-            this.numberOfAttemps = 0;
-            this.showAnswer = false;
+            this.navbarComponent?.resetValues();
             this.updateLevelValues();
             if (this.cssIDEComponent) {
                 this.cssIDEComponent.resetCode();
             }
         },
-        codeChanged: function(code: string) : void {
+        codeChanged: function(code: string): void {
             if (code.length > 0) {
                 this.resetRedBorder();
-                this.numberOfAttemps++;
+                this.navbarComponent?.incrementNumberOfAttempts();
                 try {
                     const selectedHTMLElements = this.selectHTMLElements("#shapes-container " + code);
                     if (selectedHTMLElements.length > 0) {
@@ -125,14 +107,14 @@ export default defineComponent({
                             this.onIncorrectSelection(selectedHTMLElements);
                         }
                     } else { // no element is selected
-                        this.vibrateCssIDEComponent();
+                        this.cssIDEComponent?.vibrate();
                     }
                 } catch {
-                    this.vibrateCssIDEComponent();
+                    this.cssIDEComponent?.vibrate();
                 }
             }
         },
-        isAnswerValid: function(answer: string): boolean {
+        checkAnswer: function(answer: string): boolean {
             let isValid = true;
             this.answerNecessaryKeywords.forEach(keyword => {
                 if (!answer.includes(keyword)) {
@@ -142,7 +124,7 @@ export default defineComponent({
             return isValid;
         },
         onCorrectSelection: function(code: string, htmlElements: HTMLElement[]) : void {
-            if (this.isAnswerValid(code)) { // correct css selector
+            if (this.checkAnswer(code)) { // correct css selector
                 htmlElements.forEach(htmlElement => {
                     this.setBorder(htmlElement, "solid 2px #6A993E");
                 });
@@ -151,7 +133,7 @@ export default defineComponent({
                 if (this.alertsComponent) {
                     this.alertsComponent.addAlert("Le ou les bons éléments n'ont pas été sélectionné de la bonne manière.");
                 }
-                this.vibrateCssIDEComponent();
+                this.cssIDEComponent?.vibrate();
             }
         },
         onIncorrectSelection: function(htmlElements: HTMLElement[]): void {
@@ -168,11 +150,6 @@ export default defineComponent({
         },
         setBorder: function (htmlElement: HTMLElement, border: string) {
             htmlElement.style.border = border;
-        },
-        showAnswerClicked(): void {
-            if (this.numberOfAttemps >= this.attempsNeededToShowAnwser) {
-                this.showAnswer = !this.showAnswer;
-            }
         },
         resetGreenBorders: function(): void {
             this.expectedHTMLElements.forEach(htmlElement => {
@@ -191,7 +168,7 @@ export default defineComponent({
             ) as HTMLElement[];
         },
         updateLevelValues(): void {
-            const levels: Record<string, SelectorLevel> = selectorLevels;
+            const levels: Record<string, SelectorsLevel> = selectorsLevels;
             this.htmlIDECode = levels[this.currentLevel].htmlIDECode.map((htmlIDECode) => new HtmlTag(htmlIDECode));
             this.htmlRenderCode = levels[this.currentLevel].htmlRenderCode;
             this.instruction = levels[this.currentLevel].instruction;
@@ -205,18 +182,15 @@ export default defineComponent({
                 ) as HTMLElement[];
             });
         },
-        vibrateCssIDEComponent: function(): void {
-            this.isVibrating = true;
-            setTimeout(() => (this.isVibrating = false), 300);
-        },
         winLevel(): void {
             this.levelWon = true;
-            this.changeLevel(true);
+            this.navbarComponent?.changeLevel(true);
             setTimeout(() => { this.levelWon = false }, 3000);
         }
     },
     mounted() {
+        this.numberOfLevels = Object.keys(selectorsLevels).length;
         this.updateLevelValues();
-    },
+    }
 });
 </script>

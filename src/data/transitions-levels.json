@@ -1,0 +1,100 @@
+{
+    "1": {
+        "answerNecessaryKeywords": ["ease-in"],
+        "answerToShow": "ease-in",
+        "courses": ["TransitionTypes"],
+        "dragRaces": [{
+            "carColor": "yellow",
+            "transitionType": "ease"
+        }, {
+            "carColor": "blue",
+            "transitionType": "ease-in"
+        }, {
+            "carColor": "purple",
+            "transitionType": "ease-out"
+        }, {
+            "carColor": "pink",
+            "transitionType": "ease-in-out"
+        }, {
+            "carColor": "yellow",
+            "transitionType": "jump-both"
+        }, {
+            "carColor": "blue",
+            "transitionType": "jump-end"
+        }, {
+            "carColor": "purple",
+            "transitionType": "jump-none"
+        }, {
+            "carColor": "pink",
+            "transitionType": "jump-start"
+        }, {
+            "carColor": "yellow",
+            "transitionType": "linear"
+        }],
+        "flagPosition": 80,
+        "htmlIDECode": [
+            "<div id=\"drag-races\">",
+                "<car id=\"white-car\" [color]=\"white\"/>",
+                "<car [color]=\"yellow\" [transition]=\"ease\"/>",
+                "<car [color]=\"blue\" [transition]=\"ease-in\"/>/>",
+                "<car [color]=\"purple\" [transition]=\"ease-out\"/>/>",
+                "<car [color]=\"pink\" [transition]=\"ease-in-out\"/>/>",
+                "<car [color]=\"yellow\" [transition]=\"jump-both\"/>/>",
+                "<car [color]=\"blue\" [transition]=\"jump-end\"/>/>",
+                "<car [color]=\"purple\" [transition]=\"jump-none\"/>/>",
+                "<car [color]=\"pink\" [transition]=\"jump-start\"/>/>",
+                "<car [color]=\"yellow\" [transition]=\"linear\"/>/>",
+            "</div>"
+        ],
+        "instruction": "Consigne : Pas de consigne, c'est un niveau de test (réponse = ease-in)."
+    }, 
+    "2": {
+        "answerNecessaryKeywords": ["ease-out"],
+        "answerToShow": "ease-out",
+        "courses": ["TransitionTypes"],
+        "dragRaces": [{
+            "carColor": "yellow",
+            "transitionType": "ease"
+        }, {
+            "carColor": "blue",
+            "transitionType": "ease-in"
+        }, {
+            "carColor": "purple",
+            "transitionType": "ease-out"
+        }, {
+            "carColor": "pink",
+            "transitionType": "ease-in-out"
+        }, {
+            "carColor": "yellow",
+            "transitionType": "jump-both"
+        }, {
+            "carColor": "blue",
+            "transitionType": "jump-end"
+        }, {
+            "carColor": "purple",
+            "transitionType": "jump-none"
+        }, {
+            "carColor": "pink",
+            "transitionType": "jump-start"
+        }, {
+            "carColor": "yellow",
+            "transitionType": "linear"
+        }],
+        "flagPosition": 80,
+        "htmlIDECode": [
+            "<div id=\"drag-races\">",
+                "<car id=\"white-car\" [color]=\"white\"/>",
+                "<car [color]=\"yellow\" [transition]=\"ease\"/>",
+                "<car [color]=\"blue\" [transition]=\"ease-in\"/>/>",
+                "<car [color]=\"purple\" [transition]=\"ease-out\"/>/>",
+                "<car [color]=\"pink\" [transition]=\"ease-in-out\"/>/>",
+                "<car [color]=\"yellow\" [transition]=\"jump-both\"/>/>",
+                "<car [color]=\"blue\" [transition]=\"jump-end\"/>/>",
+                "<car [color]=\"purple\" [transition]=\"jump-none\"/>/>",
+                "<car [color]=\"pink\" [transition]=\"jump-start\"/>/>",
+                "<car [color]=\"yellow\" [transition]=\"linear\"/>/>",
+            "</div>"
+        ],
+        "instruction": "Consigne : Pas de consigne, c'est un deuxième niveau de test (réponse = ease-out)."
+    }
+}

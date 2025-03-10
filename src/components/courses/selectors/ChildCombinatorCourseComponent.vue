@@ -1,8 +1,9 @@
 <template>
-    <h4>Le Sélecteur Universel <span class="highlight">*</span> en CSS</h4>
+    <h4>Le combinateur enfant direct (<span class="highlight">></span>) dans un sélecteur CSS</h4>
     <p>
-        Le sélecteur universel <span class="highlight">*</span> en CSS permet de 
-        sélectionner tous les éléments d'une page, quel que soit leur type.
+        En CSS, le sélecteur <span class="highlight">&gt;</span> permet de cibler uniquement les enfants directs 
+        d'un élément parent. Contrairement à l'espace (<span class="highlight">" "</span>), il ne sélectionne pas les 
+        descendants à plusieurs niveaux.
     </p>
     <h6>Exemple</h6>
     <div class="bg-gray p-1 rounded-md font-family-code">
@@ -10,27 +11,38 @@
             <span class="text-gray-light">&lt;</span>
             <span class="text-blue-dark">div </span>
             <span class="text-blue-light">class</span>
-            <span class="text-white-real">=</span>
-            <span class="text-orange-dark">"container"</span>
+            <span>=</span>
+            <span class="text-orange-dark">"parent"</span>
             <span class="text-gray-light">&gt;</span>
         </p>
-        
+
         <p class="ml-4">
             <span class="text-gray-light">&lt;</span>
             <span class="text-blue-dark">p</span>
             <span class="text-gray-light">&gt;</span>
-            <span>Texte 1</span>
+            <span>Enfant direct</span>
+            <span class="text-gray-light">&lt;/</span>
+            <span class="text-blue-dark">p</span>
+            <span class="text-gray-light">&gt;</span>
+        </p>
+
+        <p class="ml-4">
+            <span class="text-gray-light">&lt;</span>
+            <span class="text-blue-dark">div</span>
+            <span class="text-gray-light">&gt;</span>
+        </p>
+        <p class="ml-8">
+            <span class="text-gray-light">&lt;</span>
+            <span class="text-blue-dark">p</span>
+            <span class="text-gray-light">&gt;</span>
+            <span>Enfant profond</span>
             <span class="text-gray-light">&lt;/</span>
             <span class="text-blue-dark">p</span>
             <span class="text-gray-light">&gt;</span>
         </p>
         <p class="ml-4">
-            <span class="text-gray-light">&lt;</span>
-            <span class="text-blue-dark">span</span>
-            <span class="text-gray-light">&gt;</span>
-            <span>Texte 2</span>
             <span class="text-gray-light">&lt;/</span>
-            <span class="text-blue-dark">span</span>
+            <span class="text-blue-dark">div</span>
             <span class="text-gray-light">&gt;</span>
         </p>
 
@@ -42,16 +54,20 @@
     </div>
     <h6>Syntaxe</h6>
     <div class="bg-gray p-1 rounded-md font-family-code">
-        <p class="text-orange-code">.container * <span class="text-yellow-dark">{</span></p>
+        <p class="text-orange-code">.parent &gt; p <span class="text-yellow-dark">{</span></p>
         <p class="ml-4">
             <span class="text-blue-light">color</span>
             <span>: blue;</span>
         </p>
         <p class="text-yellow-dark">}</p>
     </div>
-    <ul class="list-disc ml-5">
+    <ul>
         <li>
-            Tous les éléments dans <span class="highlight">.container</span> auront un texte bleu.
+            Seul le <span class="highlight">&lt;p&gt;</span> qui est un enfant direct de 
+            <span class="highlight">.parent</span> sera en bleu.
+        </li>
+        <li>
+            Le <span class="highlight">&lt;p&gt;</span> dans la <span class="highlight">&lt;div&gt;</span> n'est pas affecté.
         </li>
     </ul>
 </template>
@@ -60,6 +76,6 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-    name: 'UniversalSelectorCourseComponent'
+    name: 'ChildCombinatorCourseComponent'
 });
 </script>

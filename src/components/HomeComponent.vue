@@ -81,9 +81,9 @@ export default defineComponent({
                 name: 'Grid',
                 url: baseUrl + '/grid'
             }, {
-                available: false,
-                name: 'Animations',
-                url: baseUrl + '/animations'
+                available: true,
+                name: 'Transitions',
+                url: baseUrl + '/transitions'
             }] as Game[],
             isDarkMode: true
         }

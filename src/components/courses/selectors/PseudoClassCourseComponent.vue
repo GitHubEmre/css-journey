@@ -39,7 +39,7 @@
         </p>
         <p class="text-yellow-dark">}</p>
     </div>
-    <ul class="list-disc ml-5">
+    <ul>
         <li>
             Le texte du premier élément <span class="highlight font-family-code">&lt;li&gt;</span> sera rouge.
         </li>
@@ -95,7 +95,7 @@
         </p>
         <p class="text-yellow-dark">}</p>
     </div>
-    <ul class="list-disc ml-5">
+    <ul>
         <li>
             Les <span class="highlight font-family-code">&lt;li&gt;</span> en position paire seront en vert.
         </li>
@@ -168,7 +168,7 @@
         </p>
         <p class="text-yellow-dark">}</p>
     </div>
-    <ul class="list-disc ml-5">
+    <ul>
         <li>
             Les <span class="highlight font-family-code">&lt;li&gt;</span> contenant un élément avec la classe 
             <span class="highlight">.bold</span> auront un texte en gras.
@@ -224,7 +224,7 @@
         </p>
         <p class="text-yellow-dark">}</p>
     </div>
-    <ul class="list-disc ml-5">
+    <ul>
         <li>
             Les <span class="highlight font-family-code">&lt;li&gt;</span> ne contenant pas la classe 
             <span class="highlight">.bold</span> auront un texte normal.
@@ -293,7 +293,7 @@
         </p>
         <p class="text-yellow-dark">}</p>
     </div>
-    <ul class="list-disc ml-5">
+    <ul>
         <li>
             Les <span class="highlight font-family-code">&lt;li&gt;</span> contenant les classes 
             <span class="highlight">.bold</span> et <span class="highlight">.important</span> auront un texte en gras.

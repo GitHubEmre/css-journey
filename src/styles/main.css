@@ -85,3 +85,7 @@ h6 {
 #shapes {
     @apply bg-brown-light dark:bg-gray rounded-md flex justify-around items-center px-8 py-4 shadow-xl gap-8 flex-wrap;
 }
+
+ul {
+    @apply list-disc ml-5;
+}

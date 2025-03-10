@@ -34,7 +34,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style lang="css" scoped>
 .nav-button-svg {
     @apply h-8 p-1 fill-gray-light hover:fill-gray;
 }

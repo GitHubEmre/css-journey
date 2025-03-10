@@ -1,6 +1,7 @@
 <template>
+    <!-- TODO: Selectors: Niveau 10: Une scrollbar apparait sur le cours, normal, mais elle décale le contenu ça empêche de spam clic le nextlevel button -->
     <div class="flex items-start fixed right-0 lg:static">
-        <svg :viewBox="'0 0 ' + (showCourse ? '32 32' : '48 48')" class="w-16 p-4 bg-gray-darker fill-gray-lighter lg:hidden rounded-bl-md cursor-pointer hover:fill-gray-light bg-opacity-95" @click="showCourse = !showCourse">
+        <svg :viewBox="'0 0 ' + (showCourse ? '32 32' : '48 48')" class="w-16 p-4 bg-gray-darker fill-gray-lighter lg:hidden rounded-bl-md cursor-pointer hover:fill-gray-light" @click="showCourse = !showCourse">
             <g v-if="!showCourse">
                 <rect x="13" y="41" width="28" height="2"/>
                 <path d="M2,42H0V6A6.006,6.006,0,0,1,6,0H20V2H6A4,4,0,0,0,2,6Z"/>
@@ -23,7 +24,7 @@
                 <rect x="23" y="5" width="2" height="4"/><rect x="23" y="11" width="2" height="2"/>
             </g>
         </svg>
-        <div :class="showCourse ? 'block' : 'hidden'" class="lg:block bg-gray-darker text-gray-lighter p-4 h-screen w-72 sm:w-96 space-y-4 overflow-y-auto bg-opacity-95 lg:bg-opacity-100">
+        <div :class="showCourse ? 'block' : 'hidden'" class="lg:block bg-gray-darker text-gray-lighter p-4 min-h-screen h-full w-72 sm:w-96 space-y-4 overflow-y-auto">
             <component v-for="course in courses" :is="course + 'CourseComponent'" />
         </div>
     </div>
@@ -31,16 +32,17 @@
   
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import ChildCombinatorCourseComponent from './ChildCombinatorCourseComponent.vue';
-import CommaCourseComponent from './CommaCourseComponent.vue';
-import ClassCourseComponent from './ClassCourseComponent.vue';
-import IdCourseComponent from './IdCourseComponent.vue';
-import PlusCourseComponent from './PlusCourseComponent.vue';
-import PseudoClassCourseComponent from './PseudoClassCourseComponent.vue';
-import SelectorsCombinationCourseComponent from './SelectorsCombinationCourseComponent.vue';
-import TildeCourseComponent from './TildeCourseComponent.vue';
-import UniversalSelectorCourseComponent from './UniversalSelectorCourseComponent.vue';
-import WhiteSpaceCourseComponent from './WhiteSpaceCourseComponent.vue';
+import ChildCombinatorCourseComponent from './selectors/ChildCombinatorCourseComponent.vue';
+import CommaCourseComponent from './selectors/CommaCourseComponent.vue';
+import ClassCourseComponent from './selectors/ClassCourseComponent.vue';
+import IdCourseComponent from './selectors/IdCourseComponent.vue';
+import PlusCourseComponent from './selectors/PlusCourseComponent.vue';
+import PseudoClassCourseComponent from './selectors/PseudoClassCourseComponent.vue';
+import SelectorsCombinationCourseComponent from './selectors/SelectorsCombinationCourseComponent.vue';
+import TildeCourseComponent from './selectors/TildeCourseComponent.vue';
+import TransitionTypesCourseComponent from './transitions/TransitionTypesCourseComponent.vue';
+import UniversalSelectorCourseComponent from './selectors/UniversalSelectorCourseComponent.vue';
+import WhiteSpaceCourseComponent from './selectors/WhiteSpaceCourseComponent.vue';
 
 export default defineComponent({
     name: 'CourseComponent',
@@ -53,6 +55,7 @@ export default defineComponent({
         PseudoClassCourseComponent,
         SelectorsCombinationCourseComponent,
         TildeCourseComponent,
+        TransitionTypesCourseComponent,
         UniversalSelectorCourseComponent,
         WhiteSpaceCourseComponent
     },
