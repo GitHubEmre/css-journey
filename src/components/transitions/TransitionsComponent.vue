@@ -125,11 +125,15 @@ export default defineComponent({
         },
         checkAnswer: function(answer: string): boolean {
             let isValid = true;
-            this.answerNecessaryKeywords.forEach(keyword => {
-                if (!answer.includes(keyword)) {
-                    isValid = false;
-                }
-            });
+            if (this.answerNecessaryKeywords.length > 0) {
+                this.answerNecessaryKeywords.forEach(keyword => {
+                    if (!answer.includes(keyword)) {
+                        isValid = false;
+                    }
+                });
+            } else {
+                isValid = answer === this.answerToShow;
+            }
             return isValid;
         },
         checkTransitionType(transitionType: string): void {
