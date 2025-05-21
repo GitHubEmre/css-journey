@@ -40,6 +40,7 @@
   
 <script lang="ts">
 // TODO: Voir pour les imports si y'a pas moyen de faire autrement qu'avec des ../../...
+// TODO: Ajouter la voiture steps(8, start), voir si ça marche avec step end etc
 import { defineComponent, ref } from 'vue';
 import { DragRace } from '../../interfaces/DragRace';
 import { HtmlTag } from '../../models/HtmlTag';
@@ -56,7 +57,7 @@ type TransitionsLevel = {
     answerToShow: string;
     courses: string[];
     dragRaces: DragRace[];
-    flagPosition: number;
+    flagPosition: string;
     htmlIDECode: string[];
     instruction: string;
 };
@@ -83,7 +84,7 @@ export default defineComponent({
             courses: [] as string[],
             currentLevel: 1,
             dragRaces: [] as DragRace[],
-            flagPosition: 0,
+            flagPosition: "0",
             htmlIDECode: [] as HtmlTag[], // TODO: Vérifier si vaut mieux mettre HtmlTag dans le dossier models ou dans le dossier interfaces
             instruction: "",
             isTransitionTypeValid: false,

@@ -31,7 +31,7 @@
             "carColor": "yellow",
             "transitionType": "linear"
         }],
-        "flagPosition": 80,
+        "flagPosition": "2/3",
         "htmlIDECode": [
             "<div id=\"drag-races\">",
                 "<car id=\"white-car\" [color]=\"white\"/>",
@@ -80,7 +80,7 @@
             "carColor": "yellow",
             "transitionType": "linear"
         }],
-        "flagPosition": 80,
+        "flagPosition": "1/2",
         "htmlIDECode": [
             "<div id=\"drag-races\">",
                 "<car id=\"white-car\" [color]=\"white\"/>",

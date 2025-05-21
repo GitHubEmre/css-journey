@@ -6,7 +6,7 @@ export default {
   ],
   darkMode: 'class',
   safelist: [ // TODO: À la fin du projet, enlever de safelist tout ce qui ne sert à rien
-    {pattern: /(bg|text|border|fill|ml|translate-x)-./},
+    {pattern: /(bg|text|border|fill|ml|translate-x|left)-./},
     'justify-around',
   ],
   theme: {

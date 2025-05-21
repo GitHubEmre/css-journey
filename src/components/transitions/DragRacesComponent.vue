@@ -32,7 +32,7 @@ export default defineComponent({
             required: true
         },
         flagPosition: {
-            type: Number,
+            type: String,
             required: true
         },
         instruction: {
