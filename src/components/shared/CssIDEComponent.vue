@@ -88,6 +88,7 @@ export default defineComponent({
         },
         handleKeyDown(event: KeyboardEvent): void {
             if (event.key === "Enter") {
+                this.code = this.code.toLowerCase();
                 this.$emit('codeChanged', this.code.trim());
             }
         },

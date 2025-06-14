@@ -41,6 +41,7 @@
 <script lang="ts">
 // TODO: Voir pour les imports si y'a pas moyen de faire autrement qu'avec des ../../...
 // TODO: Ajouter la voiture steps(8, start), voir si ça marche avec step end etc
+// TODO: Sur smartphone, quand on met une réponse et que les voitures vont à droite, la piste s'agrandit et on doit scroll horizontalement
 import { defineComponent, ref } from 'vue';
 import { DragRace } from '../../interfaces/DragRace';
 import { HtmlTag } from '../../models/HtmlTag';
