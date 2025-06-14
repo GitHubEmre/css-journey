@@ -10,6 +10,7 @@
         <div class="flex-grow mt-8">
             <NavbarComponent
                 :answerToShow="answerToShow"
+                :currentLevel="currentLevel"
                 :numberOfLevels="numberOfLevels"
                 @change-level="changeLevel"
                 ref="navbarComponent"
@@ -86,6 +87,7 @@ export default defineComponent({
         },
         changeLevel(level: number): void {
             this.currentLevel = level;
+            localStorage.setItem("currentSelectorsLevel", "" + level);
             this.resetRedBorder();
             this.resetGreenBorders();
             this.navbarComponent?.resetValues();
@@ -190,6 +192,7 @@ export default defineComponent({
     },
     mounted() {
         this.numberOfLevels = Object.keys(selectorsLevels).length;
+        this.currentLevel = parseInt(localStorage.getItem("currentSelectorsLevel") ?? "1");
         this.updateLevelValues();
     }
 });

@@ -28,6 +28,10 @@ export default {
             type: String,
             default: ""
         },
+        currentLevel: {
+            type: Number,
+            required: true
+        },
         numberOfLevels: {
             type: Number,
             required: true
@@ -36,25 +40,25 @@ export default {
     data() {
         return {
             attemptsNeededToShowAnswer: 3,
-            currentLevel: 1,
             numberOfAttempts: 0,
             showAnswer: false
         }
     },
     methods: {
         changeLevel(isNext: boolean): void {
+            let newLevel = 1;
             if (isNext) {
                 if (this.currentLevel + 1 <= this.numberOfLevels) {
-                    this.currentLevel += 1;
+                    newLevel = this.currentLevel + 1;
                 } else {
-                    this.currentLevel = 1;
+                    newLevel = 1;
                 }
             } else if (this.currentLevel - 1 > 0) {
-                this.currentLevel -= 1;
+                newLevel = this.currentLevel - 1;
             } else {
-                this.currentLevel = this.numberOfLevels;
+                newLevel = this.numberOfLevels;
             }
-            this.$emit('changeLevel', this.currentLevel);
+            this.$emit('changeLevel', newLevel);
         },
         incrementNumberOfAttempts(): void {
             this.numberOfAttempts ++;
