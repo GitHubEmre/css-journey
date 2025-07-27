@@ -1,5 +1,5 @@
 <template>
-    <!-- TODO: Le responsive design de ce composant et de CssIDEComponent n'est pas bon -->
+    <!-- TODO: Le responsive design de ce composant, en validant, les voitures élargissent le taille du composant -->
     <div class="mx-auto w-full sm:w-[32rem] relative">
         <CarComponent
             :carColor="carColor"

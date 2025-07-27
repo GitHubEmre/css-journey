@@ -24,7 +24,7 @@
         <CourseComponent :courses="courses"/>
     </div>
 </template>
-<!-- TODO: Trier les variables et les fonctions par ordre alphabétique -->
+
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { HtmlTag } from '@/models/HtmlTag';
@@ -42,8 +42,8 @@ type SelectorsLevel = {
     answerToShow: string;
     courses: string[];
     htmlIDECode: string[];
-    instruction: string;
     htmlRenderCode: string[];
+    instruction: string;
 };
 
 export default defineComponent({
@@ -96,6 +96,15 @@ export default defineComponent({
                 this.cssIDEComponent.resetCode();
             }
         },
+        checkAnswer: function(answer: string): boolean {
+            let isValid = true;
+            this.answerNecessaryKeywords.forEach(keyword => {
+                if (!answer.includes(keyword)) {
+                    isValid = false;
+                }
+            });
+            return isValid;
+        },
         codeChanged: function(code: string): void {
             if (code.length > 0) {
                 this.resetRedBorder();
@@ -115,15 +124,6 @@ export default defineComponent({
                     this.cssIDEComponent?.vibrate();
                 }
             }
-        },
-        checkAnswer: function(answer: string): boolean {
-            let isValid = true;
-            this.answerNecessaryKeywords.forEach(keyword => {
-                if (!answer.includes(keyword)) {
-                    isValid = false;
-                }
-            });
-            return isValid;
         },
         onCorrectSelection: function(code: string, htmlElements: HTMLElement[]) : void {
             if (this.checkAnswer(code)) { // correct css selector
@@ -150,9 +150,6 @@ export default defineComponent({
             }, 300);
             this.answersWithRedBorder = htmlElements;
         },
-        setBorder: function (htmlElement: HTMLElement, border: string) {
-            htmlElement.style.border = border;
-        },
         resetGreenBorders: function(): void {
             this.expectedHTMLElements.forEach(htmlElement => {
                 this.setBorder(htmlElement, "unset");
@@ -168,6 +165,9 @@ export default defineComponent({
             return Array.from(
                 document.querySelectorAll(cssSelector)
             ) as HTMLElement[];
+        },
+        setBorder: function (htmlElement: HTMLElement, border: string) {
+            htmlElement.style.border = border;
         },
         updateLevelValues(): void {
             const levels: Record<string, SelectorsLevel> = selectorsLevels;
