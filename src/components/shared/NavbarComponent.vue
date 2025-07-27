@@ -15,7 +15,7 @@
 </template>
   
 <script lang="ts">
-import LevelSelectorComponent from './LevelSelectorComponent.vue';
+import LevelSelectorComponent from '@/components/shared/LevelSelectorComponent.vue';
 
 export default {
     emits: ['changeLevel'],

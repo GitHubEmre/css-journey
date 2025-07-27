@@ -18,8 +18,8 @@
   
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import { DragRace } from '../../interfaces/DragRace';
-import DragRacerComponent from './DragRacerComponent.vue';
+import { DragRace } from '@/interfaces/DragRace';
+import DragRacerComponent from '@/components/transitions/DragRacerComponent.vue';
 
 export default defineComponent({
     name: 'DragRacesComponent',

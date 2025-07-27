@@ -1,4 +1,4 @@
-import { IHtmlTag } from './IHtmlTag';
+import { IHtmlTag } from '@/models/IHtmlTag';
 
 export class HtmlTag implements IHtmlTag {
     readonly htmlTagRaw: string;

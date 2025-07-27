@@ -27,15 +27,15 @@
 <!-- TODO: Trier les variables et les fonctions par ordre alphabétique -->
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { HtmlTag } from '../../models/HtmlTag';
-import AlertsComponent from '../shared/AlertsComponent.vue';
-import CourseComponent from '../courses/CourseComponent.vue';
-import CssIDEComponent from '../shared/CssIDEComponent.vue';
-import HtmlIDEComponent from '../shared/HtmlIDEComponent.vue';
-import LevelSelectorComponent from '../shared/LevelSelectorComponent.vue';
-import NavbarComponent from '../shared/NavbarComponent.vue';
-import selectorsLevels from "../../data/selectors-levels.json";
-import ShapesComponent from './ShapesComponent.vue';
+import { HtmlTag } from '@/models/HtmlTag';
+import AlertsComponent from '@/components/shared/AlertsComponent.vue';
+import CourseComponent from '@/components/courses/CourseComponent.vue';
+import CssIDEComponent from '@/components/shared/CssIDEComponent.vue';
+import HtmlIDEComponent from '@/components/shared/HtmlIDEComponent.vue';
+import LevelSelectorComponent from '@/components/shared/LevelSelectorComponent.vue';
+import NavbarComponent from '@/components/shared/NavbarComponent.vue';
+import selectorsLevels from "@/data/selectors-levels.json";
+import ShapesComponent from '@/components/selectors/ShapesComponent.vue';
 
 type SelectorsLevel = {
     answerNecessaryKeywords: string[];

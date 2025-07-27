@@ -1,12 +1,12 @@
-import './styles/firework.css';
-import './styles/main.css';
+import '@/styles/firework.css';
+import '@/styles/main.css';
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import { createRouter, createWebHashHistory } from 'vue-router';
 import App from './App.vue';
-import HomeComponent from './components/HomeComponent.vue';
-import SelectorsComponent from './components/selectors/SelectorsComponent.vue';
-import TransitionsComponent from './components/transitions/TransitionsComponent.vue';
+import HomeComponent from '@/components/HomeComponent.vue';
+import SelectorsComponent from '@/components/selectors/SelectorsComponent.vue';
+import TransitionsComponent from '@/components/transitions/TransitionsComponent.vue';
 import type { RouteRecordRaw } from 'vue-router';
 
 const baseUrl = '/css-journey';

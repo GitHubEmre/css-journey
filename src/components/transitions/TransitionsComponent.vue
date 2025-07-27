@@ -40,19 +40,18 @@
 </template>
   
 <script lang="ts">
-// TODO: Voir pour les imports si y'a pas moyen de faire autrement qu'avec des ../../...
 // TODO: Ajouter la voiture steps(8, start), voir si ça marche avec step end etc
 // TODO: Sur smartphone, quand on met une réponse et que les voitures vont à droite, la piste s'agrandit et on doit scroll horizontalement
 import { defineComponent, ref } from 'vue';
-import { DragRace } from '../../interfaces/DragRace';
-import { HtmlTag } from '../../models/HtmlTag';
-import CourseComponent from '../courses/CourseComponent.vue';
-import CssIDEComponent from '../shared/CssIDEComponent.vue';
-import DragRacesComponent from './DragRacesComponent.vue';
-import HtmlIDEComponent from '../shared/HtmlIDEComponent.vue';
-import LevelSelectorComponent from '../shared/LevelSelectorComponent.vue';
-import NavbarComponent from '../shared/NavbarComponent.vue';
-import transitionsLevels from "../../data/transitions-levels.json";
+import { DragRace } from '@/interfaces/DragRace';
+import { HtmlTag } from '@/models/HtmlTag';
+import CourseComponent from '@/components/courses/CourseComponent.vue';
+import CssIDEComponent from '@/components/shared/CssIDEComponent.vue';
+import DragRacesComponent from '@/components/transitions/DragRacesComponent.vue';
+import HtmlIDEComponent from '@/components/shared/HtmlIDEComponent.vue';
+import LevelSelectorComponent from '@/components/shared/LevelSelectorComponent.vue';
+import NavbarComponent from '@/components/shared/NavbarComponent.vue';
+import transitionsLevels from "@/data/transitions-levels.json";
 
 type TransitionsLevel = {
     answerNecessaryKeywords: string[];

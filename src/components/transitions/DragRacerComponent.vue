@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import CarComponent from './CarComponent.vue';
+import CarComponent from '@/components/transitions/CarComponent.vue';
 
 export default defineComponent({
     name: 'DragRacerComponent',

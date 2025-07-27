@@ -11,7 +11,7 @@
   
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import { HtmlTag } from '../../models/HtmlTag';
+import { HtmlTag } from '@/models/HtmlTag';
 
 export default defineComponent({
     name: 'HtmlIDEComponent',

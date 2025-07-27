@@ -32,17 +32,17 @@
   
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import ChildCombinatorCourseComponent from './selectors/ChildCombinatorCourseComponent.vue';
-import CommaCourseComponent from './selectors/CommaCourseComponent.vue';
-import ClassCourseComponent from './selectors/ClassCourseComponent.vue';
-import IdCourseComponent from './selectors/IdCourseComponent.vue';
-import PlusCourseComponent from './selectors/PlusCourseComponent.vue';
-import PseudoClassCourseComponent from './selectors/PseudoClassCourseComponent.vue';
-import SelectorsCombinationCourseComponent from './selectors/SelectorsCombinationCourseComponent.vue';
-import TildeCourseComponent from './selectors/TildeCourseComponent.vue';
-import TransitionTypesCourseComponent from './transitions/TransitionTypesCourseComponent.vue';
-import UniversalSelectorCourseComponent from './selectors/UniversalSelectorCourseComponent.vue';
-import WhiteSpaceCourseComponent from './selectors/WhiteSpaceCourseComponent.vue';
+import ChildCombinatorCourseComponent from '@/components/courses/selectors/ChildCombinatorCourseComponent.vue';
+import CommaCourseComponent from '@/components/courses/selectors/CommaCourseComponent.vue';
+import ClassCourseComponent from '@/components/courses/selectors/ClassCourseComponent.vue';
+import IdCourseComponent from '@/components/courses/selectors/IdCourseComponent.vue';
+import PlusCourseComponent from '@/components/courses/selectors/PlusCourseComponent.vue';
+import PseudoClassCourseComponent from '@/components/courses/selectors/PseudoClassCourseComponent.vue';
+import SelectorsCombinationCourseComponent from '@/components/courses/selectors/SelectorsCombinationCourseComponent.vue';
+import TildeCourseComponent from '@/components/courses/selectors/TildeCourseComponent.vue';
+import TransitionTypesCourseComponent from '@/components/courses/transitions/TransitionTypesCourseComponent.vue';
+import UniversalSelectorCourseComponent from '@/components/courses/selectors/UniversalSelectorCourseComponent.vue';
+import WhiteSpaceCourseComponent from '@/components/courses/selectors/WhiteSpaceCourseComponent.vue';
 
 export default defineComponent({
     name: 'CourseComponent',
