@@ -9,7 +9,7 @@
 </template>
   
 <script lang="ts">
-import { Alert } from "@/interfaces/Alert";
+import { Alert } from "@/models/Alert";
 
 export default {
     name: 'AlertsComponent',

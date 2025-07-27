@@ -43,7 +43,7 @@
 // TODO: Ajouter la voiture steps(8, start), voir si ça marche avec step end etc
 // TODO: Sur smartphone, quand on met une réponse et que les voitures vont à droite, la piste s'agrandit et on doit scroll horizontalement
 import { defineComponent, ref } from 'vue';
-import { DragRace } from '@/interfaces/DragRace';
+import { DragRace } from '@/models/DragRace';
 import { HtmlTag } from '@/models/HtmlTag';
 import CourseComponent from '@/components/courses/CourseComponent.vue';
 import CssIDEComponent from '@/components/shared/CssIDEComponent.vue';
@@ -86,7 +86,7 @@ export default defineComponent({
             currentLevel: 1,
             dragRaces: [] as DragRace[],
             flagPosition: "0",
-            htmlIDECode: [] as HtmlTag[], // TODO: Vérifier si vaut mieux mettre HtmlTag dans le dossier models ou dans le dossier interfaces
+            htmlIDECode: [] as HtmlTag[],
             instruction: "",
             isTransitionTypeValid: false,
             isVibrating: false,

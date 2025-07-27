@@ -1,6 +1,4 @@
-import { IHtmlTag } from '@/models/IHtmlTag';
-
-export class HtmlTag implements IHtmlTag {
+export class HtmlTag {
     readonly htmlTagRaw: string;
     indentationLevel: number;
     isOpeningTag: boolean;
