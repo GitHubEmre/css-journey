@@ -1,5 +1,4 @@
 <template>
-    <!-- TODO: Selectors: Niveau 10: Une scrollbar apparait sur le cours, normal, mais elle décale le contenu ça empêche de spam clic le nextlevel button -->
     <div class="flex items-start fixed right-0 lg:static">
         <svg :viewBox="'0 0 ' + (showCourse ? '32 32' : '48 48')" class="w-16 p-4 bg-gray-darker fill-gray-lighter lg:hidden rounded-bl-md cursor-pointer hover:fill-gray-light" @click="showCourse = !showCourse">
             <g v-if="!showCourse">
@@ -24,7 +23,7 @@
                 <rect x="23" y="5" width="2" height="4"/><rect x="23" y="11" width="2" height="2"/>
             </g>
         </svg>
-        <div :class="showCourse ? 'block' : 'hidden'" class="lg:block bg-gray-darker text-gray-lighter p-4 min-h-screen h-full w-72 sm:w-96 space-y-4 overflow-y-auto">
+        <div :class="showCourse ? 'block' : 'hidden'" class="lg:block bg-gray-darker text-gray-lighter p-4 h-dvh w-72 sm:w-96 space-y-4 overflow-y-auto">
             <component v-for="course in courses" :is="course + 'CourseComponent'" />
         </div>
     </div>
