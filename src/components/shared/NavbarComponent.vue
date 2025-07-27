@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col md:flex-row justify-between md:mr-16 lg:mr-0">
-        <router-link to="/css-journey"><button class="bg-green w-full md:w-48 h-8 rounded hover:scale-105 mb-4 md:mb-0">Retour à l'accueil</button></router-link>
+        <router-link to="/"><button class="bg-green w-full md:w-48 h-8 rounded hover:scale-105 mb-4 md:mb-0">Retour à l'accueil</button></router-link>
         <div class="flex flex-col md:flex-row justify-end">
             <button
                 @click="showAnswerClicked"
