@@ -19,7 +19,7 @@ describe('AlertComponent', () => {
         expect(wrapper.text()).toContain('Hello world');
     })
 
-    test('should remove oldest alert when limit is exceeded', async () => {
+    test('should remove oldest alert when limit of 5 is exceeded', async () => {
         const wrapper = mount(AlertComponent);
         for (let i = 1; i <= 6; i++) {
             wrapper.vm.addAlert('Alert ' + i);
@@ -29,18 +29,33 @@ describe('AlertComponent', () => {
         expect(wrapper.text()).toContain('Alert 6');
     })
 
-    test('should remove alert when durationOfAlert is over', async () => {
+    test('should remove alert after 3 seconds', async () => {
         vi.useFakeTimers();
 
         try {
             const wrapper = mount(AlertComponent);
-            wrapper.vm.addAlert('Auto remove');
+            wrapper.vm.addAlert('Hello world');
             await wrapper.vm.$nextTick();
-            expect(wrapper.text()).toContain('Auto remove');
+            expect(wrapper.text()).toContain('Hello world');
 
-            vi.advanceTimersByTime(wrapper.vm.durationOfAlert);
+            vi.advanceTimersByTime(3000);
             await wrapper.vm.$nextTick();
-            expect(wrapper.text()).not.toContain('Auto remove');
+            expect(wrapper.text()).not.toContain('Hello world');
+        } finally {
+            vi.clearAllTimers();
+        }
+    })
+
+    test('should not remove alert before 3 seconds', async () => {
+        vi.useFakeTimers();
+
+        try {
+            const wrapper = mount(AlertComponent);
+            wrapper.vm.addAlert('Hello world');
+
+            vi.advanceTimersByTime(2999);
+            await wrapper.vm.$nextTick();
+            expect(wrapper.text()).toContain('Hello world');
         } finally {
             vi.clearAllTimers();
         }
