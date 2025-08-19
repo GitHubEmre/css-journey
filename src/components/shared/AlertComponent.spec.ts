@@ -2,9 +2,6 @@ import { describe, expect, test, vi } from 'vitest';
 import AlertComponent from '@/components/shared/AlertsComponent.vue';
 import { mount } from '@vue/test-utils';
 
-//TODO: Voir si c'est pas mieux de mettre le fichier de test directement à côté du composant AlertComponent plutôt que dans un dossier dédié aux tests, si c'est le cas, penser à enlever tests/**/*.vue
-//TODO: Vérifier s'il n'y a pas des packages que j'ai importé en trop dans package.json
-
 describe('AlertComponent', () => {
 
     test('should show no alert when initialized', () => {
