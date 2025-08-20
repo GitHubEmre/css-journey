@@ -6,8 +6,8 @@
         <div class="firework" v-for="n in 5" :key="n"></div>
     </div>
 
-    <div class="flex px-8 lg:pr-0 space-x-8">
-        <div class="flex-grow mt-8">
+    <div class="flex px-8 lg:pr-0">
+        <div class="flex-grow my-8 lg:mr-[26rem]">
             <NavbarComponent
                 :answerToShow="answerToShow"
                 :currentLevel="currentLevel"
