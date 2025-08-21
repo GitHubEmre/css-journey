@@ -50,7 +50,7 @@ describe('HtmlIDEComponent', () => {
         await wrapper.setProps({ // Indentations are calculated in a watcher on htmlTags
             htmlTags: [
                 new HtmlTag("<div>"),
-                new HtmlTag("<button />"),
+                new HtmlTag("<img />"),
                 new HtmlTag("</div>"),
             ]
         });

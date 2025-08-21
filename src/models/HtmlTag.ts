@@ -12,6 +12,9 @@ export class HtmlTag {
         this.indentationLevel = 0;
         this.isOpeningTag = htmlTagRaw[1] !== "/";
         this.isSelfClosingTag = htmlTagRaw.length > 3 && htmlTagRaw[htmlTagRaw.length - 2] === "/";
+        if (this.isSelfClosingTag && !htmlTagRaw.endsWith(" />")) {
+            this.htmlTagRaw = htmlTagRaw.replace(/\/>$/, " />");
+        }
     }
 
     private getColorizedSpan(content: string, color: string): string {
@@ -26,8 +29,8 @@ export class HtmlTag {
         let colorizedHtmlTag = this.getColorizedSpan("&lt;" + (this.isOpeningTag ? '' : '/'), isDarkMode ? "gray-light" : "brown"); // write < or </ in colorized html
         let htmlTagRawCopy = this.htmlTagRaw.slice(this.isOpeningTag ? 1 : 2); // erase < or </ in raw html
         
-        let splittedHtmlTagRaw = htmlTagRawCopy.split(this.isOpeningTag ? " " : '>');
-        colorizedHtmlTag += this.getColorizedSpan(splittedHtmlTagRaw[0] + (this.isOpeningTag ? ' ' : ''), isDarkMode ? "blue-dark" : "brown"); // write tag name in colorized html
+        let splittedHtmlTagRaw = htmlTagRawCopy.split(propertiesCount > 0 || this.isSelfClosingTag ? " " : '>');
+        colorizedHtmlTag += this.getColorizedSpan(splittedHtmlTagRaw[0] + (this.isOpeningTag && propertiesCount > 0 ? ' ' : ''), isDarkMode ? "blue-dark" : "brown"); // write tag name in colorized html
         htmlTagRawCopy = splittedHtmlTagRaw.slice(1).join(' '); // erase tag name in raw html
 
         for(let i = 0; i < propertiesCount; i++) {
