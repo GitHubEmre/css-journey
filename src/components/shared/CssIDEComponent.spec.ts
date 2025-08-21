@@ -3,6 +3,14 @@ import CssIDEComponent from '@/components/shared/CssIDEComponent.vue';
 import { mount } from '@vue/test-utils';
 
 describe('CssIDEComponent', () => {
+    
+    test('should render 12 lines by default when initialized', () => {
+        const wrapper = mount(CssIDEComponent, {
+            props: { htmlTags: [] }
+        });
+
+        expect(wrapper.findAll('[data-testid="line"]').length).toBe(12);
+    });
 
     test('should render correct number of lines', () => {
         const wrapper = mount(CssIDEComponent, {
